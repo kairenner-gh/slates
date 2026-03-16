@@ -1,0 +1,89 @@
+:QUOTE
+Every espresso variable is connected. Pull on one thread and the others move.
+
+:INFO
+What Dialing In Actually Means
+Dialing in is the process of adjusting grind size, dose, and yield until a \
+shot tastes right. It is not a one-time setup. Every new bag of beans \
+requires a fresh dial-in. Roast date, humidity, and even altitude shift \
+the variables.
+
+:IMAGE
+grind-chart.jpg
+
+:INFO
+The Three Variables That Matter
+Grind size controls how fast water flows through the puck. Dose is the \
+weight of dry coffee you put in the basket. Yield is the weight of liquid \
+espresso in the cup. These three numbers define every shot.
+|
+:QUOTE
+Taste is the final test. Numbers are just a starting point.
+
+:COUNTER.half
+9 Bars Pressure
+|
+:COUNTER.half
+93 Celsius Water Temp
+
+:PATH
+Start With a Known Recipe
+Use a 1 to 2 ratio as your baseline. 18 grams of ground coffee should \
+yield 36 grams of liquid espresso. Set a target time of 25 to 30 seconds \
+from first drip to stopping the shot.
+
+:PATH
+Pull a Shot and Taste It
+Do not adjust anything until you taste the shot. Sour means under \
+extracted. Bitter means over extracted. Bland and watery means the grind \
+is too coarse or the dose is too low.
+
+:PATH
+Adjust One Variable at a Time
+If the shot is sour, make the grind finer. If bitter, make it coarser. \
+Change only one thing between shots. Changing two variables at once makes \
+it impossible to know what caused the improvement.
+
+:IMAGE
+extraction-color.jpg
+
+:PATH
+Dial in the Yield Last
+Once the flavor is close, adjust yield to balance strength and body. A \
+longer yield gives more volume but thins the shot. A shorter yield \
+concentrates it. Most people land between 30 and 40 grams out from an \
+18 gram dose.
+
+:COUNTER.half
+25 to 30 Seconds
+|
+:COUNTER.half
+1 to 2 Dose Ratio
+
+:INFO
+When to Stop Adjusting
+A dialed-in shot is consistent across three pulls in a row. If your shots \
+vary widely without changing anything, the issue is likely technique: \
+uneven distribution, channeling, or inconsistent tamping pressure.
+|
+:QUOTE
+A flat, even puck is the only foundation a good shot can be built on.
+
+:CHECKLIST
+Puck Prep Checklist
+[ ] Dose to within 0.2 grams of your target weight
+[ ] Distribute grounds evenly before tamping (Weiss Distribution Technique or a \
+finger sweep)
+[ ] Tamp level with 15 to 20 kg of pressure
+[ ] Check the basket rim is clean before locking in
+
+:NOTE
+Channeling
+Channeling happens when water finds a path of least resistance through the \
+puck instead of flowing evenly. It produces sour, thin shots with fast \
+run times. The fix is even distribution and a level tamp, not a finer \
+grind. A bottomless portafilter makes channeling visible immediately.
+
+:LINK
+https://www.baristaguildofamerica.net/education/espresso-resources
+SCA Espresso Standards and Brew Guidelines
