@@ -1,0 +1,70 @@
+:INFO
+The Three Chemical Steps in Sequence
+Developer converts exposed silver halide crystals into metallic silver, \
+creating the visible image. Stop bath halts development instantly and \
+neutralizes developer carried over in the liquid. Fixer dissolves all \
+unexposed silver halide, making the image permanent and stable in light. \
+Each step must complete fully before the next begins.
+
+:COUNTER.half
+D-76 at 1:1
+General-purpose, consistent results
+|
+:COUNTER.half
+Rodinal at 1:50
+High acutance, visible grain, excellent shelf life
+
+:PATH
+Mixing Developer Stock
+D-76 powder dissolves in hot water at 125°F / 52°C, then must cool to room \
+temperature before use. Mix the entire packet at once into the specified volume. \
+Partial batches create incorrect ratios between components. Store stock in a \
+full, sealed bottle away from light. A partially full bottle oxidizes faster — \
+use glass marbles or a floating lid bladder to displace air space.
+
+:PATH
+Choosing the Right Dilution
+D-76 at stock concentration gives fine grain and full box film speed. D-76 at \
+1:1 gives slightly more edge sharpness and is single-use, removing batch-to-batch \
+consistency variables. Rodinal at 1:25 is strong and fast. Rodinal at 1:50 is \
+compensating, preserving highlight detail in contrasty light. HC-110 dilution B \
+is clean and fast-working, well suited to push processing.
+
+:CHECKLIST
+Chemical Safety and Storage
+[ ] Gloves worn when mixing or handling fixer — it contains ammonia compounds
+[ ] Work in ventilated area, especially for acid stop bath fumes
+[ ] Developer disposed as photographic chemical waste or heavily diluted
+[ ] Fixer tested with hypo-check drops before each reuse session
+[ ] All bottles labeled, capped, and dated with mix date
+
+:NOTE
+Fixer Exhaustion
+Fixer loses capacity with each roll processed. Exhausted fixer leaves milky \
+areas on the negative where unexposed silver was not dissolved. Test fixer by \
+dropping a small piece of unexposed film leader into a sample — it should clear \
+in half the normal fixing time. If clearing takes longer than that, the fixer \
+is exhausted and must be replaced.
+
+:INFO
+Push Processing — Rating Film Above Box Speed
+Pushing film means exposing at a higher ISO than the box speed and compensating \
+with longer development time. HP5 Plus rated at ISO 1600 (a 2-stop push) requires \
+approximately 30 to 40 percent longer development than box speed. Shadow detail \
+compresses but highlight separation increases dramatically. Pull processing is the \
+reverse: lower ISO rating, reduced development, compressed overall contrast.
+
+:COUNTER.half
+Plus 30 to 40 Percent
+Development time for a 2-stop push
+|
+:COUNTER.half
+Minus 10 to 20 Percent
+Development time for a 1-stop pull
+
+:QUOTE
+Every developer has a personality. The only way to know if it matches your eye is to run a test roll.
+
+:LINK
+https://www.digitaltruth.com/devchart.php
+The Massive Dev Chart — Film, Developer, Dilution, and Time Reference
