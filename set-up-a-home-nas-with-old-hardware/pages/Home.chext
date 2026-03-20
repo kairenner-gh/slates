@@ -1,0 +1,66 @@
+:QUOTE
+An old PC with two drives and a Saturday afternoon is the most reliable backup system you will ever own.
+
+:INFO
+Why Build a Home NAS
+A NAS (Network Attached Storage) server stores files accessible from every device on your network. It runs 24/7, serves media to Plex or Jellyfin, backs up computers automatically, and hosts photos without a subscription. TrueNAS Scale (Linux-based) and OpenMediaVault (OMV) are free, mature NAS operating systems that run on most x86 hardware. Any PC from the last decade with 4GB of RAM and two drives is sufficient.
+
+:COUNTER.half
+4 GB RAM Minimum
+For TrueNAS Core — Scale needs 8 GB; OMV runs on 2 GB
+|
+:COUNTER.half
+3-2-1 Backup Rule
+3 copies, 2 media types, 1 offsite — NAS covers the local copies
+
+:PATH
+Choose Your OS and Prepare Hardware
+TrueNAS Scale for power, OMV for simplicity on minimal hardware.
+|
+:INFO
+Choose Your OS and Prepare Hardware
+TrueNAS Scale offers ZFS (the most reliable filesystem available), Docker app support, and a polished UI — requires 8GB RAM. OpenMediaVault is lighter, runs on a Raspberry Pi 4 or old mini PC with 2GB RAM, and has a simpler interface. For serious data protection, TrueNAS with ZFS is the better choice. Flash your OS to a USB drive with Balena Etcher and boot the hardware from it.
+
+:PATH
+Install on a Dedicated Boot Drive
+Use a separate SSD or USB drive for the OS — keep data drives separate.
+|
+:INFO
+Install on a Dedicated Boot Drive
+Install the NAS OS on a dedicated drive — a small SSD (32GB is enough) or a quality USB drive (not cheap flash drives — they fail under constant write load). Data drives should be entirely separate. On TrueNAS, the boot drive cannot be used for data storage. On OMV, it is technically possible but not recommended.
+
+:PATH
+Create a Storage Pool
+Add your data drives into a RAID-like pool — mirror for 2 drives.
+|
+:INFO
+Create a Storage Pool
+In TrueNAS Scale: Storage → Create Pool. Select your drives. For two drives: Mirror (equivalent to RAID-1, survives one drive failure). For three or more: RAIDZ1 (one drive failure tolerance) or RAIDZ2 (two drive failure tolerance). In OMV: Storage → RAID Management or create a JBOD for simple concatenation. Configure a regular scrub task to detect bit rot.
+
+:PATH
+Set Up Network Shares
+Create SMB shares for Windows and macOS, NFS for Linux clients.
+|
+:INFO
+Set Up Network Shares
+In TrueNAS: Sharing → Windows Shares (SMB) → Add. Point to a dataset on your pool. Enable guest access or set up user accounts with passwords. For media servers: create a dedicated dataset, grant Plex or Jellyfin access via the app settings. For Time Machine backups on macOS, enable the Time Machine checkbox in the SMB share settings.
+
+:CHECKLIST
+Minimum Hardware Requirements
+[ ] x86 PC or mini PC — Intel NUC, old desktop, or tower
+[ ] 4 to 8 GB RAM depending on OS choice
+[ ] Dedicated OS drive — small SSD preferred over USB
+[ ] 2 or more data hard drives — identical size for mirroring
+[ ] Gigabit network adapter — most modern hardware includes this
+[ ] UPS (uninterruptible power supply) — strongly recommended
+
+:NOTE
+A NAS Is Not a Backup By Itself
+RAID protects against drive failure, not against accidental deletion, ransomware, fire, or theft. Follow the 3-2-1 rule: 3 copies of important data, on 2 different media, with 1 offsite. Backblaze B2 or Wasabi cloud storage with restic or Duplicati handles the offsite component inexpensively.
+
+:QUOTE
+Every drive fails. Plan for it. A mirror means one failure is an inconvenience, not a catastrophe.
+
+:LINK
+https://www.truenas.com/docs/scale/gettingstarted/
+TrueNAS — Official Getting Started Guide for TrueNAS Scale

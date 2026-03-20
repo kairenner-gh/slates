@@ -1,0 +1,31 @@
+:INFO
+Core Components for Arduino Beginners
+Understanding what each component does prevents wiring mistakes and helps you read schematics. This covers the most common parts.
+
+:PATH
+Pull-Up and Pull-Down Resistors
+Floating inputs read random values — a resistor pins the logic level.
+|
+:INFO
+Pull-Up and Pull-Down Resistors
+A digital input pin with nothing connected floats between HIGH and LOW and reads random noise. A pull-up resistor (connected between the pin and VCC) forces the pin HIGH when nothing drives it low. A pull-down (between pin and GND) forces it LOW when nothing drives it high. Many Arduino pins have internal pull-ups (enable with INPUT_PULLUP in pinMode). 10kΩ is the standard pull-up value for most sensors.
+
+:PATH
+I2C vs SPI vs UART
+Three serial protocols — each has different pin requirements.
+|
+:INFO
+I2C vs SPI vs UART
+I2C uses 2 wires (SDA and SCL) and can connect many devices with different addresses on the same bus. SPI uses 4 wires (MOSI, MISO, SCK, CS) and is faster but requires one CS wire per device. UART uses 2 wires (TX and RX) for point-to-point communication with one device at a time. Most beginner sensors use I2C — DHT22 uses a custom 1-wire protocol.
+
+:PATH
+Decoupling Capacitors
+A 100nF capacitor across power and ground on each IC prevents noise.
+|
+:INFO
+Decoupling Capacitors
+Microcontrollers and sensors draw current in short bursts. Without a bypass capacitor, these current spikes cause voltage dips that produce erratic readings. Place a 100nF (0.1µF) ceramic capacitor across VCC and GND pins, physically close to each IC on the breadboard. This is standard practice in all electronics and prevents a category of intermittent bugs that are hard to diagnose.
+
+:NOTE
+Breadboard Power Rails Are Not Connected Across the Center Gap
+On a standard full-size breadboard, the two power rails (red and blue) on each side run the full length but stop at the center gap. If you connect 5V to the top rail on the left side, the bottom rail on the left side and both rails on the right side are not powered. Bridge rails with short jumpers to distribute power across the full board.

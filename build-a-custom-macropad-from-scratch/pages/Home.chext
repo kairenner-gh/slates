@@ -1,0 +1,68 @@
+:QUOTE
+A macropad is the only keyboard that does exactly what you tell it to do with zero compromise.
+
+:INFO
+What a Macropad Is
+A macropad is a small custom keyboard — typically 4 to 16 keys — programmed to send macros, keyboard shortcuts, or system commands. It runs QMK or KMK firmware that maps each switch to any keycode or action you define. Popular builds use a Pro Micro or RP2040 microcontroller, a handwired switch matrix, and open-source firmware. A 3x4 macropad takes an afternoon to build and no PCB design experience.
+
+:COUNTER.half
+3 x 4 Keys
+Good beginner size — manageable matrix, useful number of bindings
+|
+:COUNTER.half
+1N4148
+Diode required per key to prevent ghosting in the key matrix
+
+:PATH
+Design the Layout and Source Switches
+Pick your key count, choose switches, and order per-key diodes.
+|
+:INFO
+Design the Layout and Source Switches
+Choose your layout — 3x3, 4x4, or any grid arrangement. Source MX-compatible mechanical switches (Cherry MX Red, Gateron Yellow, Kailh Box switches are popular choices). Order 1N4148 signal diodes (one per switch), an RP2040-based controller (KB2040 or similar), a USB cable, and keycaps. A top plate of acrylic or aluminum gives the build rigidity.
+
+:PATH
+Solder the Switch Matrix
+Solder switches in rows and columns with diodes on each switch.
+|
+:INFO
+Solder the Switch Matrix
+Arrange switches in your grid. Bend a diode leg around each switch pin and solder. Link diodes in rows: connect all diode cathodes (black band end) in a row with a piece of wire or by bending the legs to touch. Connect all switches in each column by soldering column wires to the remaining switch pins. You now have a row/column matrix.
+
+:PATH
+Wire to the Controller
+Connect each row wire and column wire to a GPIO pin on the controller.
+|
+:INFO
+Wire to the Controller
+Connect each row wire to a GPIO pin on the microcontroller and each column wire to another GPIO pin. Note which GPIO corresponds to which row and column. For a 3x4 pad: 3 row pins and 4 column pins = 7 total GPIO pins needed. The controller scans the matrix to detect which keys are pressed by setting rows HIGH and reading columns.
+
+:PATH
+Flash QMK Firmware
+Configure your matrix in QMK and flash the firmware via USB.
+|
+:INFO
+Flash QMK Firmware
+Clone the QMK firmware repository. Create a new keyboard directory with your matrix configuration (row/column pin assignments) and keymap. Define your keymap layer with keycodes for each position — standard keycodes, macros (SEND_STRING), or layer toggles. Build with `qmk compile` and flash with `qmk flash`. QMK Configurator offers a graphical interface for keymap creation without code.
+
+:CHECKLIST
+Parts List for a 3x4 Macropad
+[ ] 12 mechanical switches (MX-compatible)
+[ ] 12 diodes — 1N4148
+[ ] KB2040 or Pro Micro RP2040 controller
+[ ] 12 keycaps
+[ ] USB-C cable
+[ ] Acrylic or aluminum switch plate (laser cut or DIY)
+[ ] Soldering iron and solder
+[ ] Wire (28 AWG)
+
+:NOTE
+QMK Setup on Windows Requires WSL or MSYS2
+QMK compilation on Windows works best through WSL2 (Windows Subsystem for Linux) or the QMK MSYS environment. Follow the QMK documentation for your OS exactly — environment setup errors are the most common beginner problem. Once compiled once, subsequent builds are straightforward.
+
+:QUOTE
+Twelve keys. Each one does exactly one thing. That is the entire design philosophy.
+
+:LINK
+https://docs.qmk.fm/#/newbs_getting_started
+QMK Firmware — New Builders Getting Started Guide

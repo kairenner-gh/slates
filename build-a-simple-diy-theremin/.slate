@@ -1,0 +1,3 @@
+name: Build a Simple DIY Theremin
+description: Build a theremin — an instrument played without touching it — using an Arduino or analog oscillator circuit. Two antennas detect hand proximity and control pitch and volume.
+type: Article

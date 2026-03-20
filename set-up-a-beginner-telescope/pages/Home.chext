@@ -1,0 +1,57 @@
+:QUOTE
+The planet Jupiter is visible with a $150 telescope. The four Galilean moons too. That price has not changed in four centuries.
+
+:INFO
+What to Buy for Your First Telescope
+Two designs dominate beginner recommendations for different reasons. A 6-inch Dobsonian reflector ($200 to $300) gives the most light collection per dollar — ideal for deep-sky objects and planets. A 70mm to 80mm refractor on an alt-azimuth mount ($100 to $200) is more portable and needs no collimation. Avoid department-store scopes marketed by magnification — aperture (mirror or lens diameter) is the only specification that matters.
+
+:COUNTER.half
+6 Inch Aperture
+Minimum for satisfying planetary detail and deep sky objects
+|
+:COUNTER.half
+25x to 200x
+Practical magnification range — atmosphere limits useful power
+
+:PATH
+Collimate a Reflector Telescope
+Align the primary and secondary mirrors before every serious session.
+|
+:INFO
+Collimate a Reflector Telescope
+A Newtonian reflector (Dobsonian) requires collimation — aligning the secondary mirror to the focuser and the primary mirror to the secondary. Use a collimation cap (a plug with a central hole). Looking through the cap, center the secondary in the focuser, then center the primary mirror reflection in the secondary. Adjust with the collimation knobs on the secondary, then the primary mirror collimation screws. Proper collimation produces sharp star images.
+
+:PATH
+Find Targets Using Star Hopping
+Navigate from bright known stars to your target by counting star hops.
+|
+:INFO
+Find Targets Using Star Hopping
+Without a GoTo mount, finding objects requires star hopping. Start at a bright star in your finder scope. Move to an adjacent pattern of stars that brings you toward the target. Use a planisphere or Stellarium (free software) to plan your route before you observe. The Moon and Jupiter are the best first targets — both are easy to find and show immediate visual reward.
+
+:PATH
+Choose the Right Eyepiece for Each Target
+Wide field for star clusters, high power for planets — start with 25mm.
+|
+:INFO
+Choose the Right Eyepiece for Each Target
+Magnification = telescope focal length / eyepiece focal length. A 1200mm focal length scope with a 25mm eyepiece gives 48x. Start low (25mm eyepiece) for finding objects and wide field views of star clusters. Switch to higher power (10mm, 6mm) for planets and the Moon when atmospheric seeing is steady. If the image looks soft and shimmery at high power, atmosphere is poor — stick to lower magnification.
+
+:CHECKLIST
+First Night Targets in Order
+[ ] The Moon — overwhelming detail, easy to find
+[ ] Jupiter — cloud bands and 4 moons visible at 100x
+[ ] Saturn — rings visible at 50x, gap visible at 100x
+[ ] The Pleiades — beautiful in a 25mm wide-field eyepiece
+[ ] The Orion Nebula (M42) — visible to the naked eye, stunning in a scope
+
+:NOTE
+Let the Scope Cool Down Outside First
+Bringing a cold mirror from a warm house outside causes thermal currents in the tube that blur images for 30 to 60 minutes. Set the telescope outside 30 minutes before observing. Store it in an unheated space in winter if possible. A cold telescope produces dramatically sharper views than a warm one.
+
+:QUOTE
+Saturn's rings will stop you in your tracks the first time. Every time after that too.
+
+:LINK
+https://www.skyandtelescope.com/observing/5-tips-for-the-beginning-amateur-astronomer/
+Sky & Telescope — 5 Essential Tips for Beginning Astronomers

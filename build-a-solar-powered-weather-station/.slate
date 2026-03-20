@@ -1,0 +1,3 @@
+name: Build a Solar Powered Weather Station
+description: Build a self-contained outdoor weather station powered by a small solar panel, logging temperature, humidity, barometric pressure, wind speed, and rainfall to a local or cloud dashboard.
+type: Article

@@ -1,0 +1,66 @@
+:QUOTE
+A speaker you built costs less and sounds better than one a factory built at the same price. The math works.
+
+:INFO
+Why DIY Speakers Sound Better Per Dollar
+Commercial speaker manufacturing bundles materials, labor, retail markup, and marketing into the price. A DIY kit from a reputable designer (Dayton Audio, CSS Audio, GR Research) puts the same budget directly into drivers, crossover components, and cabinet materials. The crossover is designed around measured driver response — not approximated for cost reduction. Typical result: DIY speakers outperform commercial speakers costing 3 to 5 times more.
+
+:COUNTER.half
+Kit Cost
+$150 to $400 for a well-designed stereo pair including cabinet
+|
+:COUNTER.half
+Crossover Frequency
+Where the tweeter takes over from the woofer — set by the designer
+
+:PATH
+Choose a Kit and Study the Plans
+Read the entire design documentation before ordering parts.
+|
+:INFO
+Choose a Kit and Study the Plans
+Buy a kit with full design documentation — driver specs, crossover schematic, cabinet dimensions with bracing details, and a measurement set showing predicted frequency response. Dayton Audio Overnight Sensations and the GR Research NX-Studio are popular entry-level designs. Read the entire instruction set before cutting or ordering. Cabinet tolerance is critical: +/- 1mm on internal volume changes bass response.
+
+:PATH
+Cut and Assemble the Cabinet
+Cut MDF or plywood to exact dimensions and glue up the enclosure.
+|
+:INFO
+Cut and Assemble the Cabinet
+Use 3/4-inch MDF for cabinet panels. Cut to the dimensions in the plans — a table saw produces the straightest cuts. Apply PVA wood glue to all mating edges and clamp firmly. Use corner clamps or a band clamp for square assemblies. Line interior walls with acoustic damping material (fiberglass, acoustic foam, or long-fiber wool) as specified in the plans.
+
+:PATH
+Solder the Crossover
+Solder inductors, capacitors, and resistors per the schematic.
+|
+:INFO
+Solder the Crossover
+The passive crossover is a network of inductors (air-core coils), capacitors, and resistors that routes frequencies to the correct driver. Solder on a piece of perfboard or mount on terminal strips per the plans. Use rosin-core solder. Air-core inductors must be oriented 90 degrees apart to prevent coupling. Test continuity on each branch before installation.
+
+:PATH
+Install Drivers and Wire
+Mount the woofer and tweeter, connect to the crossover, and test.
+|
+:INFO
+Install Drivers and Wire
+Install a gasket or foam seal around each driver cutout to prevent air leakage around the frame. Mount drivers with machine screws (not wood screws — they strip). Connect woofer and tweeter to the crossover per polarity markings in the plans. Incorrect polarity creates a cancellation null at the crossover frequency. Test with a battery before final installation: positive terminal to positive driver should move the woofer cone forward.
+
+:CHECKLIST
+Tools Required
+[ ] Table saw or circular saw for panel cutting
+[ ] Bar or pipe clamps for cabinet assembly
+[ ] Soldering iron and solder for crossover
+[ ] Router for driver cutouts (or carefully with a jigsaw)
+[ ] Multimeter for continuity testing
+[ ] Sandpaper through 180-grit for cabinet finishing
+
+:NOTE
+Cabinet Volume Must Be Exact
+The port length and cabinet volume are calculated for the specific drivers in the kit. Building a cabinet smaller than designed raises the system resonance and reduces bass extension. Larger reduces sensitivity and potentially causes port noise. Follow the plans exactly — this is not a dimension that benefits from improvisation.
+
+:QUOTE
+You built the thing your ears trust. That is a different relationship than buying it.
+
+:LINK
+https://www.parts-express.com/diy-speaker-kits
+Parts Express — DIY Speaker Kit Collection and Design Documentation

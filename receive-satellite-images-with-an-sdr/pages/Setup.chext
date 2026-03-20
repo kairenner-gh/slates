@@ -1,0 +1,23 @@
+:INFO
+SDR Software Setup Reference
+This page covers installing and configuring the software stack for NOAA satellite reception on Windows and Linux.
+
+:PATH
+Windows: Zadig Driver Installation
+Run Zadig as administrator and replace the default driver.
+|
+:INFO
+Windows: Zadig Driver Installation
+Download Zadig from zadig.akeo.ie. Plug in the RTL-SDR dongle. Run Zadig as administrator. If your device does not appear, select Options → List All Devices. Find "Bulk-In, Interface (0)" or the RTL-SDR entry. Select WinUSB in the driver dropdown. Click Replace Driver. Wait for completion. Do not use libusb-win32 or libusbK — only WinUSB works correctly with SDR# and most modern SDR software.
+
+:PATH
+SDR# Configuration for APT Reception
+Set to NFM mode, 40kHz bandwidth, and enable noise reduction.
+|
+:INFO
+SDR# Configuration for APT Reception
+In SDR#: Source → RTL-SDR USB. Set frequency to 137.100 MHz (NOAA 18) or 137.912 MHz (NOAA 19). Mode: NFM (narrow FM). Bandwidth: 40000 Hz. Check the squelch is off. Enable IF Noise Reduction if available. Click Play. During a pass you should hear a distinctive machine-sound — a rapid alternating tone that is the APT image data.
+
+:NOTE
+Automatic Gain Control Settings
+Set RF Gain to 35 to 45 dB in SDR# for satellite work. Too high and nearby strong signals cause overload and noise. Too low and weak satellite signals disappear in the noise floor. If you hear strong FM radio interference on 137 MHz, try adding an FM broadcast band-stop filter ($15) between the antenna and the dongle.

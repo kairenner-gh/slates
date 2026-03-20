@@ -1,0 +1,68 @@
+:QUOTE
+Your own weather data from your own location is more useful than any forecast.
+
+:INFO
+What This Build Includes
+A complete DIY weather station logs temperature, humidity, barometric pressure, wind speed, wind direction, and rainfall. An ESP32 microcontroller handles sensor reading and WiFi transmission. A small 6W solar panel with a 3.7V LiPo battery and charge controller keeps the station running indefinitely without mains power. Data goes to Weather Underground (public), Home Assistant, or a local InfluxDB+Grafana stack.
+
+:COUNTER.half
+6 Watt
+Solar panel minimum — 10W for low-sun climates
+|
+:COUNTER.half
+Every 5 Minutes
+Standard logging interval — adjustable in firmware
+
+:PATH
+Source the Sensor Package
+Sparkfun or Adafruit Weather Meter kits provide cup anemometer and rain gauge.
+|
+:INFO
+Source the Sensor Package
+The Sparkfun Weather Meter Kit includes a cup anemometer, wind vane, and tipping-bucket rain gauge with standard RJ11 connectors. For temperature and humidity: BME280 (I2C, also reads barometric pressure). Mount the weather instruments on a 1-inch diameter conduit or purpose-built mast. The BME280 must be shielded from direct sun and rain using a Stevenson screen enclosure.
+
+:PATH
+Wire the ESP32 and Sensors
+BME280 on I2C, anemometer and rain gauge on interrupt-capable digital pins.
+|
+:INFO
+Wire the ESP32 and Sensors
+BME280: SDA → GPIO21, SCL → GPIO22, 3.3V, GND. Anemometer: signal output → GPIO14 (interrupt pin). Wind speed is calculated by counting pulses per second — each rotation closes a reed switch generating a pulse. Rain gauge: signal → GPIO25 (interrupt). Each tip of the bucket generates one pulse = 0.011 inches of rainfall.
+
+:PATH
+Set Up Solar Power
+6W panel → charge controller → 3.7V LiPo → 5V boost converter → ESP32.
+|
+:INFO
+Set Up Solar Power
+Connect a 6W 5V solar panel to a TP4056-based LiPo charge controller module. The charge controller connects to a 2000mAh or larger LiPo battery. Power the ESP32 from the battery through a 5V boost converter (MT3608 module). Use deep sleep on the ESP32 between readings to extend battery life — wake on timer every 5 minutes, read sensors, transmit, and sleep again.
+
+:PATH
+Configure WiFi Logging
+Use Arduino or MicroPython to POST readings to a REST API or MQTT broker.
+|
+:INFO
+Configure WiFi Logging
+On wake, connect to WiFi (use WiFiManager library for credential management without hardcoding). Read all sensors. Build a JSON payload with all readings and POST to your endpoint: Weather Underground personal weather station API, a local Home Assistant MQTT broker, or an InfluxDB endpoint. Reconnect and sleep — total wake time should be under 5 seconds.
+
+:CHECKLIST
+Parts List
+[ ] ESP32 dev board (WEMOS D32 or similar with LiPo support)
+[ ] Sparkfun Weather Meter Kit (anemometer, wind vane, rain gauge)
+[ ] BME280 I2C sensor breakout board
+[ ] 6W 5V solar panel
+[ ] TP4056 LiPo charge controller module
+[ ] 2000mAh 3.7V LiPo battery
+[ ] Weatherproof enclosure for electronics (IP65)
+[ ] Stevenson screen for BME280 sensor
+
+:NOTE
+Shield the Temperature Sensor From Direct Sun
+A BME280 in direct sunlight reads 10 to 20°F too hot. Mount it inside a louvered white radiation shield (Stevenson screen) with open sides for airflow. 3D printable Stevenson screen designs are widely available on Thingiverse and work well for DIY stations.
+
+:QUOTE
+Your backyard microclimate is different from the airport sensor six miles away. Now you can prove it.
+
+:LINK
+https://learn.sparkfun.com/tutorials/weather-meter-hookup-guide
+SparkFun — Weather Meter Hookup Guide and Code Examples

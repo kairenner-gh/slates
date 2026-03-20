@@ -1,0 +1,67 @@
+:QUOTE
+The Milky Way is there every clear night. It is invisible in cities and extraordinary everywhere else.
+
+:INFO
+What Astrophotography Requires at Entry Level
+Single-exposure Milky Way photography requires: a camera with manual exposure control (any DSLR or mirrorless), a wide-angle lens (14mm to 24mm), a sturdy tripod, and dark skies. Long exposures with a fixed camera collect enough light to show the galactic core, star clouds, and nebulosity invisible to the naked eye. No tracking mount needed for single exposures under 20 to 30 seconds.
+
+:COUNTER.half
+f/2.8 or Wider
+Lens aperture — wider aperture gathers more light faster
+|
+:COUNTER.half
+500 / Focal Length
+Maximum exposure time in seconds before stars trail
+
+:PATH
+Find Dark Skies Using Light Pollution Maps
+Use Light Pollution Map or Clear Outside to find Class 3 or better skies.
+|
+:INFO
+Find Dark Skies Using Light Pollution Maps
+The Bortle scale rates sky darkness from 1 (darkest) to 9 (inner city). Class 4 or better is needed to photograph the Milky Way core. Use lightpollutionmap.info to find sites within driving distance. A Class 3 or 4 site 1 to 2 hours from a city is sufficient. Check the lunar phase: a full Moon washes out faint objects. New Moon week is the ideal window.
+
+:PATH
+Set Up Camera for the Night Sky
+Manual mode, widest aperture, ISO 3200 to 6400, 15 to 25 seconds.
+|
+:INFO
+Set Up Camera for the Night Sky
+Set the camera to manual (M) mode. Aperture: widest available (f/1.8 or f/2.8). Shutter speed: use the 500 rule — 500 / focal length (mm) = maximum seconds before stars trail. For a 24mm lens: 500/24 = 20 seconds maximum. ISO 3200 or 6400 depending on your camera's noise performance. Use a remote shutter or 2-second self-timer to avoid camera shake.
+
+:PATH
+Focus on the Stars
+Use Live View at 10x magnification to achieve precise infinity focus.
+|
+:INFO
+Focus on the Stars
+Autofocus fails on stars. Switch to manual focus. Enable Live View and point at a bright star. Zoom in to 10x in Live View. Adjust focus manually until the star is the smallest point possible. Lock the focus ring with tape. Recheck periodically — lens focus can drift in cold temperatures as metal contracts.
+
+:PATH
+Compose and Take Test Shots
+Adjust ISO and composition until the exposure looks right on the histogram.
+|
+:INFO
+Compose and Take Test Shots
+Point the camera toward the galactic core (Sagittarius, visible in summer) or a compositionally interesting foreground element under the stars. Take a test shot at your calculated settings. Review the histogram — you want a slight left-leaning distribution without a spike at the extreme left (underexposed) or right (clipped highlights). Adjust ISO up or down one stop if needed.
+
+:CHECKLIST
+What You Need
+[ ] DSLR or mirrorless camera with manual exposure control
+[ ] Wide-angle lens — 14mm to 24mm, f/2.8 or wider preferred
+[ ] Sturdy tripod — heavier is better for vibration
+[ ] Remote shutter release or 2-second self-timer
+[ ] Extra batteries — cold depletes them quickly
+[ ] Red flashlight to preserve night vision
+[ ] Dark sky location — Class 4 Bortle or better
+
+:NOTE
+Shoot RAW Not JPEG
+Night sky images need significant post-processing — noise reduction, color correction, and contrast adjustment. JPEG files bake camera processing decisions in permanently and discard tonal information. RAW files retain all data and give you full control in Lightroom or Darktable. The difference in sky shots is dramatic.
+
+:QUOTE
+Your first Milky Way photograph will be noisy and the horizon will be crooked. Shoot it anyway.
+
+:LINK
+https://www.lonelyspeck.com/milky-way-photography-beginners-guide/
+Lonely Speck — The Complete Milky Way Photography Beginner's Guide

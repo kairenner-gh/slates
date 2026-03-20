@@ -1,0 +1,58 @@
+:QUOTE
+The theremin is the only instrument where the player never touches it. The air between your hand and the antenna is the music.
+
+:INFO
+How a Theremin Works
+A theremin uses two radio-frequency oscillators for each antenna. The player's hand capacitively couples to the antenna, changing its resonant frequency. The difference between the fixed reference oscillator and the hand-influenced oscillator produces an audible beat frequency — the note you hear. The vertical antenna controls pitch; the horizontal loop controls volume. This heterodyne principle is what gives the theremin its unique continuous, portamento-heavy sound.
+
+:COUNTER.half
+Pitch Antenna
+Vertical rod — hand distance controls frequency (200Hz to 2kHz)
+|
+:COUNTER.half
+Volume Antenna
+Horizontal loop — hand proximity controls amplitude
+
+:PATH
+Choose Your Build Approach
+An Arduino with ultrasonic sensors approximates a theremin; an analog circuit is authentic.
+|
+:INFO
+Choose Your Build Approach
+The simplest approach: an Arduino Uno with two HC-SR04 ultrasonic distance sensors feeding a tone() function. This is not a true theremin (it uses ultrasound, not RF capacitance) but teaches the concept and produces audible results quickly. An authentic analog theremin uses CMOS oscillator chips (CD4069 or 555 timer pairs). The Moog Etherwave Theremini kit provides a complete authentic design with full build instructions.
+
+:PATH
+Build the Arduino Version
+Wire two ultrasonic sensors, map distance to pitch and volume.
+|
+:INFO
+Build the Arduino Version
+Connect two HC-SR04 sensors: Sensor 1 (pitch) — Trig to GPIO 9, Echo to GPIO 10. Sensor 2 (volume) — Trig to GPIO 6, Echo to GPIO 7. Connect a piezo buzzer or audio amplifier to GPIO 11 (PWM pin). Read distance from each sensor using pulseIn(). Map pitch sensor distance (5cm to 50cm) to frequency (200 to 2000 Hz) using map(). Map volume sensor distance to PWM duty cycle. Output to tone().
+
+:PATH
+Build the Analog Oscillator Version
+Two 555 timers in astable mode with variable capacitance from the antenna.
+|
+:INFO
+Build the Analog Oscillator Version
+A classic 555-based theremin uses two astable oscillators. One is fixed; one has a wire antenna as part of its timing capacitance. When a hand approaches the antenna, the capacitance increases, lowering the frequency. The mixed output of both oscillators produces a beat note. LMNC, Music From Outer Space, and Theremino provide complete schematics and PCB designs for authentic analog builds.
+
+:CHECKLIST
+Arduino Theremin Parts
+[ ] Arduino Uno
+[ ] 2x HC-SR04 ultrasonic distance sensors
+[ ] Small audio amplifier module (PAM8403)
+[ ] 8-ohm speaker
+[ ] Breadboard and jumper wires
+[ ] 9V power supply
+
+:NOTE
+Calibration Is Ongoing
+A theremin's pitch range depends on the player's body capacitance, room temperature, and nearby conductive objects. Calibrate the zero-beat point (where the hand produces the lowest pitch) each session by adjusting the reference oscillator trimmer. Professional theremin players calibrate before every performance.
+
+:QUOTE
+Move your hand toward the wire. That is a musical note. There is no simpler description of what you built.
+
+:LINK
+https://www.musicfromouterspace.com/index.php?MAINTAB=SYNTHDIY&VPW=1910&VPH=950
+Music From Outer Space — Theremin Circuit Designs and Theory

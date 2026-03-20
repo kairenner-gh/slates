@@ -1,0 +1,43 @@
+:INFO
+Wiring Diagram and Pin Reference
+This page provides pin connections for the PMS5003 and SCD40 sensors on both Raspberry Pi and Arduino/ESP32 platforms.
+
+:PATH
+Raspberry Pi GPIO Pinout for Both Sensors
+PMS5003 on UART, SCD40 on I2C — check for pin conflicts before wiring.
+|
+:INFO
+Raspberry Pi GPIO Pinout for Both Sensors
+PMS5003 connections on Raspberry Pi:
+- VCC → Pin 2 (5V)
+- GND → Pin 6 (Ground)
+- TX → Pin 10 (GPIO 15, UART RX)
+- RX → Pin 8 (GPIO 14, UART TX)
+SCD40 connections on Raspberry Pi:
+- VDD → Pin 1 (3.3V)
+- GND → Pin 9 (Ground)
+- SDA → Pin 3 (GPIO 2, I2C SDA)
+- SCL → Pin 5 (GPIO 3, I2C SCL)
+Enable I2C in raspi-config before use.
+
+:PATH
+ESP32 Wiring
+ESP32 has multiple I2C and UART interfaces — use GPIO 16/17 for UART.
+|
+:INFO
+ESP32 Wiring
+PMS5003 connections on ESP32:
+- VCC → 5V (VIN pin if powered via USB)
+- GND → GND
+- TX → GPIO16 (RX2)
+- RX → GPIO17 (TX2)
+SCD40 connections on ESP32:
+- VDD → 3.3V
+- GND → GND
+- SDA → GPIO21
+- SCL → GPIO22
+Use Serial2 for PMS5003 and Wire for SCD40 in Arduino/ESP-IDF code.
+
+:NOTE
+Level Shifting for 5V Sensors on 3.3V Boards
+The Raspberry Pi and ESP32 use 3.3V logic. The PMS5003 outputs at 3.3V on its TX pin, which is safe. However, the PMS5003 RX pin expects 3.3V too — do not send 5V signals to it. A simple voltage divider (10k and 20k resistor) on the TX line from a 5V microcontroller to the sensor RX protects the sensor.

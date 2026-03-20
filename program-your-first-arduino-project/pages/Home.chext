@@ -1,0 +1,67 @@
+:QUOTE
+The blink sketch is not a project. It is the proof that your tools work. Now build something.
+
+:INFO
+What Arduino Actually Is
+Arduino is a microcontroller platform — a small computer that runs one program repeatedly, reading inputs (sensors, buttons) and controlling outputs (LEDs, motors, displays). The Arduino Uno is the standard starting board: 14 digital I/O pins, 6 analog inputs, 16MHz clock, USB programming. The Arduino IDE (or VS Code with PlatformIO) is the development environment. Programs are called sketches and consist of a setup() function (runs once) and a loop() function (runs forever).
+
+:COUNTER.half
+setup() + loop()
+The two functions every Arduino sketch contains — always
+|
+:COUNTER.half
+5V / 3.3V
+Logic levels — check your sensor requirements before wiring
+
+:PATH
+Install the IDE and Run Blink
+Install the Arduino IDE, select your board and port, and upload Blink.
+|
+:INFO
+Install the IDE and Run Blink
+Download the Arduino IDE from arduino.cc. Connect the Arduino Uno via USB. In the IDE: Tools → Board → Arduino Uno. Tools → Port → select the COM port that appears. File → Examples → 01.Basics → Blink. Click Upload. The onboard LED should blink. If it does, your toolchain is working.
+
+:PATH
+Wire the DHT22 Sensor
+Connect DHT22 data pin to digital pin 2 with a 10kΩ pull-up to 5V.
+|
+:INFO
+Wire the DHT22 Sensor
+Connect the DHT22: VCC to 5V, GND to GND, DATA to digital pin 2. Place a 10kΩ resistor between DATA and 5V (pull-up). Install the "DHT sensor library" by Adafruit from the Library Manager (Sketch → Include Library → Manage Libraries). This single-wire protocol sensor reads temperature and humidity on demand.
+
+:PATH
+Connect an I2C OLED Display
+OLED SDA and SCL go to pins A4 and A5 on the Uno.
+|
+:INFO
+Connect an I2C OLED Display
+Connect a 128x64 I2C OLED (SSD1306): VCC to 3.3V, GND to GND, SDA to A4, SCL to A5. Install the "Adafruit SSD1306" and "Adafruit GFX" libraries from Library Manager. The display uses I2C address 0x3C by default — confirm with an I2C scanner sketch if nothing appears.
+
+:PATH
+Write the Sketch
+Read sensor every 2 seconds and print temperature and humidity to the OLED.
+|
+:INFO
+Write the Sketch
+In setup(): initialize Serial, the DHT sensor, and the OLED display. In loop(): call dht.readTemperature() and dht.readHumidity(). Check for NaN (sensor read error). Clear the display buffer, set cursor position, print the values, and call display.display() to push the buffer to the screen. Add delay(2000) to read every 2 seconds. Upload and monitor Serial for debug output.
+
+:CHECKLIST
+Parts for This Project
+[ ] Arduino Uno R3 or clone
+[ ] DHT22 temperature and humidity sensor
+[ ] 10kΩ resistor
+[ ] 0.96 inch I2C OLED display (SSD1306, 128x64)
+[ ] Half-size breadboard
+[ ] Jumper wire set
+[ ] USB-B cable for programming
+
+:NOTE
+NaN Means the Sensor Read Failed
+DHT22 returns NaN (Not a Number) when it fails to read — this happens if power or the pull-up resistor is missing, or if you read the sensor more than once per 2 seconds. Always check for NaN before using the reading: if (isnan(temperature)) skip or display an error. Reading faster than 2 seconds causes communication errors.
+
+:QUOTE
+Two sensors and a display. Now you know how every product you have ever owned was built.
+
+:LINK
+https://docs.arduino.cc/learn/starting-guide/getting-started-arduino/
+Arduino — Official Getting Started with Arduino Guide

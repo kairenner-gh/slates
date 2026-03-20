@@ -1,0 +1,29 @@
+:INFO
+Weather Station Wiring Reference
+Complete pin connections for the Sparkfun weather meter kit and BME280 sensor on ESP32.
+
+:PATH
+Anemometer (Wind Speed)
+Reed switch outputs one pulse per rotation — connect to interrupt GPIO.
+|
+:INFO
+Anemometer (Wind Speed)
+The cup anemometer uses a reed switch that closes once per rotation. Connect the two wires (RJ11 yellow and green) to:
+- GPIO14 (input with internal pullup enabled)
+- GND
+In code, attach an interrupt to GPIO14 on FALLING edge. Count interrupts in a 5-second window. Wind speed (mph) = (counts / 5) x 1.492 (conversion factor for Sparkfun kit).
+
+:PATH
+Rain Gauge (Tipping Bucket)
+Each tip = 0.011 inches — count tips with an interrupt.
+|
+:INFO
+Rain Gauge (Tipping Bucket)
+Connect rain gauge (RJ11 red and black) to:
+- GPIO25 (input with internal pullup)
+- GND
+Each bucket tip generates a FALLING edge interrupt. Count tips between sensor readings. Rainfall (inches) = tip_count x 0.011. Reset the counter after each transmission. Use a volatile integer for the tip count variable in interrupt context.
+
+:NOTE
+Wind Vane Requires ADC Reading
+The wind vane uses a resistor ladder that produces different voltages for each of 16 wind directions. Connect it to an ADC pin (GPIO34 on ESP32) with a 10kΩ pull-up to 3.3V. Map the ADC voltage reading to the nearest wind direction using the lookup table in the Sparkfun hookup guide — the 16 voltage values are well-documented.

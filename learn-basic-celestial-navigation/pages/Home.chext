@@ -1,0 +1,57 @@
+:QUOTE
+The stars do not require batteries or signal. That is their most important feature.
+
+:INFO
+What You Can Do with Celestial Navigation
+Basic celestial navigation without instruments gives you: reliable direction finding in daylight (the Sun) and at night (Polaris, the Southern Cross), approximate latitude from Polaris elevation, and time-of-day estimation. With a sextant and nautical almanac, precise position fixing is possible. This guide covers the instrument-free techniques — practical for any outdoor navigation situation.
+
+:COUNTER.half
+Polaris = True North
+Accurate to within 1 degree of the celestial pole
+|
+:COUNTER.half
+Shadow Tip Method
+20 minutes, two shadow marks — the line between them runs east-west
+
+:PATH
+Find North at Night with Polaris
+Locate the Big Dipper and follow the pointer stars to Polaris.
+|
+:INFO
+Find North at Night with Polaris
+Polaris (the North Star) sits within 1 degree of true north. Locate the Big Dipper — its two outer bowl stars (Dubhe and Merak, the pointer stars) point directly to Polaris when extended 5 times their separation. Polaris is the last star in the handle of the Little Dipper. It does not move perceptibly through the night. Face Polaris and you face true north.
+
+:PATH
+Find Direction in Daylight with the Shadow Tip Method
+Two shadow tips, 20 minutes apart, give an east-west line.
+|
+:INFO
+Find Direction in Daylight with the Shadow Tip Method
+On flat ground, stand a stick vertically and mark the tip of its shadow with a stone. Wait 20 minutes. Mark the new shadow tip. Draw a line connecting the two marks. This line runs approximately east (first mark) to west (second mark) in the northern hemisphere regardless of time of day. A north-south line runs perpendicular to it.
+
+:PATH
+Estimate Latitude from Polaris Elevation
+Your latitude equals the elevation of Polaris above the horizon.
+|
+:INFO
+Estimate Latitude from Polaris Elevation
+Polaris elevation above the horizon in degrees equals your approximate latitude. At the equator, Polaris is on the horizon (0 degrees elevation). At the North Pole, it is directly overhead (90 degrees). Estimate elevation using your hand: at arm's length, one fist width is approximately 10 degrees. Stack fists from the horizon to Polaris to estimate degrees.
+
+:CHECKLIST
+Skill Practice Sequence
+[ ] Find Polaris on a clear night using the Big Dipper pointer stars
+[ ] Identify Orion — the belt rises due east and sets due west
+[ ] Practice the shadow tip method in the morning or afternoon
+[ ] Learn the Summer Triangle (Vega, Altair, Deneb) for summer navigation
+[ ] Learn the Southern Cross for Southern Hemisphere navigation
+
+:NOTE
+The Sun Rises East and Sets West — With Caveats
+The Sun rises due east and sets due west only on the two equinoxes. At other times it rises north or south of due east depending on the season. In the northern hemisphere summer, the Sun rises northeast and sets northwest. Relying on sunrise/sunset direction for precise east-west without knowing the date will produce errors.
+
+:QUOTE
+People crossed oceans with these techniques before your great-grandparents were born. The sky has not changed.
+
+:LINK
+https://www.usna.edu/Academics/Academic-Departments/Physics-Department/Academics/Courses/SP411/index.php
+US Naval Academy — Introduction to Celestial Navigation

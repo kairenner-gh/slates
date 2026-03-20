@@ -1,0 +1,56 @@
+:QUOTE
+A map and compass are most useful at the moment your phone dies. Prepare for that moment before it arrives.
+
+:INFO
+What You Actually Need to Know First
+Land navigation with map and compass involves three core skills: orienting the map to the ground (alignment), taking and following a bearing, and identifying your location by terrain association or triangulation. A baseplate compass (Silva Ranger, Suunto A-10, or Brunton TruArc 5) and a 1:24,000 topographic map of your area are sufficient. Every other navigation technique builds from these three.
+
+:COUNTER.half
+1 to 24,000
+Standard USGS topographic map scale — 1 inch = 2,000 feet
+|
+:COUNTER.half
+Magnetic Declination
+The angle between magnetic north and true north — varies by location
+
+:PATH
+Orient the Map to the Ground
+Rotate the map until features align with what you see around you.
+|
+:INFO
+Orient the Map to the Ground
+Place the map on a flat surface. Set the compass on the map with the direction-of-travel arrow pointing to map north (top of map). Rotate the compass bezel until the orienting lines align with the map's north lines. Now rotate the entire map-compass combination until the magnetic needle aligns with the orienting arrow. The map is now oriented — map features correspond to real-world features.
+
+:PATH
+Account for Magnetic Declination
+Adjust your compass for the difference between magnetic and true north.
+|
+:INFO
+Account for Magnetic Declination
+Magnetic north and true north differ by an angle called declination. In the eastern US, declination is about 10-15° West (magnetic north is to the west of true north). Adjust for declination by rotating the bezel by the declination amount or by using the map's declination diagram. NOAA provides current declination values at ngdc.noaa.gov/geomag-web.
+
+:PATH
+Take a Bearing to a Destination
+Point the compass, rotate the bezel to align the needle, read the bearing.
+|
+:INFO
+Take a Bearing to a Destination
+Hold the compass level with the direction-of-travel arrow pointing toward your destination. Rotate the bezel until the orienting arrow aligns with the magnetic needle (red end in the shed). The number at the index line is your bearing. Walk that bearing by keeping a landmark (a distinct tree, rock, or ridge) on that bearing ahead of you and walking toward it.
+
+:CHECKLIST
+Navigation Kit
+[ ] Baseplate compass — Silva Ranger or Suunto A-10 recommended
+[ ] USGS 1:24,000 topographic map of your area
+[ ] Pencil for marking your position
+[ ] Waterproof map case or dry bag
+
+:NOTE
+Declination Errors Compound Over Distance
+A 10° declination error means you travel 175 yards off target for every mile walked. In terrain with few features, this compounds invisibly. Always set declination before navigating, not during. A compass with an adjustable declination dial (Silva Ranger) makes this automatic and persistent.
+
+:QUOTE
+The map tells you what is there. The compass tells you which way to walk. Your feet do the rest.
+
+:LINK
+https://www.rei.com/learn/expert-advice/navigation-basics.html
+REI — Navigation Basics: Map and Compass Skills

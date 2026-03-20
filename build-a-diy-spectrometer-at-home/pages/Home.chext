@@ -1,0 +1,58 @@
+:QUOTE
+A diffraction grating and a camera is all it takes to see what light is made of.
+
+:INFO
+How a Simple Spectrometer Works
+A spectrometer splits light into its component wavelengths using a diffraction grating — a surface with microscopic parallel lines that diffracts different wavelengths at different angles. A CD or DVD cut into a strip works as a grating. Light enters through a narrow slit, diffracts off the grating, and projects a rainbow spectrum onto a detector (a webcam or camera sensor). Free software (Spectral Workbench) calibrates and reads the spectrum.
+
+:COUNTER.half
+400 to 700 nm
+Visible spectrum range — violet to red
+|
+:COUNTER.half
+0.1 to 1 nm
+Resolution of a DIY DVD grating spectrometer
+
+:PATH
+Build the Enclosure and Slit
+Cut a narrow slit in a cardboard box — 0.5mm is the target width.
+|
+:INFO
+Build the Enclosure and Slit
+Cut a narrow, straight slit in one end of a light-tight cardboard box using a razor blade and metal ruler. Target 0.5mm width — wider means lower spectral resolution, narrower means less light. Line the interior with matte black paper or paint to prevent internal reflections. Mount the box on a stable surface with the slit pointing toward your light source.
+
+:PATH
+Cut and Mount the DVD Grating
+Cut a strip from a DVD, remove the reflective layer, and mount at an angle.
+|
+:INFO
+Cut and Mount the DVD Grating
+Cut a 2cm strip from a standard (not Blu-ray) DVD. Remove the reflective aluminum layer by peeling it away from the transparent polycarbonate — this leaves a clear grating. Mount the clear grating strip at the opposite end of the box from the slit, angled at approximately 45 degrees. The webcam looks through or alongside the grating.
+
+:PATH
+Mount the Webcam and Capture Spectra
+Point the webcam at the grating and capture the diffracted spectrum.
+|
+:INFO
+Mount the Webcam and Capture Spectra
+Mount a webcam looking through the end of the box at the grating. The diffracted spectrum will appear as a rainbow stripe in the camera image. Use Spectral Workbench (spectralworkbench.org) or RSpec software for calibration and analysis. Calibrate using a known light source — a compact fluorescent lamp has sharp emission lines at known wavelengths.
+
+:CHECKLIST
+What You Need
+[ ] Old DVD (not Blu-ray)
+[ ] Cardboard box — shoeboxes work well
+[ ] Webcam or USB camera
+[ ] Razor blade and metal ruler for the slit
+[ ] Matte black paint or paper for interior
+[ ] Spectral Workbench (free, web-based)
+
+:NOTE
+Calibration Makes the Difference
+An uncalibrated spectrometer shows a rainbow but cannot tell you wavelengths. Calibrate by capturing a compact fluorescent (CFL) bulb spectrum — CFLs have sharp mercury emission lines at precisely known wavelengths (435.8nm, 546.1nm, 611.6nm). Set these peaks in your software and the wavelength scale calibrates automatically across the visible range.
+
+:QUOTE
+The same tool, scaled up, tells us what distant stars are made of. Your version works on the same principle.
+
+:LINK
+https://spectralworkbench.org/wiki/diy-spectrometer
+Public Lab — DIY Spectrometer Build Guide

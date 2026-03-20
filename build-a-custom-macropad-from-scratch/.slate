@@ -1,0 +1,3 @@
+name: Build a Custom Macropad from Scratch
+description: Design and build a small custom keyboard with mechanical switches and a microcontroller running QMK firmware. Assign macros, shortcuts, and system controls to every key.
+type: Article

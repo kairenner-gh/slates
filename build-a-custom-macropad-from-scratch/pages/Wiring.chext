@@ -1,0 +1,27 @@
+:INFO
+Macropad Hand-Wiring Reference
+Hand-wiring a switch matrix is the most technical part of a from-scratch macropad. This page explains the matrix concept and provides a concrete wiring example for a 3x4 layout.
+
+:PATH
+Understanding the Key Matrix
+Switches in a matrix share row and column wires to minimize GPIO pins.
+|
+:INFO
+Understanding the Key Matrix
+A 12-key macropad in a 3x4 matrix uses 7 GPIO pins (3 rows + 4 columns) instead of 12. The microcontroller sets one row HIGH at a time and reads all column pins. If a column pin reads HIGH when a specific row is active, the switch at that intersection is pressed. Diodes on each switch prevent "ghosting" — false key detections when multiple keys are pressed simultaneously.
+
+:PATH
+3x4 Matrix Wiring Diagram
+Rows connect to R1/R2/R3 GPIO; columns to C1/C2/C3/C4 GPIO.
+|
+:INFO
+3x4 Matrix Wiring Diagram
+Layout (switches labeled R:C):
+Row 1: [1:1] [1:2] [1:3] [1:4]
+Row 2: [2:1] [2:2] [2:3] [2:4]
+Row 3: [3:1] [3:2] [3:3] [3:4]
+For each switch: solder the diode cathode (black band) to the switch pin and link all cathodes in a row together. Link all switch pins on the other leg by column. Connect row wires to: GP0, GP1, GP2. Connect column wires to: GP3, GP4, GP5, GP6 on the KB2040.
+
+:NOTE
+Diode Direction Is Critical
+If the diode is backwards the key will not register. The cathode (black band) must face the row wire, away from the switch. In QMK configuration, set DIODE_DIRECTION to COL2ROW or ROW2COL to match your wiring. Swap this setting if no keys register after flashing.

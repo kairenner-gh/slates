@@ -1,0 +1,23 @@
+:INFO
+First Radio Equipment for the New Technician
+Once licensed, what should you buy first? This page covers the practical starting point for VHF/UHF operation.
+
+:PATH
+Handheld VHF/UHF Radio (HT)
+The Baofeng UV-5R is the cheapest entry — the Yaesu FT-60R is better.
+|
+:INFO
+Handheld VHF/UHF Radio (HT)
+A handheld transceiver (HT) is the simplest first radio. The Baofeng UV-5R ($25) works and is widely used, but has a poor receiver and confusing programming. The Yaesu FT-60R ($130) has an excellent receiver, simple controls, and is durable. For simplex (radio to radio) and local repeater operation, any dual-band HT (2m/70cm) covers most Technician privileges.
+
+:PATH
+Connecting to a Repeater
+Program the repeater frequency, offset, and CTCSS tone to access it.
+|
+:INFO
+Connecting to a Repeater
+Repeaters extend range by receiving on one frequency and retransmitting on another. The frequency offset is standard: -600 kHz on 2m (144 MHz), +5 MHz on 70cm (430 MHz). Most repeaters require a CTCSS (PL) tone to open — a subaudible tone transmitted with your signal. Find local repeaters at repeaterbook.com. Program the repeater output frequency, offset direction, and CTCSS tone into your radio.
+
+:NOTE
+An External Antenna Multiplies Your Range
+The rubber duck antenna on an HT is deliberately inefficient. A simple $20 to $40 mag-mount antenna on a car roof or a small Yagi mounted in a window increases your effective range by 5 to 10 times. Antenna improvement is the single best investment for new Technicians.

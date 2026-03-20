@@ -1,0 +1,3 @@
+name: Build a DIY Air Quality Monitor
+description: Build a home air quality monitor using a Raspberry Pi or Arduino, a particulate sensor, and a CO2 sensor. Display real-time data and log it over time.
+type: Article

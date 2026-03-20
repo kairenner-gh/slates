@@ -1,0 +1,35 @@
+:INFO
+Arduino Theremin Wiring Diagram
+Pin connections and code outline for the ultrasonic theremin build.
+
+:PATH
+HC-SR04 Wiring on Arduino
+Four-pin sensor: VCC (5V), Trig (output), Echo (input), GND.
+|
+:INFO
+HC-SR04 Wiring on Arduino
+Pitch sensor:
+- VCC → 5V
+- GND → GND
+- Trig → GPIO 9
+- Echo → GPIO 10
+Volume sensor:
+- VCC → 5V
+- GND → GND
+- Trig → GPIO 6
+- Echo → GPIO 7
+Audio output:
+- GPIO 11 (PWM) → PAM8403 amplifier input
+- PAM8403 power from 5V rail, output to 8Ω speaker
+
+:PATH
+Code Structure Overview
+Measure distance, map to frequency and volume, output tone.
+|
+:INFO
+Code Structure Overview
+In loop(): Read pitch distance with getDistance(trigPin1, echoPin1). Map value 5..50 to frequency 200..2000 Hz with constrain() to limit out-of-range values. Read volume distance with getDistance(trigPin2, echoPin2). Map to 0..255 for analogWrite() duty cycle. Call tone(11, frequency) to set pitch. Use analogWrite(11, volume) for amplitude — note: tone() and analogWrite() conflict on the same pin; use separate output pins or a DAC module for both.
+
+:NOTE
+tone() and analogWrite() Conflict on AVR
+Arduino's tone() uses Timer2 on GPIO 11. analogWrite() also uses Timer2 on some pins. To control both pitch and volume independently, use a different timer for volume: an external I2S DAC module or a separate PWM channel. Alternatively, use an Arduino Due or Teensy which have dedicated DAC outputs.

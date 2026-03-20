@@ -1,0 +1,67 @@
+:QUOTE
+You cannot improve what you cannot measure. A $50 build tells you more than any air freshener promises.
+
+:INFO
+What This Build Monitors
+A DIY air quality monitor tracks PM2.5 particulate matter (fine dust, smoke), CO2 concentration, temperature, and humidity. PM2.5 above 35 µg/m³ over 24 hours is the US EPA unhealthy threshold. CO2 above 1000 ppm indicates poor ventilation and correlates with cognitive impairment. These readings are available from two affordable sensors: the PMS5003 (particulate) and the SCD40 or MH-Z19B (CO2).
+
+:COUNTER.half
+35 µg/m³
+EPA 24-hour PM2.5 threshold — above this is unhealthy for sensitive groups
+|
+:COUNTER.half
+1000 ppm CO2
+Ventilation alert threshold — above this impacts concentration and sleep
+
+:PATH
+Choose Your Platform and Sensors
+Raspberry Pi Zero W enables WiFi logging; Arduino with display works without network.
+|
+:INFO
+Choose Your Platform and Sensors
+Raspberry Pi Zero W (with WiFi) lets you log to a dashboard like Grafana or Home Assistant. Arduino Uno or ESP32 works without networking and can drive a small OLED display. Core sensors: PMS5003 or SPS30 for PM2.5 (UART interface), SCD40 for CO2/temp/humidity (I2C interface). Total sensor cost: $30 to $60.
+
+:PATH
+Connect the Particulate Sensor
+PMS5003 uses UART — TX to RX, RX to TX, 5V power, and ground.
+|
+:INFO
+Connect the Particulate Sensor
+The PMS5003 uses 5V power and serial UART communication. Connect its TX pin to the microcontroller RX pin and its RX pin to the microcontroller TX pin. Power from 5V rail and ground. On Raspberry Pi, enable the serial interface in raspi-config and disable the serial console that conflicts with UART communication.
+
+:PATH
+Connect the CO2 Sensor
+SCD40 uses I2C — SDA, SCL, 3.3V or 5V power, and ground.
+|
+:INFO
+Connect the CO2 Sensor
+The SCD40 uses I2C at 3.3V logic (compatible with both RPi and Arduino with appropriate level shifting). Connect SDA to the controller SDA pin, SCL to SCL, power, and ground. In Python, use the Adafruit SCD4x library. On Arduino, use the SparkFun SCD40 library available through the Arduino Library Manager.
+
+:PATH
+Write Code to Read and Display Sensor Data
+Read serial data from PMS5003 and I2C data from SCD40 in a loop.
+|
+:INFO
+Write Code to Read and Display Sensor Data
+Use Python on Raspberry Pi: install the `pms5003` and `adafruit_scd4x` libraries via pip. Write a loop that reads both sensors every 60 seconds, formats the data, and prints to terminal or sends to a logging endpoint. For display, write readings to a small I2C OLED using the `luma.oled` library. For Home Assistant: MQTT publish the readings and add an MQTT sensor entity.
+
+:CHECKLIST
+Core Parts List
+[ ] Raspberry Pi Zero W or ESP32 dev board
+[ ] PMS5003 particulate sensor with cable
+[ ] SCD40 CO2/temperature/humidity sensor (I2C breakout)
+[ ] Small I2C OLED display (128x64, SSD1306)
+[ ] Breadboard and jumper wires
+[ ] MicroSD card (8GB) and 5V power supply
+[ ] 3D printed or project box enclosure
+
+:NOTE
+Place the Sensors Away from Direct Airflow
+Mounting the particulate sensor directly in front of a vent or fan produces artificially low readings — the forced air dilutes particulates before they reach the sensor intake. Mount in a still-air location that represents the ambient room conditions. Keep the sensor at breathing height (desk level or nightstand) for meaningful data.
+
+:QUOTE
+Run it overnight in your bedroom. The CO2 reading will explain how you wake up feeling.
+
+:LINK
+https://www.hackster.io/news/building-a-diy-air-quality-monitor-a-step-by-step-guide
+Hackster.io — DIY Air Quality Monitor Step by Step Guide

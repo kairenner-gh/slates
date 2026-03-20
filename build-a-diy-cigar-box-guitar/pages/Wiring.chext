@@ -1,0 +1,23 @@
+:INFO
+Cigar Box Guitar Pickup Wiring
+This page covers the piezo disk pickup wiring and optional volume control for a cigar box guitar.
+
+:PATH
+Basic Piezo to Output Jack
+Two wire connection — center positive to tip, ground to sleeve.
+|
+:INFO
+Basic Piezo to Output Jack
+The piezo disk has two connections: center conductor (positive) and outer ring (ground/shield). Solder a short wire from the center to the tip lug of a 1/4-inch mono TS jack. Solder the outer ring or its wire to the sleeve lug of the jack. That is the entire circuit. Mount the piezo disk inside the box against the soundboard — use a dab of epoxy. Avoid overtightening or the piezo element cracks.
+
+:PATH
+Adding a Volume Pot
+Insert a 500kΩ pot between the piezo positive and the jack tip.
+|
+:INFO
+Adding a Volume Pot
+Wire a 500kΩ or 1MΩ audio taper potentiometer (volume pot) between the piezo and the output jack. Connect: piezo center → pot lug 1. Pot lug 2 (wiper) → jack tip. Pot lug 3 → ground. Pot case → ground. A 500kΩ value retains more high frequency detail than a 250kΩ pot. Mount the pot through a hole in the box side.
+
+:NOTE
+Shielding Reduces Hum
+Piezo pickups are sensitive to electromagnetic interference (60Hz hum from lighting and power lines). Line the interior of the box with copper shielding tape and connect the tape to ground. This dramatically reduces hum in environments with fluorescent lighting.

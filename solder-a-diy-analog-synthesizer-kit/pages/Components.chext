@@ -1,0 +1,23 @@
+:INFO
+Synthesizer Component Reference
+This page covers the key components in a typical analog synthesizer kit — what each one does and how to identify it correctly.
+
+:PATH
+Resistors — Fixed Resistance Values
+Color bands encode value — use a multimeter to confirm before soldering.
+|
+:INFO
+Resistors — Fixed Resistance Values
+Resistors limit current flow. Four-band resistors: bands 1 and 2 are significant digits, band 3 is multiplier, band 4 is tolerance. Example: Brown-Black-Red-Gold = 1-0-x100 = 1000Ω (1kΩ), ±5%. Always confirm with a multimeter — color vision variability makes misreading brown-red-orange common. A 10kΩ resistor in a 1kΩ slot changes every circuit parameter it touches.
+
+:PATH
+Electrolytic Capacitors — Polarity Matters
+Negative leg (shorter, stripe on body) goes to the minus pad on PCB.
+|
+:INFO
+Electrolytic Capacitors — Polarity Matters
+Electrolytic capacitors are polarized — installing backwards damages them and can cause failure. The negative leg is shorter and the body has a stripe marking the negative side. The PCB has a + marking or fills in the positive pad. Double-check every electrolytic before soldering. Ceramic disc and film capacitors are not polarized and can go in either direction.
+
+:NOTE
+Op-Amps Are the Heart of Analog Synthesis
+Most analog synthesizer filter and VCA circuits are built around TL072, TL082, LM13700, or similar op-amp ICs. These are sensitive to static — handle them by the body, not the pins, and work on a grounded surface. If your filter passes audio but does not respond to CV (control voltage), the op-amp is the first suspect.

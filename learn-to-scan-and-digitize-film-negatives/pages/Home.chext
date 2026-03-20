@@ -1,0 +1,66 @@
+:QUOTE
+A scanned negative is not a digital photograph. It is a digital record of an analog original. The difference matters.
+
+:INFO
+Three Ways to Digitize Film
+Flatbed scanners with transparency adapters (Epson Perfection V600 is the standard recommendation) produce excellent results for most purposes. Dedicated film scanners (Plustek, Nikon Coolscan) produce higher resolution with better shadow detail but cost more. DSLR copy stands — a digital camera with a macro lens pointed at a backlit negative — rival dedicated scanners when done carefully. Each method has tradeoffs in cost, speed, and file quality.
+
+:COUNTER.half
+2400 DPI
+Minimum for standard 35mm prints — 4800 DPI for enlargements
+|
+:COUNTER.half
+16 Bit
+Output bit depth — always scan in 16-bit TIFF, never JPEG
+
+:PATH
+Clean the Negatives Before Scanning
+Anti-static brush and air blower remove dust that scans as white spots.
+|
+:INFO
+Clean the Negatives Before Scanning
+Dust is the primary enemy of film scanning. Work in a dust-reduced environment — dampen the room air if possible. Handle film by the edges only. Use an anti-static brush (Ilford recommended) to gently brush both sides of the negative. Follow with a rocket air blower — not compressed air from a can, which deposits propellant residue.
+
+:PATH
+Set Scanner to Correct Film Type
+Select the correct film profile — color negative, slide, or B&W.
+|
+:INFO
+Set Scanner to Correct Film Type
+In your scanner software (Epson Scan, VueScan, or SilverFast), select the correct film type: color negative (orange mask), black and white negative, or positive/slide. Color negative and slide require different color inversion approaches. VueScan and SilverFast handle color negatives significantly better than Epson's own software — consider one of them for color film.
+
+:PATH
+Scan at Full Resolution in 16-bit TIFF
+Never scan at less than 2400 DPI for 35mm, never save to JPEG.
+|
+:INFO
+Scan at Full Resolution in 16-bit TIFF
+Set resolution to a minimum of 2400 DPI for contact-size prints, 4800 DPI if you plan large prints or heavy cropping. Set bit depth to 16-bit. Save as TIFF — JPEG compression destroys the tonal subtlety in film scans. A raw scan with minimal corrections is better than a scanner-processed file that has baked-in decisions you cannot reverse.
+
+:PATH
+Post-Process in Lightroom or Negative Lab Pro
+Invert, set white and black points, and correct color cast.
+|
+:INFO
+Post-Process in Lightroom or Negative Lab Pro
+Black and white negatives: invert the tonal curve in Lightroom or Photoshop, then set white and black point. Color negatives are more complex — the orange mask must be neutralized before color correction. Negative Lab Pro (Lightroom plugin) handles this automatically and produces excellent color with minimal effort. Manual color negative inversion is possible but time-consuming without good reference prints.
+
+:CHECKLIST
+Recommended Entry Setup
+[ ] Epson Perfection V600 scanner
+[ ] VueScan or SilverFast scanning software
+[ ] Anti-static brush (Ilford brand)
+[ ] Rocket air blower
+[ ] Lightroom + Negative Lab Pro for color negatives
+[ ] External hard drive for archiving TIFF files
+
+:NOTE
+Scan Raw, Correct Later
+Avoid letting the scanner software auto-correct color and exposure during scanning. These corrections are destructive and bake decisions into the file permanently. Scan flat (low contrast, neutral color), save the raw TIFF, and do all corrections in post-processing software where you can experiment and reverse.
+
+:QUOTE
+The negative is the original. The scan is the negative's digital shadow. Treat the original accordingly.
+
+:LINK
+https://www.filmbase.com.au/resources/beginners-guide-to-scanning-film/
+Filmbase — Complete Beginner's Guide to Scanning Film Negatives

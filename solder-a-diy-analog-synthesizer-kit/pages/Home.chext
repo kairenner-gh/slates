@@ -1,0 +1,67 @@
+:QUOTE
+Every circuit on this board is making a decision about voltage. That decision is music.
+
+:INFO
+What Makes an Analog Synthesizer
+An analog synthesizer generates sound through voltage-controlled electronic circuits. The four core building blocks: VCO (oscillator, generates a waveform), VCF (filter, shapes the harmonic content), VCA (amplifier, controls volume), and EG (envelope generator, automates changes over time). Kits like the Bastl Kastle, Befaco Mono i/o, or LMNC designs provide a PCB with all components in a bag — you solder them in order and the circuit works.
+
+:COUNTER.half
+60 to 70 C
+Iron tip temperature for standard 60/40 solder
+|
+:COUNTER.half
+Lowest to Tallest
+Component height order — always solder shortest components first
+
+:PATH
+Inventory All Components Before Soldering
+Check every component against the Bill of Materials before touching the iron.
+|
+:INFO
+Inventory All Components Before Soldering
+Sort components by type: resistors, capacitors, diodes, ICs, transistors, potentiometers, jacks. Use a multimeter to verify resistor values against their color codes or labeled values — bag mislabeling happens. A wrong resistor is much easier to fix before soldering than after. Take photos of each component group labeled with their values.
+
+:PATH
+Solder Passive Components First
+Resistors, ceramic capacitors, and diodes go in before anything taller.
+|
+:INFO
+Solder Passive Components First
+Start with the flattest components: resistors and small ceramic capacitors. Insert, bend leads on the back to hold, flux the pads, apply iron and solder together for 2 to 3 seconds. Clip leads flush after soldering. Check each joint: a good joint is smooth and shiny, shaped like a small volcano. A cold joint looks dull, lumpy, or granular — reheat with more flux.
+
+:PATH
+Add IC Sockets and Semiconductors
+Use sockets for ICs — never solder a chip directly.
+|
+:INFO
+Add IC Sockets and Semiconductors
+Solder IC sockets (DIP sockets) rather than ICs directly — this allows chip replacement without desoldering. Insert the socket with pin 1 notch aligned to the PCB marking. Solder two opposing corner pins first to hold alignment, then fill all pins. Insert ICs into the sockets last, after all other soldering is complete.
+
+:PATH
+Add Controls and Test Sockets
+Potentiometers, switches, and audio jacks go in last.
+|
+:INFO
+Add Controls and Test Sockets
+Potentiometers and audio jacks must sit flush against the panel or PCB surface — they take mechanical stress from use. Solder one leg first and confirm alignment before committing all legs. For panel components, loosely fit the panel first, then solder with the panel in position to ensure all controls align to their holes.
+
+:CHECKLIST
+Required Tools
+[ ] Temperature-controlled soldering iron — 60W minimum
+[ ] 60/40 rosin-core solder, 0.8mm diameter
+[ ] Flux pen or liquid flux
+[ ] Flush cutters for lead trimming
+[ ] Multimeter for component checking and voltage testing
+[ ] Desoldering pump or braid for corrections
+[ ] Helping hands or PCB vise
+
+:NOTE
+Flux Is Not Optional
+Flux is the chemical that makes solder flow properly onto metal surfaces. Rosin-core solder contains flux, but adding extra flux pen flux to each pad dramatically improves joint quality. Flux prevents oxidation, makes solder flow smoothly, and reduces the time you spend heating each joint — which protects sensitive components from heat damage.
+
+:QUOTE
+Cold joints and wrong components are the only things that stop a kit from working. Both are fixable.
+
+:LINK
+https://www.ifixit.com/Wiki/Soldering_Electronics
+iFixit — Electronics Soldering Guide for Beginners

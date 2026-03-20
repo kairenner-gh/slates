@@ -1,0 +1,3 @@
+name: Program Your First Arduino Project
+description: Write your first Arduino program beyond the blink sketch — build a temperature and humidity sensor with an OLED display that updates in real time. Learn the core concepts that unlock every other project.
+type: Article

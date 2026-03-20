@@ -1,0 +1,65 @@
+:QUOTE
+The router your ISP gave you is a locked box. OpenWrt is the key.
+
+:INFO
+What OpenWrt Is and What It Unlocks
+OpenWrt is a Linux-based firmware for routers and embedded devices. Installing it replaces the manufacturer's firmware with a fully configurable Linux system. It unlocks: WireGuard VPN server, network-wide ad blocking (AdGuard Home, Pi-hole), detailed traffic statistics, VLAN segmentation, and quality-of-service rules. The tradeoff is a more technical interface and a bricking risk if the installation goes wrong.
+
+:COUNTER.half
+32 MB Flash
+Minimum storage for a comfortable OpenWrt install
+|
+:COUNTER.half
+128 MB RAM
+Minimum RAM for running OpenWrt with packages
+
+:PATH
+Check If Your Router Is Supported
+OpenWrt maintains a hardware table listing every supported device.
+|
+:INFO
+Check If Your Router Is Supported
+Before anything else, check the OpenWrt Table of Hardware at openwrt.org/toh. Search your router's exact model and hardware version — the version number on the sticker matters. "Supported" means full support. "Partial" often means some features (5GHz WiFi) may not work. Never flash a device not on the supported list.
+
+:PATH
+Download the Correct Image
+Match the exact hardware version and download the factory image.
+|
+:INFO
+Download the Correct Image
+From the hardware table page for your device, download the "factory" image (for flashing from OEM firmware) — not the sysupgrade image, which is for updating OpenWrt to OpenWrt. Verify the SHA256 checksum against the published hash before flashing. A corrupted image that flashes partially bricks the device.
+
+:PATH
+Flash Via the Router Web Interface
+Log in to the router's admin panel and use the firmware upgrade section.
+|
+:INFO
+Flash Via the Router Web Interface
+Connect via Ethernet (not WiFi — do not flash over wireless). Log into the router admin panel (typically 192.168.1.1). Navigate to firmware upgrade or administration. Upload the OpenWrt factory image. Do not unplug power during flashing — 3 to 5 minutes. The router will reboot to OpenWrt and be accessible at 192.168.1.1 with no password until you set one.
+
+:PATH
+First Configuration
+Set root password, configure WiFi, and install packages via opkg.
+|
+:INFO
+First Configuration
+Access LuCI (the OpenWrt web interface) at 192.168.1.1. Set a root password immediately under System → Administration. Configure your WiFi under Network → Wireless. To install packages: System → Software → Update Lists, then search and install. For WireGuard: install luci-app-wireguard. For ad-blocking: install luci-app-adblock or adguardhome package.
+
+:CHECKLIST
+Before You Flash
+[ ] Verified your exact hardware version on the OpenWrt Table of Hardware
+[ ] Downloaded the factory image and verified SHA256 checksum
+[ ] Connected via Ethernet — never flash over WiFi
+[ ] Noted the 30-30-30 reset procedure for your device in case of issues
+[ ] Backed up any custom configuration from the OEM firmware
+
+:NOTE
+A Bad Flash Can Brick the Router
+Bricked routers can often be recovered via TFTP recovery mode or serial console — most routers have a hardware recovery path documented in the OpenWrt wiki for each device. Before flashing, find and read the recovery instructions for your specific router model. This is the insurance you want before you need it.
+
+:QUOTE
+Your network. Your rules. Every packet.
+
+:LINK
+https://openwrt.org/docs/guide-quick-start/factory_installation
+OpenWrt — Factory Installation Quick Start Guide

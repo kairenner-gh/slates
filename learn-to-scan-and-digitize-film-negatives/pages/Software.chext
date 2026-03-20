@@ -1,0 +1,31 @@
+:INFO
+Scanning Software Comparison and Settings
+The scanner hardware matters less than the software driving it. This page covers the main software options and optimal settings.
+
+:PATH
+VueScan — Best All-Around Value
+Affordable, supports every scanner, excellent color negative handling.
+|
+:INFO
+VueScan — Best All-Around Value
+VueScan ($40 standard, $90 professional) supports virtually every flatbed and film scanner ever made, including discontinued Nikon Coolscans. Its color negative infrared dust correction (if your scanner supports it) and multi-exposure mode for shadow detail are its strongest features. The interface is dense but logical after a learning period. Recommended for most film shooters.
+
+:PATH
+SilverFast — Most Accurate Color
+Premium software with ICC profile support and professional color management.
+|
+:INFO
+SilverFast — Most Accurate Color
+SilverFast AI Studio produces the most color-accurate scans of any scanning software, particularly for slide film. It includes automated IT8 calibration using a physical target. The price is high ($150 to $500 depending on version) and the interface is complex. Best for photographers who scan slide film professionally.
+
+:PATH
+Negative Lab Pro — Best for Color Negative Post
+Lightroom plugin that inverts color negatives with profile accuracy.
+|
+:INFO
+Negative Lab Pro — Best for Color Negative Post
+Negative Lab Pro ($99, Lightroom plugin) converts flat TIFF scans of color negatives into natural-looking positives automatically. It handles the orange mask removal, color correction, and tonal adjustment in one step with results that match or exceed what dedicated scanning software produces. Pair it with any basic scanning software for an excellent color negative workflow.
+
+:NOTE
+Always Archive the Raw Scan
+Whatever post-processing you apply, keep the original flat TIFF scan untouched in a separate archive folder. Interpretations of color and tone change over time. Having the raw scan means you can re-interpret it with better software or different artistic intent ten years from now.
