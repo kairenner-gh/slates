@@ -1,0 +1,66 @@
+:INFO
+Before You Start Wiring
+This page describes connections involving 120V or 240V AC mains voltage. If \
+you are not comfortable working with mains voltage, have a licensed electrician \
+review your work before powering the circuit. Always build with the enclosure \
+unplugged. Use appropriately rated wire (14 AWG minimum for 15-amp circuits \
+in North America), proper insulated connectors, and a grounded metal or \
+reinforced plastic enclosure.
+
+:PATH
+Power Supply Connections
+The PID controller requires a 12V DC supply.
+|
+:INFO
+Power Supply Connections
+The PID controller requires a 12V DC supply. Mount a small switching power supply (5W or \
+more) inside the enclosure. Connect the AC input of the power supply to the incoming AC \
+line and neutral conductors via a terminal block. Connect the DC output
+
+:PATH
+PID to SSR Signal Wiring
+The PID output terminals send a low-voltage DC signal to the SSR control input
+|
+:INFO
+PID to SSR Signal Wiring
+The PID output terminals send a low-voltage DC signal to the SSR control input to switch \
+the relay on and off. Connect PID output terminal labeled OUT1 or AL1 to the positive \
+control input terminal on the SSR. Connect the PID output ground (sometimes a
+
+:PATH
+SSR to AC Load Wiring
+The SSR switches the hot (live) AC conductor only.
+|
+:INFO
+SSR to AC Load Wiring
+The SSR switches the hot (live) AC conductor only. Connect the incoming AC hot wire from \
+your power cord to the SSR load input terminal (marked L or IN on the SSR body). Connect \
+the SSR load output terminal to the hot terminal of the AC outlet mounted on
+
+:PATH
+Temperature Probe Wiring
+The DS18B20 waterproof probe has three wires: red (power), black (ground), and
+|
+:INFO
+Temperature Probe Wiring
+The DS18B20 waterproof probe has three wires: red (power), black (ground), and yellow or \
+white (data). Connect red to the PID sensor supply terminal (usually +5V or the positive \
+sensor terminal). Connect black to ground. Connect the data wire to the
+
+:CHECKLIST
+Final Wiring Inspection
+[ ] All AC conductors are insulated with no bare metal visible
+[ ] All low-voltage signal wires are routed away from AC conductors
+[ ] The SSR is mounted flush to the enclosure or a metal heatsink
+[ ] Every wire termination uses a proper crimp connector, not bare twisted wire
+[ ] Ground wire is connected at power cord, outlet, and enclosure chassis
+[ ] All wire entries into the enclosure use strain relief grommets
+[ ] Enclosure lid closes securely with no wires pinched at the edge
+
+:NOTE
+Label Your Wires
+Use small adhesive labels or heat-shrink labels on every wire before closing \
+the enclosure. Label each wire with its function: AC HOT IN, AC HOT TO OUTLET, \
+AC NEUTRAL, GROUND, PID OUT+, PID OUT-, PROBE DATA, PROBE VCC, PROBE GND. \
+This takes five minutes and saves enormous time if you ever need to diagnose \
+or modify the circuit later.

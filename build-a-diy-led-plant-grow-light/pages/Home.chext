@@ -1,0 +1,60 @@
+:INFO
+What Makes a Grow Light Actually Work
+Plants use light in the red (630 to 680 nm) and blue (430 to 470 nm) spectrum \
+bands most efficiently for photosynthesis. Full-spectrum white LEDs that include \
+both ends work well for most home growers and are easier to source than dedicated \
+red/blue panels. The metric that matters most is PPFD (photosynthetic photon \
+flux density), measured in micromoles per square meter per second. Leafy herbs \
+want 200 to 400 PPFD. Fruiting plants want 400 to 600 PPFD. Distance from the \
+canopy is the easiest way to adjust PPFD without changing hardware.
+
+:COUNTER.half
+200 to 400 PPFD
+Target for leafy greens and herbs
+|
+:COUNTER.half
+50 to 100 Watts
+Typical draw for a 2x2 ft DIY panel
+
+:PATH
+Source Your Components
+The core of a DIY panel is a Samsung LM301B or LM301H LED strip or board,
+|
+:INFO
+Source Your Components
+The core of a DIY panel is a Samsung LM301B or LM301H LED strip or board, paired with a \
+meanwell driver sized to the wattage you want. A 50W panel for a 2x2 ft space uses \
+strips totaling around 50W and a HLG-60H driver set to match. Buy aluminum channel
+
+:PATH
+Wire the Strips and Driver
+Wire LED strips in series or parallel according to the driver's voltage and
+|
+:INFO
+Wire the Strips and Driver
+Wire LED strips in series or parallel according to the driver's voltage and current \
+specs. A meanwell HLG driver has a dimmer potentiometer on the side: use it to set \
+output current and thus brightness. Solder connections or use wago connectors rated for
+
+:PATH
+Mount and Dial In Height
+Hang the panel on adjustable rope ratchets so you can raise it as plants grow.
+|
+:INFO
+Mount and Dial In Height
+Hang the panel on adjustable rope ratchets so you can raise it as plants grow. Start at \
+24 inches above seedlings and lower to 12 to 18 inches for mature herbs. Use a light \
+meter app or a dedicated PAR meter to check PPFD at canopy level. Run the light
+
+:CHECKLIST
+Before First Power-On
+[ ] All solder joints or wago connectors checked for shorts
+[ ] Driver voltage and current set to match LED strip spec
+[ ] Thermal adhesive tape seated firmly between strips and aluminum
+[ ] Rope ratchets rated for panel weight and mounted to a solid anchor
+[ ] Timer programmed and tested without plants underneath
+
+:LINK
+https://www.hlgforum.com/diy-build-guides
+HLG Forum: DIY LED Grow Light Build Guides and Component Recommendations
+

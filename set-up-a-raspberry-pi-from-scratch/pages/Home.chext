@@ -1,0 +1,71 @@
+:CHECKLIST
+What You Need Before You Start
+[ ] Raspberry Pi board (Pi 4 or Pi 5 recommended for most uses)
+[ ] MicroSD card, 16 GB minimum (32 GB recommended), Class 10 or faster
+[ ] USB-C power supply rated at 5V 3A or higher
+[ ] Another computer with Raspberry Pi Imager installed
+[ ] Ethernet cable or knowledge of your WiFi network name and password
+
+:INFO
+Choosing the Right OS Image
+Raspberry Pi OS Lite is a headless (no desktop) image ideal for servers, \
+home automation, and any project you will control over SSH. Raspberry Pi OS \
+with Desktop is better if you want a GUI. Both are 64-bit for Pi 4 and Pi 5 \
+and are maintained by the Raspberry Pi Foundation. For specialized uses: \
+Ubuntu Server 24.04 LTS works well for Docker workloads. LibreELEC is the \
+choice for a media center. Start with Raspberry Pi OS Lite unless you have \
+a specific reason not to.
+
+:PATH
+Flash the SD Card With Raspberry Pi Imager
+Download Raspberry Pi Imager from raspberrypi.com/software and install it.
+|
+:INFO
+Flash the SD Card With Raspberry Pi Imager
+Download Raspberry Pi Imager from raspberrypi.com/software and install it. Select your \
+board, OS image, and SD card. Before writing, click the gear icon (or advanced settings) \
+to pre-configure: set hostname, enable SSH, add your WiFi credentials, and set
+
+:PATH
+First Boot and SSH Connection
+Insert the flashed SD card and connect power.
+|
+:INFO
+First Boot and SSH Connection
+Insert the flashed SD card and connect power. Wait 60 to 90 seconds for first boot to \
+complete. Find the Pi's IP address from your router's DHCP client list, or use the \
+hostname you set (e.g. raspberrypi.local) if your network supports mDNS. Connect via
+
+:PATH
+Essential First-Boot Configuration
+Run `sudo raspi-config` to access the configuration menu.
+|
+:INFO
+Essential First-Boot Configuration
+Run `sudo raspi-config` to access the configuration menu. Set your timezone under \
+Localisation Options. Expand the filesystem under Advanced Options so the Pi uses the \
+full SD card capacity (a first-boot resize happens automatically with
+
+:PATH
+Set Up a Static IP or Hostname
+For any long-term project, give the Pi a consistent address.
+|
+:INFO
+Set Up a Static IP or Hostname
+For any long-term project, give the Pi a consistent address. Either reserve its MAC \
+address in your router's DHCP settings (easiest), or configure a static IP in \
+`/etc/dhcpcd.conf`. Add these lines: `interface eth0`, `static ip_address= \
+192.168.1.50/24`,
+
+:NOTE
+SD Card Longevity
+SD cards wear out faster than SSDs because of how flash memory handles write \
+cycles. Reduce writes by moving the log directory to RAM: add `tmpfs /var/log \
+tmpfs defaults,noatime,nosuid,size=64m 0 0` to `/etc/fstab`. For projects \
+that write data continuously (databases, home assistant), boot from a USB SSD \
+instead of an SD card. Pi 4 and Pi 5 support USB boot natively.
+
+:LINK
+https://www.raspberrypi.com/documentation
+Raspberry Pi Official Documentation: Full Setup Guides and Hardware Reference
+

@@ -1,0 +1,71 @@
+
+:NOTE
+Heat the Joint, Not the Solder
+The single most important soldering principle is that you heat the joint itself \
+and let the joint melt the solder. If you melt the solder onto the iron and \
+drip it onto the joint, you get a cold solder joint: grainy, dull, and \
+unreliable. Touch the iron to the joint for 2 to 3 seconds first, then feed \
+solder into the joint from the opposite side. This produces a shiny, smooth \
+cone-shaped joint that bonds properly.
+
+:INFO
+Choosing the Right Iron
+A temperature-controlled soldering station with a fine chisel tip is the best \
+starting setup. Look for a station with a range of at least 200 to 450 C \
+(390 to 840 F). Set the temperature to 330 to 370 C (625 to 700 F) for most \
+through-hole and lead-free solder work. Cheap unregulated irons overheat \
+unpredictably and make it nearly impossible to learn good technique. A \
+Hakko FX-888D or a Weller WE1010 are the standard entry-level recommendations \
+and last for many years with proper care.
+
+:PATH
+Tin the Tip Before Every Session
+Before soldering anything, apply a small amount of fresh solder to a clean iron
+|
+:INFO
+Tin the Tip Before Every Session
+Before soldering anything, apply a small amount of fresh solder to a clean iron tip. \
+This is called tinning. Wipe the tip on a damp brass wool cleaner, apply a thin coat of \
+solder, and wipe again. The tip should look bright and silver. A properly tinned
+
+:PATH
+Prepare Your Joints
+Insert component leads through the PCB holes so the component body sits flush
+|
+:INFO
+Prepare Your Joints
+Insert component leads through the PCB holes so the component body sits flush against \
+the board. Bend the lead ends slightly outward at about 45 degrees on the solder side to \
+hold the component in place while you work. Clean the pads and leads with
+
+:PATH
+Solder the Joint
+Touch the iron tip to the point where the lead meets the pad.
+|
+:INFO
+Solder the Joint
+Touch the iron tip to the point where the lead meets the pad. Hold it there for 2 \
+seconds. Feed rosin-core solder into the junction, not onto the iron. Use 60/40 tin-lead \
+solder or SAC305 lead-free solder. You need just enough solder to form a small cone
+
+:PATH
+Identify and Fix Bad Joints
+A cold joint looks dull, grey, or granular rather than shiny.
+|
+:INFO
+Identify and Fix Bad Joints
+A cold joint looks dull, grey, or granular rather than shiny. Reheat it and let it \
+reflow cleanly. A bridged joint has solder connecting two adjacent pads that should not \
+be connected. Remove it with solder wick: lay the copper braid over the bridge,
+
+:CHECKLIST
+Basic Soldering Safety
+[ ] Work in a ventilated area or use a fume extractor fan
+[ ] Wear safety glasses since solder can spit when it bubbles
+[ ] Keep the iron in its stand whenever it is not in your hand
+[ ] Wash hands after handling solder, especially lead-based solder
+[ ] Never leave a hot iron unattended on the bench
+
+:QUOTE
+A clean, shiny solder joint is both structurally sound and visually satisfying. \
+If your joint looks bad, it probably is bad. Trust what you see.

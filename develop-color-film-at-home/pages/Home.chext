@@ -1,0 +1,75 @@
+:QUOTE
+C-41 is unforgiving about temperature and forgiving about almost everything else. \
+Get the developer to 102 degrees F and hold it there. The rest is just patience.
+
+:NOTE
+What Makes C-41 Different from Black and White
+C-41 is a chromogenic color process using three dye-coupled developer layers \
+to form a full-color negative. Unlike black and white development where you have \
+wide temperature latitude, C-41 developer must be held at 102 degrees F \
+(39 degrees C) plus or minus 0.5 degrees F. Temperature drift causes color \
+shifts in the final negative: too cool shifts magenta, too warm shifts green. \
+The process is standardized globally, which means any roll of C-41 film (Kodak \
+Gold, Fuji 200, Portra, ColorPlus) uses the same chemicals and timing.
+
+:COUNTER.half
+102 F
+Developer temperature (plus or minus 0.5 degrees F)
+|
+:COUNTER.half
+3 Minutes 15 Seconds
+Standard development time at 102 F
+|
+:COUNTER.half
+6 Minutes 30 Seconds
+Blix (bleach-fix) time at 102 F
+
+:INFO
+The C-41 Chemical Steps
+The full sequence is: developer, blix (combined bleach and fix), wash, and \
+optional stabilizer. Many home kits (Cinestill CS41, Tetenal Colortec) combine \
+bleach and fix into a single blix step, which simplifies the process. Developer \
+converts exposed silver halides into metallic silver while simultaneously forming \
+color dye clouds. Blix dissolves the silver and fixes the dye image. The \
+stabilizer prevents color fading and inhibits fungal growth on the base.
+
+:PATH
+Maintain Temperature With a Water Bath
+Fill a large container or sous vide bath with 102 degree F water.
+|
+:INFO
+Maintain Temperature With a Water Bath
+Fill a large container or sous vide bath with 102 degree F water. Place all chemical \
+bottles in the bath 20 minutes before starting. Use a precise digital thermometer. A \
+sous vide circulator is the most reliable option as it holds temperature within 0.1
+
+:PATH
+Load Film in Total Darkness
+In complete darkness or a film changing bag, remove film from the cassette
+|
+:INFO
+Load Film in Total Darkness
+In complete darkness or a film changing bag, remove film from the cassette using a film \
+retrieval tool or by cracking the cassette. Load the film onto a plastic or stainless \
+development reel by feel. Lock the reel into the development tank and close the
+
+:PATH
+Blix, Wash, and Stabilize
+Pour out developer at exactly 3:15.
+|
+:INFO
+Blix, Wash, and Stabilize
+Pour out developer at exactly 3:15. Immediately pour in blix at 102 F. Agitate \
+continuously for the first minute, then 4 inversions every 30 seconds. At 6:30, pour out \
+blix. Wash with running water for 3 minutes (or three fill-and-dump cycles with 30
+
+:PATH
+Scan or Print the Negatives
+Color negatives have an orange mask that requires inversion and color
+|
+:INFO
+Scan or Print the Negatives
+Color negatives have an orange mask that requires inversion and color correction in \
+scanning software. Use Vuescan or Silverfast with color negative profiles for your film \
+stock. If using a DSLR scanner setup, shoot against a neutral white light source
+

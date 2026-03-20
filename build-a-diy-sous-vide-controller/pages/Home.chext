@@ -1,0 +1,68 @@
+:INFO
+How a DIY Sous Vide Controller Works
+A PID (proportional-integral-derivative) temperature controller reads a \
+waterproof temperature probe and switches a connected outlet on and off to \
+maintain a precise target temperature. Plug a slow cooker into that outlet and \
+the slow cooker becomes a sous vide bath. The PID can hold temperature within \
+0.1 C (0.2 F) of the setpoint indefinitely, which is comparable to commercial \
+units that cost ten times more. The total bill of materials runs $30 to $45.
+
+:COUNTER.half
+0.1 C
+Temperature accuracy of a quality PID controller
+|
+$35 to $45
+Typical total parts cost for a full build
+
+:PATH
+Parts You Need
+Buy a Rex-C100 or Inkbird ITC-106 PID temperature controller, a 25-amp
+|
+:INFO
+Parts You Need
+Buy a Rex-C100 or Inkbird ITC-106 PID temperature controller, a 25-amp solid-state relay \
+(SSR), a DS18B20 waterproof temperature probe, a project enclosure box, an AC power \
+cord, a grounded outlet, and a length of 14-gauge wire. The SSR handles switching
+
+:PATH
+Wire the Control Circuit
+The PID controller runs at 12V DC.
+|
+:INFO
+Wire the Control Circuit
+The PID controller runs at 12V DC. Connect the 12V input terminals to a small AC-to-DC \
+power supply inside the enclosure. Connect the SSR control input terminals to the PID \
+output terminals (usually labeled AL1 or OUT1). Wire the temperature probe to the
+
+:PATH
+Wire the AC Load Circuit
+The SSR switches the 120V or 240V AC line that powers your slow cooker.
+|
+:INFO
+Wire the AC Load Circuit
+The SSR switches the 120V or 240V AC line that powers your slow cooker. Connect the \
+incoming AC hot wire to the SSR load input. Connect the SSR load output to the hot \
+terminal of the outlet installed on the enclosure. Connect neutral directly through to
+
+:PATH
+Program and Calibrate the PID
+Power on the controller and enter the settings menu.
+|
+:INFO
+Program and Calibrate the PID
+Power on the controller and enter the settings menu. Set the input type to match your \
+probe (usually type K thermocouple or NTC 10K for DS18B20). Set the output type to SSR. \
+Run the auto-tune function by placing the probe in water and activating
+
+:CHECKLIST
+Safety Check Before First Use
+[ ] Confirm all AC connections are insulated with no bare conductors exposed
+[ ] Verify the enclosure lid closes securely over all wiring
+[ ] Check that the ground wire is connected at both the outlet and enclosure
+[ ] Test the outlet with a lamp before plugging in the slow cooker
+[ ] Confirm the SSR is mounted to the enclosure wall or a heatsink for cooling
+[ ] Never operate with the enclosure lid open while powered
+
+:LINK
+https://www.pid-controller.com/pid-tuning-guide/
+PID Tuning Guide: understanding P, I, and D parameters in plain language
