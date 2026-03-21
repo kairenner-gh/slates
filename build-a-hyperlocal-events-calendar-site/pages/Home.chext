@@ -1,0 +1,40 @@
+:INFO
+Hyperlocal Events Calendar Site
+Build a neighborhood or town events calendar website that becomes the go-to source for local happenings. Combine a solid tech stack with community sourcing and light monetization to make it sustainable.
+
+:COUNTER.half
+3 Hours
+Weekly time to keep calendar current
+|
+:COUNTER.half
+500 Subscribers
+Realistic first-year email list goal
+
+:PATH
+Build the Site
+Use WordPress with The Events Calendar plugin or a no-code tool like Glide or Softr. Host on shared hosting for under $10 a month. Keep it fast and mobile-first.
+
+:PATH
+Source the Content
+Contact town hall, schools, churches, libraries, and local Facebook groups. Create a public submission form so organizers add their own events.
+
+:PATH
+Grow the Audience
+Publish a weekly email digest of upcoming events. Post to local Facebook groups and Nextdoor. Partner with the local paper for a calendar exchange.
+
+:CHECKLIST
+Launch Checklist
+[ ] Register a .com or .town domain with the neighborhood name
+[ ] Install The Events Calendar or set up Glide database
+[ ] Create event submission form with Typeform or Google Forms
+[ ] Add email signup with Mailchimp or ConvertKit
+[ ] Seed the calendar with 30 events before launch
+[ ] Submit site to Google Search Console
+[ ] Announce in local Facebook groups and Nextdoor
+
+:NOTE
+Monetization options include featured event listings at $10 to $25 each, a sponsored newsletter spot for local businesses, and an annual community business directory add-on.
+
+:LINK
+https://theeventscalendar.com
+The Events Calendar WordPress Plugin

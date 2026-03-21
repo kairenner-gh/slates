@@ -1,0 +1,21 @@
+:INFO
+Synth Repair Tools and Test Equipment
+A practical toolkit for diagnosing and repairing vintage analog synthesizers. You do not need everything at once. Start with the basics and add as your projects grow.
+
+:TASK
+[ ] Digital multimeter (Fluke or UNI-T)
+[ ] Soldering iron with fine tip (Hakko or similar)
+[ ] Solder (60/40 or lead-free)
+[ ] Desoldering pump or wick
+[ ] Oscilloscope (Rigol DS1054Z is entry level)
+[ ] Isopropyl alcohol 99 percent and brushes
+[ ] Contact cleaner spray (DeoxIT D5)
+[ ] Tweezers and plastic spudgers
+[ ] Service manual printed or on tablet
+
+:NOTE
+An oscilloscope is not required for basic pot cleaning and cap replacement but becomes essential when tracing audio signal faults or calibrating oscillators. A used Rigol scope costs around 300 USD and covers most synth work.
+
+:LINK
+https://www.synthzone.com
+Synth Zone: Service manuals and repair resources

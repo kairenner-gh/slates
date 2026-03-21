@@ -1,0 +1,37 @@
+:INFO
+Small Home Wind Turbine Build
+Build a small wind turbine for off-grid or supplemental home power. A 400W to 1000W turbine on a guyed tower can meaningfully supplement solar in windy climates.
+
+:COUNTER.half
+7 mph
+Minimum average wind speed for a worthwhile small turbine install
+|
+:COUNTER.half
+$1,200
+Typical cost for a 500W turbine kit, tower, and charge controller
+
+:PATH
+Design or Source the Blades
+Three-blade designs balance efficiency and vibration. Carved wooden blades from plans are a classic DIY approach. Prefabricated fiberglass blades from a kit supplier are more consistent for a first build.
+
+:PATH
+Build or Mount the Generator
+A permanent magnet alternator is the standard generator type for small wind. Hugh Piggott's Axial Flux design is the most documented DIY generator for builds under 1kW. Kits are available from Scoraig Wind.
+
+:PATH
+Install the Tower and Controller
+A tilt-up guyed tower is the safest DIY installation method. Use a wind charge controller matched to your battery bank voltage. Fuse the wiring between turbine, controller, and battery bank.
+
+:CHECKLIST
+Build and Install Checklist
+[ ] Measure average wind speed at your site for at least one month
+[ ] Choose blade diameter and generator spec based on wind data
+[ ] Source plans from Hugh Piggott or buy a tested kit
+[ ] Build or buy a guyed tilt-up tower rated for your turbine weight
+[ ] Wire turbine output to a dump load charge controller
+[ ] Connect controller to a 12V or 48V battery bank
+[ ] Install a fused disconnect between turbine and controller
+[ ] Run the turbine at low wind before final tower raising
+
+:NOTE
+A small wind turbine complements solar well because it generates at night and in winter when solar output drops. Size the battery bank to store at least 3 days of average consumption for resilience.

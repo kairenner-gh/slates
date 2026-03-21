@@ -1,0 +1,39 @@
+:QUOTE
+Every town deserves a radio station that sounds like itself.
+
+:INFO
+Online Community Radio Station
+Launch an internet radio station for your neighborhood, town, or interest community using free and open-source tools. AzuraCast makes it possible to run a professional stream from a single server.
+
+:COUNTER.half
+$10/Month
+Minimum hosting cost for a 24/7 stream
+|
+:COUNTER.half
+10 DJs
+Good starting size for a programming roster
+
+:PATH
+Choose Your Software
+AzuraCast is the recommended self-hosted option. Install on a $6 DigitalOcean droplet. It includes AutoDJ, a web interface for DJs, scheduling, and listener analytics built in.
+
+:PATH
+Build Your Programming
+Mix live shows with AutoDJ filler. Recruit local musicians, storytellers, and community voices. Create a weekly schedule and hold to it so listeners can form habits.
+
+:PATH
+Build the Community
+Stream to your website and add a Mixcloud or SoundCloud archive. Post show recordings to a community Discord. Create a local artist spotlight series to draw in musicians.
+
+:CHECKLIST
+Launch Checklist
+[ ] Register a domain for the station
+[ ] Spin up a VPS and install AzuraCast
+[ ] Upload 8 hours of filler music cleared for broadcast
+[ ] Recruit 3 show hosts for the first schedule
+[ ] Set up a station Discord for DJs and listeners
+[ ] Embed the stream player on your website
+[ ] Announce on local Facebook and Nextdoor
+
+:NOTE
+Check your country's music licensing rules before going live. In the US you may need a SoundExchange license for streaming. Many stations start with podsafe and Creative Commons music to avoid fees early on.

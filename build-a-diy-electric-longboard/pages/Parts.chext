@@ -1,0 +1,23 @@
+:INFO
+Parts List for a DIY Electric Longboard
+Full parts list with specs for a dual hub motor electric longboard build targeting 25 kph top speed and 15 km range.
+
+:TASK
+[ ] 38 to 42 inch drop-through longboard deck
+[ ] 218mm longboard trucks two pairs
+[ ] Dual 90mm hub motors 6374 or equivalent with matching wheels
+[ ] VESC 4.12 or Flipsky FSESC speed controller
+[ ] 10S2P or 12S2P lithium ion battery pack with BMS
+[ ] Hoyt St or Flipsky VX1 handheld remote with receiver
+[ ] XT90S antispark connectors for battery main lead
+[ ] Power switch with pre-charge resistor for ESC protection
+[ ] 3D printed or CNC aluminum enclosure for electronics
+[ ] M3 and M4 stainless hardware for motor and enclosure mounts
+[ ] Heat shrink tubing and silicone wire 12AWG for motor phase leads
+
+:NOTE
+Order spare inner tubes for hub motor wheels. The inner tubes are proprietary to each hub motor brand and hard to source locally. Carry a spare on long rides until you know your board's reliability.
+
+:LINK
+https://electric-skateboard.builders
+Electric Skateboard Builders Forum and Parts Guide

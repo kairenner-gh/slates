@@ -1,0 +1,38 @@
+:INFO
+Chrome Extension as a Side Project
+Chrome extensions have a low barrier to entry and a built-in distribution channel. A solo developer can go from idea to Chrome Web Store listing in a weekend with the right scope.
+
+:COUNTER.half
+5 USD
+One-time Chrome Web Store developer fee
+|
+:COUNTER.half
+2 to 3 Days
+Build time for a focused single-feature extension
+
+:PATH
+Build Phase
+Define one core user action. Build the manifest v3 extension with popup, background worker, and content script only as needed. Test in developer mode.
+
+:PATH
+Publish Phase
+Create developer account, prepare screenshots and description, submit for review. Review typically takes one to three business days.
+
+:CHECKLIST
+Chrome Extension Launch Checklist
+[ ] Define one core user problem the extension solves
+[ ] Set up manifest v3 project structure
+[ ] Build and test locally in developer mode
+[ ] Write privacy policy (required for store submission)
+[ ] Create store listing assets: icon, screenshots, description
+[ ] Pay developer fee and create account
+[ ] Submit for review
+[ ] Respond to any review feedback within 48 hours
+[ ] Announce on Twitter and relevant communities
+
+:NOTE
+The Chrome Web Store review checks for permission overuse. Request only the permissions your extension actually needs. Extensions requesting broad host permissions face longer review times and lower install conversion rates.
+
+:LINK
+https://developer.chrome.com/docs/extensions
+Chrome Extensions developer documentation

@@ -1,0 +1,40 @@
+:INFO
+AI-Powered Personal CRM
+A personal CRM built in Notion or Obsidian with AI integration lets you manage relationships at scale. Track contacts, log interactions, and get AI-generated follow-up suggestions without enterprise software.
+
+:COUNTER.half
+200 Contacts
+Manageable limit for a solo personal CRM
+|
+:COUNTER.half
+Weekly Review
+Cadence for keeping relationship data fresh
+
+:PATH
+Contacts Phase
+Create a contact database with fields for name, company, relationship type, last contact date, and notes. Import from LinkedIn CSV or add manually.
+
+:PATH
+Notes Phase
+Log meeting notes and conversation summaries after every interaction. Use AI to extract key points and action items from raw notes.
+
+:PATH
+Reminders Phase
+Set follow-up reminders based on relationship strength. Use Notion automations or a recurring review ritual to surface contacts due for outreach.
+
+:CHECKLIST
+Personal CRM Setup Checklist
+[ ] Choose platform: Notion or Obsidian
+[ ] Design contact database schema
+[ ] Import existing contacts
+[ ] Create interaction log template
+[ ] Set up AI summarization workflow for meeting notes
+[ ] Define follow-up cadence per relationship tier
+[ ] Schedule weekly CRM review session
+
+:NOTE
+The biggest failure mode for personal CRMs is abandonment after setup. Tie your CRM review to an existing habit: Monday morning coffee or end of week wrap-up. Friction kills consistency.
+
+:LINK
+https://www.notion.so
+Notion: flexible workspace for databases and notes

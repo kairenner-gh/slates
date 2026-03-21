@@ -1,0 +1,38 @@
+:QUOTE
+A finished small game is worth more than an unfinished ambitious one.
+
+:INFO
+Building a 2D Platformer in Godot 4 from Scratch
+Building a 2D platformer in Godot 4 from scratch. Covers scene structure, player controller with CharacterBody2D, tilemap-based levels, and basic enemy behavior using state machines.
+
+:COUNTER.half
+4 Core Nodes
+CharacterBody2D, TileMap, Camera2D, Area2D
+|
+:COUNTER.half
+3 Phases
+Build, test, polish
+
+:PATH
+Project Setup
+Install Godot 4. Create a new 2D project. Set the viewport to 320x180 for pixel art scaling. Configure the input map with move_left, move_right, jump actions before writing any code.
+
+:PATH
+Player Controller
+Create a CharacterBody2D scene with a CollisionShape2D and Sprite2D. Write the movement script in GDScript using move_and_slide. Handle jump with is_on_floor checks. Add coyote time and jump buffering for good game feel.
+
+:PATH
+Level Design
+Use TileMap with a tileset imported from a PNG sprite sheet. Paint collision layers separately from visual layers. Add Area2D nodes for hazards and collectibles. Keep levels simple and iterate through playtesting.
+
+:CHECKLIST
+Pre-Launch Checklist
+[ ] Player respawns correctly on death
+[ ] Camera follows player with screen limits set
+[ ] All tilemaps have correct collision layer
+[ ] Enemy behavior tested in all edge cases
+[ ] Audio added for jump, land, and collect
+[ ] Export settings configured for target platform
+
+:NOTE
+Do not add features until the core loop feels fun to play. Run through the level yourself at least 20 times before adding new mechanics. Most amateur platformers fail because the movement was never polished.

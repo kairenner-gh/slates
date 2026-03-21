@@ -1,0 +1,21 @@
+:INFO
+Key Components and Sourcing for the Altair 8800 Replica
+A guide to the critical components needed for a scratch-built Altair 8800 replica and where to source them in 2025.
+
+:TASK
+[ ] Intel 8080A CPU or NEC V20 compatible substitute
+[ ] 8224 clock generator IC
+[ ] 8228 system controller IC
+[ ] 74xx series TTL logic ICs per schematic
+[ ] S-100 bus edge connectors
+[ ] Front panel PCB or custom etched board
+[ ] Vintage-style toggle switches (36 required)
+[ ] LEDs for address and data display (red, period-correct)
+[ ] Linear power supply (not switching) for authenticity
+
+:NOTE
+Original Intel 8080A chips are still available via eBay and specialty vintage IC dealers. Test each chip with an IC tester before installation. The 8224 and 8228 support chips are harder to find; buy extras if possible.
+
+:LINK
+https://altairclone.com
+Altair Clone: Replica kits, documentation, and sourcing guides

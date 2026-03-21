@@ -1,0 +1,43 @@
+:QUOTE
+Your voice at its best, every episode, without a recording booth.
+
+:INFO
+AI Voiceover for Solo Podcasters
+AI voice tools let solo podcasters produce clean, professional-sounding audio without expensive equipment or repeated takes. ElevenLabs and similar tools generate realistic speech from your script.
+
+:COUNTER.half
+10 Minutes
+Average generation time for a 20 min episode
+|
+:COUNTER.half
+95% Accuracy
+Quality match to professional voiceover at top settings
+
+:PATH
+Script Phase
+Write a clean, conversational script. Avoid symbols and abbreviations. Mark pauses with punctuation and line breaks.
+
+:PATH
+Generate Phase
+Paste your script into ElevenLabs or your chosen tool. Select or clone your voice. Adjust stability and clarity settings.
+
+:PATH
+Edit Phase
+Import generated audio into Descript or Audacity. Clean silence gaps, add music bed, export as MP3.
+
+:CHECKLIST
+Voiceover Workflow Checklist
+[ ] Write and proofread full script
+[ ] Format script for natural speech flow
+[ ] Generate audio with voice tool
+[ ] Listen through at 1x speed for errors
+[ ] Edit in audio editor
+[ ] Add intro and outro music
+[ ] Export and upload to podcast host
+
+:NOTE
+ElevenLabs voice cloning works best when trained on clean audio with no background noise or music. Record a 10-minute sample in a quiet room with a decent USB microphone.
+
+:LINK
+https://elevenlabs.io
+ElevenLabs: AI voice generation and cloning

@@ -1,0 +1,41 @@
+:INFO
+Fine-Tuning an LLM for Your Niche
+LoRA and QLoRA make it practical to fine-tune an open source language model on domain-specific data using consumer hardware. The result is a model that speaks your niche's language and follows your formatting conventions.
+
+:COUNTER.half
+1,000 Examples
+Minimum training dataset for noticeable specialization
+|
+:COUNTER.half
+4 GB VRAM
+Minimum for QLoRA fine-tuning on a 7B model
+
+:PATH
+Prepare Data
+Collect and clean domain-specific text. Format as instruction-response pairs in JSONL. Aim for at least 1,000 high-quality examples.
+
+:PATH
+Train
+Use Axolotl or Hugging Face TRL with QLoRA settings. Run on a single GPU or use a cloud provider for a short training run.
+
+:PATH
+Evaluate
+Test on held-out examples. Compare outputs to the base model. Measure accuracy, tone, and format adherence against your target criteria.
+
+:CHECKLIST
+Fine-Tuning Checklist
+[ ] Define the target task and evaluation criteria
+[ ] Collect and clean training data
+[ ] Format data as instruction-response JSONL pairs
+[ ] Choose base model and LoRA rank settings
+[ ] Run training with validation split
+[ ] Evaluate on test set
+[ ] Merge adapter weights into base model
+[ ] Deploy with Ollama or vLLM
+
+:NOTE
+QLoRA reduces memory requirements by quantizing the base model to 4-bit precision during training. You can fine-tune a 13B model on a single 24 GB GPU without quality loss compared to full fine-tuning.
+
+:LINK
+https://github.com/OpenAccess-AI-Collective/axolotl
+Axolotl: streamlined fine-tuning for open source LLMs

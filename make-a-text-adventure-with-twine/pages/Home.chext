@@ -1,0 +1,42 @@
+:QUOTE
+A text adventure is a conversation between the writer and a reader who believes they are in control.
+
+:INFO
+Creating a Text Adventure with Twine
+Creating a text adventure game with Twine. Covers story structure, branching passage logic, CSS and JavaScript styling, and publishing to itch.io or your own site.
+
+:COUNTER.half
+30 to 50 Passages
+Manageable scope for a first Twine project
+|
+:COUNTER.half
+2 Formats
+Harlowe for beginners, Chapbook or Sugarcube for advanced use
+
+:PATH
+Story Structure
+Map your branches before writing. Identify the spine: the path from start to the main ending. Branches should return to the spine or lead to alternate endings. Avoid dead ends that strand the player.
+
+:PATH
+Writing Passages
+Keep each passage short enough to read in under 30 seconds. End every passage with a meaningful choice. Avoid choices that are clearly wrong. Use variables to track player decisions across passages.
+
+:PATH
+Publishing the Game
+Export to HTML from Twine. Upload to itch.io as an HTML file with the web playable flag enabled. Test on mobile before publishing as Twine games are often played on phone browsers.
+
+:CHECKLIST
+Pre-Publish Checklist
+[ ] All passages reachable from start
+[ ] No broken links in passage map
+[ ] All endings reached and tested
+[ ] Styling applied and readable on mobile
+[ ] Title and author set in Story Settings
+[ ] HTML file exported and tested locally
+
+:NOTE
+Twine games are often underestimated as a format. Strong writing and a tight branching structure can produce experiences that rival much larger productions. Scope small and finish.
+
+:LINK
+https://twinery.org
+Official Twine editor and documentation

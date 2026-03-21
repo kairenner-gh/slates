@@ -1,0 +1,38 @@
+:QUOTE
+Vintage synthesizers reward patience. The repair is half the music.
+
+:INFO
+Vintage Synthesizer Collecting and Repair
+Collecting, evaluating, and repairing vintage analog synthesizers. This slate covers what to look for when buying, how to assess condition, and how to approach common faults including dead keys, drifting oscillators, and noisy pots.
+
+:COUNTER.half
+3 Tools
+Multimeter, oscilloscope, soldering iron
+|
+:COUNTER.half
+12 Months
+Typical time to build a working collection
+
+:PATH
+Buying a Vintage Synth
+Where to find instruments: eBay, Reverb, local classifieds, estate sales. What to check before buying: working keys, original PSU, signs of corrosion or recap work.
+
+:PATH
+Assessing Condition
+Visual inspection checklist. Test each voice, check tuning stability, listen for noise or hum. Identify missing or damaged sliders and knobs.
+
+:PATH
+Basic Repair Workflow
+Start with cleaning pots and keys. Replace capacitors in power supply if aged. Reseat connectors. Use service manuals from Synth Zone or Elektrotanya.
+
+:CHECKLIST
+Pre-Purchase Checklist
+[ ] All keys respond
+[ ] Oscillators track across octaves
+[ ] No visible corrosion on PCB
+[ ] Power supply voltages in spec
+[ ] Pots respond without crackling
+[ ] Panel complete (sliders, knobs)
+
+:NOTE
+Start with well-documented synths like the Juno 106, Roland SH-101, or Korg Poly-61. Service manuals are widely available and repair communities are active on forums like Gearslutz and Reddit r/synthesizers.

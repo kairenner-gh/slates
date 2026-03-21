@@ -1,0 +1,19 @@
+:INFO
+Ollama Setup on Mac
+Step-by-step guide for getting Ollama running on an Apple Silicon or Intel Mac with a writing-optimized model.
+
+:TASK
+[ ] Download Ollama from ollama.com
+[ ] Run the installer and open Terminal
+[ ] Run: ollama pull mistral
+[ ] Start a session: ollama run mistral
+[ ] Create a Modelfile with your system prompt
+[ ] Build a named model: ollama create writer-v1 -f Modelfile
+[ ] Run your custom model: ollama run writer-v1
+
+:NOTE
+The Modelfile FORMAT line sets the base model. The SYSTEM block defines the assistant persona. Keep your system prompt under 500 words for best performance on smaller models.
+
+:LINK
+https://ollama.com
+Ollama: run large language models locally

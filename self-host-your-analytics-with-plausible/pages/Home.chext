@@ -1,0 +1,43 @@
+:INFO
+Self-Hosting Plausible Analytics
+Plausible Analytics is an open source, privacy-first alternative to Google Analytics. Self-hosting on a VPS gives you full data ownership, no tracking consent banners, and no data sharing with third parties.
+
+:COUNTER.half
+4 USD per Month
+Minimum VPS cost to run a Plausible instance
+|
+:COUNTER.half
+Under 1 KB
+Script size versus 45 KB for Google Analytics
+
+:PATH
+Server Phase
+Provision a VPS with at least 1 GB RAM. Point a subdomain at the server IP. Open ports 80 and 443 in your firewall rules.
+
+:PATH
+Install Phase
+Clone the Plausible Community Edition repository. Configure the .env file with your domain, secret key, and SMTP settings. Run docker compose up.
+
+:PATH
+Configure Phase
+Add your site in the Plausible dashboard. Copy the tracking script to your website header. Verify data is flowing in the live view within minutes.
+
+:CHECKLIST
+Plausible Self-Hosting Checklist
+[ ] Choose a VPS provider and create a server
+[ ] Point a subdomain at the server
+[ ] Install Docker and Docker Compose
+[ ] Clone plausible-ce repository
+[ ] Edit .env with domain and secret values
+[ ] Run docker compose up and verify startup logs
+[ ] Add SSL via Caddy or Let's Encrypt
+[ ] Add tracking script to your website
+[ ] Test live view with a real page visit
+[ ] Set up weekly email digest reports
+
+:NOTE
+Plausible uses a Caddyfile for automatic HTTPS by default in the community edition setup. You do not need to configure Nginx or Certbot separately. The default docker compose configuration handles SSL termination automatically.
+
+:LINK
+https://plausible.io/docs/self-hosting
+Plausible self-hosting documentation

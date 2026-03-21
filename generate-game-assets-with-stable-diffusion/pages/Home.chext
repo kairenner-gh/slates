@@ -1,0 +1,40 @@
+:QUOTE
+An indie dev with the right workflow punches well above their weight class.
+
+:INFO
+Game Asset Generation with Stable Diffusion
+AUTOMATIC1111 and ComfyUI give indie developers a pipeline for generating 2D sprites, tilesets, and UI elements. With the right model and workflow you can produce consistent art styles across an entire game.
+
+:COUNTER.half
+512 x 512 px
+Standard output size for sprite generation
+|
+:COUNTER.half
+20 to 50 Steps
+Sampling steps for quality versus speed balance
+
+:PATH
+Setup Phase
+Install AUTOMATIC1111 or ComfyUI. Download a pixel art or flat illustration LoRA that matches your target game aesthetic.
+
+:PATH
+Generate Sprites
+Use a consistent prompt template with your character or object description. Generate batches of 10 and select the best candidates.
+
+:PATH
+Tile Sets
+Generate tiling textures using seamless tile checkboxes or dedicated tiling ControlNet workflows. Test in engine before committing.
+
+:CHECKLIST
+Game Asset Pipeline Checklist
+[ ] Define art style and color palette
+[ ] Set up AUTOMATIC1111 or ComfyUI
+[ ] Download relevant LoRA or checkpoint model
+[ ] Build prompt template for asset type
+[ ] Generate sprite sheet candidates
+[ ] Remove backgrounds with Remove.bg or rembg
+[ ] Import and test in game engine
+[ ] Iterate on prompt for style consistency
+
+:NOTE
+Consistency across a game art style is the hardest problem. Build a seed and prompt template you lock in early, then use the same base for every asset type. Changing models mid-project breaks visual cohesion.

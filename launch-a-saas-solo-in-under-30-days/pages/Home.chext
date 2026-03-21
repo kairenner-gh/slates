@@ -1,0 +1,40 @@
+:QUOTE
+Scope is the enemy of shipping. A working MVP beats a perfect roadmap.
+
+:INFO
+Solo SaaS in 30 Days
+A time-boxed framework for solo founders to scope, build, and launch a software product in one month. The goal is a paying customer, not a finished product.
+
+:COUNTER.half
+30 Days
+Hard deadline from idea to live product
+|
+:COUNTER.half
+3 Features
+Maximum scope for a viable MVP
+
+:PATH
+Week 1
+Define the problem, target customer, and one-sentence value proposition. Build a landing page and start collecting email signups before writing code.
+
+:PATH
+Week 2
+Build the core feature loop. Use existing libraries and no-code for everything that is not your differentiator. Ship to five beta users.
+
+:PATH
+Weeks 3 and 4
+Collect feedback, fix critical bugs, add payment via Stripe, and do a public launch on Product Hunt or Hacker News Show HN.
+
+:CHECKLIST
+30-Day Launch Checklist
+[ ] Write problem and solution statement
+[ ] Identify three potential first customers
+[ ] Build landing page with waitlist
+[ ] Define MVP feature scope (max three features)
+[ ] Set up Stripe before building features
+[ ] Ship to beta users by day 14
+[ ] Collect and act on one round of feedback
+[ ] Launch publicly by day 30
+
+:NOTE
+Charge from day one. Free users give you activity but not signal. A customer who pays 10 dollars per month has a completely different relationship to the product than one using it for free.

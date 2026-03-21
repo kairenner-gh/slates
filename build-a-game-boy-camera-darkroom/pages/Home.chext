@@ -1,0 +1,42 @@
+:QUOTE
+Lo-fi is not a limitation. It is a decision about what matters in a photograph.
+
+:INFO
+Game Boy Camera Darkroom Setup
+Using a Game Boy Camera with a DIY darkroom setup for lo-fi photography and printing. Covers capture workflow, printing via thermal or film output, and developing analog prints from digital captures.
+
+:COUNTER.half
+128 x 112
+Native Game Boy Camera resolution
+|
+:COUNTER.half
+2 Formats
+Thermal prints and analog film output
+
+:PATH
+Capture Workflow
+Use the Game Boy Camera cartridge in an original or modified Game Boy. Frame carefully given the fixed 128x112 sensor. Use the built-in contrast and exposure settings for each scene type.
+
+:PATH
+Printing Options
+Connect via Game Boy Printer for thermal output. Alternatively use BitBoy or Arduino-based dumpers to extract images to BMP files and print on inkjet or darkroom enlarger via negative film output.
+
+:PATH
+Darkroom Development
+Convert extracted images to negatives, print on transparency film, and expose onto photographic paper under an enlarger. Standard darkroom chemistry applies.
+
+:CHECKLIST
+Darkroom Setup Checklist
+[ ] Game Boy Camera cartridge and compatible Game Boy
+[ ] Image extraction tool (BitBoy or Arduino dumper)
+[ ] Darkroom space with safelight
+[ ] Enlarger and photographic paper
+[ ] Developer, stop bath, fixer chemicals
+[ ] Trays and tongs
+
+:NOTE
+The aesthetic of Game Boy Camera images works well with high-contrast printing. Experiment with paper grades 3 and 4 for punchy darkroom prints.
+
+:LINK
+https://www.gameboyproject.com
+Game Boy Camera community resources and extraction tools

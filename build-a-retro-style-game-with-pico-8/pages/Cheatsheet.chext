@@ -1,0 +1,22 @@
+:INFO
+PICO-8 Lua API Cheatsheet
+Common PICO-8 Lua functions and patterns for quick reference during development.
+
+:TASK
+[ ] btn(b) returns true if button b is held
+[ ] btnp(b) returns true on first frame button is pressed
+[ ] pset(x,y,c) sets pixel at x,y to color c
+[ ] spr(n,x,y) draws sprite n at x,y
+[ ] map(cx,cy,sx,sy,cw,ch) draws map cells to screen
+[ ] mget(x,y) returns sprite index at map cell x,y
+[ ] sfx(n) plays sound effect n
+[ ] music(n) plays music track n
+[ ] camera(x,y) offsets all draw calls by x,y
+[ ] cls(c) clears screen to color c
+
+:NOTE
+PICO-8 uses a 0-indexed button layout: 0 left, 1 right, 2 up, 3 down, 4 z/c (action 1), 5 x/v (action 2). Keep your _update function under a clear budget and move heavy logic to helper functions.
+
+:LINK
+https://www.lexaloffle.com/dl/docs/pico-8_manual.html
+Official PICO-8 manual with full API reference

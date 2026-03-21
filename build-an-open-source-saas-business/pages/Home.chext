@@ -1,0 +1,42 @@
+:INFO
+Open Source SaaS Business
+Running a business on an open source product combines community-driven growth with commercial monetization. The open core model offers a self-hosted free tier and a managed cloud tier with additional features and support.
+
+:COUNTER.half
+1,000 GitHub Stars
+Early signal of sustainable community interest
+|
+:COUNTER.half
+10x Users
+Typical ratio of self-hosted to cloud tier users
+
+:PATH
+Open Source Phase
+Design the core product as fully open source under a permissive or source available license. Make self-hosting straightforward with a single-command Docker setup.
+
+:PATH
+Community Phase
+Invest in documentation, issue response time, and contributor experience. Community health drives organic discovery more than any paid channel.
+
+:PATH
+Monetize Phase
+Offer a managed cloud tier with convenience and compliance features. Add enterprise support contracts and SSO as gated paid features.
+
+:CHECKLIST
+Open Source SaaS Checklist
+[ ] Choose license: MIT, Apache, AGPL, or SSPL
+[ ] Write clear README with quickstart guide
+[ ] Set up Docker Compose for self-hosting
+[ ] Create public roadmap and issue labels
+[ ] Define the open core boundary: what is free, what is paid
+[ ] Launch on Hacker News Show HN and GitHub Trending
+[ ] Set up cloud tier infrastructure
+[ ] Create pricing page with clear tier comparison
+[ ] Respond to every GitHub issue within 48 hours
+
+:NOTE
+The open source project is a marketing channel as much as a product. Treat the developer experience of your self-hosted version as seriously as your cloud product. Bad self-hosting documentation kills community trust.
+
+:LINK
+https://posthog.com/blog/open-source-saas
+PostHog on building an open source SaaS business

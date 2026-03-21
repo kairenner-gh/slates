@@ -1,0 +1,16 @@
+:INFO
+Open Source SaaS Roadmap Planning
+A framework for planning and communicating the product roadmap for an open source SaaS product across community and commercial priorities.
+
+:TASK
+[ ] Define quarterly themes tied to user and community feedback
+[ ] Separate community roadmap from internal commercial roadmap
+[ ] Tag every GitHub issue with milestone and priority label
+[ ] Run quarterly community vote on top feature requests
+[ ] Publish public changelog on every release
+[ ] Schedule monthly roadmap update post in community forum
+[ ] Review competitor open source projects quarterly
+[ ] Assess open core boundary and adjust based on conversion data
+
+:NOTE
+Keep the public roadmap honest. Overpromising on timelines destroys community trust faster than shipping slowly. A realistic public roadmap with consistent delivery builds far more goodwill than optimistic timelines you miss.

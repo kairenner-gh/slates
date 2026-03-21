@@ -1,0 +1,38 @@
+:QUOTE
+A print-and-play game does not need good art to be a good game. It needs good mechanics and clear rules.
+
+:INFO
+Designing a Print-and-Play Card Game
+Designing and playtesting a print-and-play card game. Covers mechanic design, card layout and text formatting, PDF production for home printing, and distributing on itch.io.
+
+:COUNTER.half
+18 to 54 Cards
+Typical deck size for a focused card game design
+|
+:COUNTER.half
+2.5 x 3.5 in
+Standard playing card dimensions for home printing
+
+:PATH
+Game Design and Mechanics
+Define the win condition first. Design the simplest possible version of the game. Identify the primary decision point: what is the most interesting choice a player makes each turn? Build mechanics around that decision.
+
+:PATH
+Card Layout and PDF Production
+Design cards in a grid layout for efficient home printing. Use Affinity Publisher, Canva, or nandeck for card generation. Set cards at 2.5x3.5 inches with 3mm bleed. Export as a print-ready PDF at 300 DPI.
+
+:PATH
+Playtesting
+Playtest with physical proxies made from index cards before finalizing art. Run at least 10 plays before changing any core mechanic. Keep a changelog. Invite new players who have not heard your explanation to test the rulebook alone.
+
+:CHECKLIST
+Release Checklist
+[ ] Rulebook written in plain language
+[ ] All cards proofread on printed proxy
+[ ] PDF tested on home printer at 100 percent scale
+[ ] itch.io page set up with gameplay photo
+[ ] Price set (free or pay-what-you-want)
+[ ] Community credit given for playtesters
+
+:NOTE
+A clear, well-formatted rulebook is as important as the mechanics. If your playtesters cannot learn the game from the rulebook alone, rewrite the rulebook before assuming the mechanics are the problem.

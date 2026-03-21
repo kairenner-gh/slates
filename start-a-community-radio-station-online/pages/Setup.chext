@@ -1,0 +1,22 @@
+:INFO
+AzuraCast Technical Setup Guide
+Step-by-step setup for self-hosting a community radio station on AzuraCast using a VPS. Assumes Ubuntu 22.04 and basic terminal comfort.
+
+:TASK
+[ ] Create a DigitalOcean or Vultr droplet with 1GB RAM minimum
+[ ] Point your domain DNS A record to the droplet IP
+[ ] SSH in and run the AzuraCast Docker install script
+[ ] Complete the web-based setup wizard at port 80
+[ ] Create a station and set the stream bitrate to 128kbps MP3
+[ ] Add a DJ account for each show host with individual passwords
+[ ] Upload AutoDJ playlist with at least 4 hours of music
+[ ] Test the stream URL in VLC before announcing
+[ ] Enable HTTPS via the built-in Let's Encrypt integration
+[ ] Set up automated server backups via DigitalOcean snapshots
+
+:NOTE
+AzuraCast updates frequently. Run the built-in update command monthly from the admin panel. Keep your server's Docker version current to avoid compatibility issues.
+
+:LINK
+https://www.azuracast.com/docs
+AzuraCast Official Documentation

@@ -1,0 +1,39 @@
+:INFO
+Portable Podcast Recording Kit
+A travel-friendly podcast setup fits in a daypack and delivers studio-quality audio. The key is choosing compact gear that handles variable room acoustics without a treated space.
+
+:COUNTER.half
+3 kg
+Target weight for a full portable podcast kit
+|
+:COUNTER.half
+48 kHz
+Standard sample rate for podcast audio
+
+:PATH
+Choose a Microphone
+The Shure MV7 or Rode PodMic USB work without an interface. For XLR setups, the SM7B with a compact interface is the professional standard. Cardioid pattern rejects room noise.
+
+:PATH
+Add an Interface
+The Focusrite Scarlett Solo or Rode AI-1 are compact and bus-powered. They run on USB from your laptop with no power brick required. Essential for XLR microphones.
+
+:PATH
+Handle Room Acoustics
+A reflection filter behind the mic helps in live-sounding rooms. A thick moving blanket draped around your recording zone is a low-cost field solution. Record facing a wall of soft furnishings when possible.
+
+:CHECKLIST
+Recording Session Checklist
+[ ] Test mic gain and headphone monitoring before recording
+[ ] Record a 30 second room tone at the start
+[ ] Use a pop filter or foam windscreen
+[ ] Disable notifications and system sounds
+[ ] Record locally and back up immediately
+[ ] Check audio in headphones during recording
+
+:NOTE
+Levels matter more than gear. Record at -18 dB average with peaks no higher than -6 dB. Fixing gain staging in post costs far more time than setting it correctly before recording.
+
+:LINK
+https://www.sweetwater.com/insync/podcast-gear/
+Sweetwater: Podcast Gear Buying Guides

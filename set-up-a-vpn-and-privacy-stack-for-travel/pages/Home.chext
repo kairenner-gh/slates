@@ -1,0 +1,39 @@
+:INFO
+VPN and Privacy Stack for Travel
+Public WiFi, hotel networks, and cafe connections expose your traffic to interception. A layered privacy setup reduces your attack surface without adding significant friction to your daily workflow.
+
+:COUNTER.half
+3 Layers
+VPN, DNS, and browser form the core stack
+|
+:COUNTER.half
+5 Minutes
+Setup time for a working privacy stack on a new device
+
+:PATH
+Choose a VPN
+Mullvad and Proton VPN are audited, no-log providers. WireGuard protocol is faster than OpenVPN on mobile. Enable kill switch so traffic stops if the VPN drops.
+
+:PATH
+Harden Your DNS
+Use encrypted DNS over HTTPS or DNS over TLS. NextDNS and Cloudflare 1.1.1.1 offer free filtered DNS. This prevents ISP and network snooping on your queries even outside the VPN tunnel.
+
+:PATH
+Harden Your Browser
+Firefox with uBlock Origin blocks ads and trackers. Disable WebRTC in about:config to prevent IP leaks. Use separate browser profiles for work and personal browsing.
+
+:CHECKLIST
+Privacy Stack Setup Checklist
+[ ] Install and configure VPN with kill switch enabled
+[ ] Set system DNS to encrypted provider
+[ ] Install uBlock Origin and Privacy Badger in browser
+[ ] Disable WebRTC in Firefox
+[ ] Enable HTTPS-only mode in browser settings
+[ ] Test for DNS and IP leaks at dnsleaktest.com
+
+:NOTE
+A VPN hides your traffic from the local network but not from the VPN provider. Choose a provider whose threat model matches yours and who has completed independent audits.
+
+:LINK
+https://mullvad.net
+Mullvad VPN: Audited No-Log VPN Provider

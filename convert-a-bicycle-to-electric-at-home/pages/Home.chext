@@ -1,0 +1,40 @@
+:QUOTE
+A hub motor kit and a weekend can turn any bike into a practical commuter.
+
+:INFO
+DIY Electric Bicycle Conversion
+Convert a standard bicycle to electric power at home using a hub motor kit, lithium battery, and controller. The conversion requires basic tools and a careful wiring job but no specialized skills.
+
+:COUNTER.half
+$400
+Typical cost of a quality 500W hub motor conversion kit
+|
+:COUNTER.half
+6 Hours
+Realistic build time for a first-time conversion
+
+:PATH
+Choose and Install the Motor
+A rear hub motor kit is the easiest conversion for most bikes. Select 500W for flat terrain or 750W for hills. The kit includes a pre-laced wheel, so you swap the rear wheel and mount the controller.
+
+:PATH
+Mount the Battery
+A frame-mounted bottle style battery keeps weight centered. A rear rack battery works on bikes without a suitable frame triangle. Secure all mounts before connecting any wiring.
+
+:PATH
+Complete the Wiring
+Follow the color-coded wiring diagram in the kit. Connect motor phase wires first, then hall sensor wires, throttle, and brake cutoff levers. Double-check every connection before powering on.
+
+:CHECKLIST
+Conversion Checklist
+[ ] Measure your bike's rear dropout width before ordering a kit
+[ ] Order a kit with a battery voltage matching your controller
+[ ] Remove the existing rear wheel and tire
+[ ] Mount the new hub motor wheel and transfer the tire
+[ ] Attach the controller to the frame with zip ties or a bag mount
+[ ] Mount the battery and run the main power cable cleanly
+[ ] Connect all wiring per the diagram before powering on
+[ ] Test throttle and brake cutoffs before the first ride
+
+:NOTE
+Check your local laws on electric bicycle classification before riding. Many regions limit hub motors to 250W or 500W on public paths and require the motor to cut off above 25 kph or 20 mph.

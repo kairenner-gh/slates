@@ -1,0 +1,40 @@
+:INFO
+Town History Archive Website
+Build a community history archive that digitizes and preserves local records, photos, and stories. Omeka is purpose-built for this and free to use with Omeka.net hosting.
+
+:COUNTER.half
+500 Items
+Meaningful milestone for a local archive
+|
+:COUNTER.half
+5 Years
+Time horizon for a complete digitization project
+
+:PATH
+Collect the Materials
+Partner with the local library, historical society, and senior center. Run a community scanning day where residents bring family photos. Accept donations of physical documents and photographs.
+
+:PATH
+Digitize Everything
+Scan photos at 600 DPI minimum. Use a flatbed scanner for documents. Create a consistent file naming convention before you start. Back up to two locations immediately after scanning.
+
+:PATH
+Publish the Archive
+Use Omeka or a WordPress site with image galleries. Add metadata to every item: date, location, people, event. Enable community comments so residents can add context to photos they recognize.
+
+:CHECKLIST
+Launch Checklist
+[ ] Register a domain with the town name and history or archive
+[ ] Set up Omeka.net or install Omeka S on shared hosting
+[ ] Create item metadata schema before adding any items
+[ ] Hold a community scanning day at the library
+[ ] Add 50 items with full metadata before going public
+[ ] Submit site to state historical society for linking
+[ ] Write a press release for the local paper
+
+:NOTE
+Oral history recordings are as valuable as photographs. A simple USB microphone and Audacity can capture interviews with longtime residents. Store audio as lossless FLAC with MP3 copies for the web.
+
+:LINK
+https://omeka.org
+Omeka Open Source Archiving Platform

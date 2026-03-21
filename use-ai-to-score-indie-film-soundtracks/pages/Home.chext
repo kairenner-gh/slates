@@ -1,0 +1,39 @@
+:QUOTE
+Every scene deserves a score. AI makes that possible for any filmmaker.
+
+:INFO
+AI Music Tools for Indie Film Scoring
+Suno, Udio, and similar tools let indie filmmakers generate original music tracks without a composer budget. With the right workflow you can score an entire short film in a single afternoon.
+
+:COUNTER.half
+120 Seconds
+Maximum generation length per track on most tools
+|
+:COUNTER.half
+5 Variations
+Generate per scene and select the best fit
+
+:PATH
+Describe Phase
+Write a detailed music prompt: tempo, mood, instrumentation, scene context. The more specific you are, the better the output matches picture.
+
+:PATH
+Generate Phase
+Run your prompt through Suno or Udio. Generate five variations per scene. Download the two best candidates.
+
+:PATH
+Mix Phase
+Import AI tracks into your video editor or DAW. Trim to scene length. Adjust levels so music sits under dialogue without competing.
+
+:CHECKLIST
+Film Scoring Workflow Checklist
+[ ] List every scene requiring music
+[ ] Write a one-sentence mood description per scene
+[ ] Generate five tracks per scene
+[ ] Select best candidate for each scene
+[ ] Export stems if available for easier mixing
+[ ] Sync music to picture in editing software
+[ ] Check licensing terms for distribution
+
+:NOTE
+Most AI music platforms offer royalty-free licenses for content created on their platform. Verify the terms before festival submission or commercial distribution. Save your generation prompts alongside each track file.

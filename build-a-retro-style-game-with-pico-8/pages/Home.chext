@@ -1,0 +1,38 @@
+:QUOTE
+PICO-8's constraints are not limitations. They are the design brief.
+
+:INFO
+Making a Retro-Style Game with PICO-8
+Making a retro-style game with PICO-8 fantasy console. Covers Lua scripting basics, using the built-in sprite and map editors, composing chiptune music with the tracker, and publishing to itch.io or the PICO-8 BBS.
+
+:COUNTER.half
+128 x 128 px
+PICO-8 screen resolution (fixed)
+|
+:COUNTER.half
+16 Colors
+Fixed PICO-8 palette
+
+:PATH
+Setup and First Script
+Purchase PICO-8 from Lexaloffle. Launch and type EDIT to enter the code editor. Write a simple _update and _draw loop. Print something to the screen. Run with CTRL-R. The constraint of a single file encourages focus.
+
+:PATH
+Sprite and Map Editors
+Open the sprite editor with CTRL-G. Draw 8x8 pixel sprites using the 16-color palette. Assign sprites to map tiles in the map editor. Use mget and mset in code to read and manipulate the map at runtime.
+
+:PATH
+Publishing the Game
+Export to a PNG cartridge with EXPORT cartname.p8.png. Upload to the PICO-8 BBS for community visibility. Export to HTML with EXPORT cartname.html and upload to itch.io as a web playable.
+
+:CHECKLIST
+Release Checklist
+[ ] Game completes without errors from start to end
+[ ] Sprite sheet complete and consistent
+[ ] Music and sound effects added
+[ ] Title screen with controls displayed
+[ ] Cartridge exported as PNG
+[ ] HTML export tested in browser
+
+:NOTE
+The PICO-8 token limit (8192 tokens) is the primary constraint you will hit in larger projects. Optimize code by using single-letter variable names, combining functions, and removing debug code before publishing.

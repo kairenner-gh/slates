@@ -1,0 +1,35 @@
+:INFO
+Running a Local LLM for Writing Assistance
+A local LLM gives you a private, offline AI writing assistant with no usage limits. Ollama and LM Studio make setup straightforward on modern hardware.
+
+:COUNTER.half
+8 GB RAM
+Minimum for 7B parameter models
+|
+:COUNTER.half
+16 GB RAM
+Recommended for 13B parameter models
+
+:PATH
+Install
+Download Ollama or LM Studio. Pull a model suited to creative or instructional writing tasks such as Mistral or Llama 3.
+
+:PATH
+Configure
+Set system prompts that establish your writing style and preferences. Save these as reusable Modelfiles in Ollama.
+
+:PATH
+Use
+Open a chat session and paste your draft or outline. Use slash commands or structured prompts to trigger specific writing tasks.
+
+:CHECKLIST
+Local LLM Setup Checklist
+[ ] Check available RAM and GPU memory
+[ ] Install Ollama or LM Studio
+[ ] Pull a writing-focused model
+[ ] Write a system prompt that captures your voice
+[ ] Test on a short scene or paragraph
+[ ] Set up a daily writing ritual with the local assistant
+
+:NOTE
+Quantized models (Q4 or Q5) run well on 16 GB of unified memory. On Apple Silicon, Metal acceleration gives you near GPU-class speed without a discrete graphics card.

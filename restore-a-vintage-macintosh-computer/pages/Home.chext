@@ -1,0 +1,39 @@
+:QUOTE
+These machines were built to last decades. With the right care, they will last several more.
+
+:INFO
+Restoring a Vintage Macintosh Computer
+Classic Macs from the 128K through the SE/30 era suffer from predictable aging: leaking electrolytic capacitors on the logic board, a dead PRAM battery, and yellowed plastics. Addressing these three issues restores most machines to full functionality.
+
+:COUNTER.half
+30 Years
+Typical age of a Mac SE or SE/30 today
+|
+:COUNTER.half
+25 kV
+CRT anode voltage: always discharge before touching internals
+
+:PATH
+Assess the Machine
+Power on the machine and note symptoms. Checkerboard or wavy display suggests bad caps. No startup chime often points to the PRAM battery. Document everything before disassembling.
+
+:PATH
+Recap the Logic Board
+Remove the logic board and identify the electrolytic capacitors. Replace with same-value tantalum or new electrolytic caps. Clean corroded areas with isopropyl alcohol and a toothbrush. This single repair fixes most compact Mac faults.
+
+:PATH
+Clean the Case
+Retrobrighting yellowed ABS plastic requires hydrogen peroxide cream, UV light, and patience. Apply the cream, wrap in cling film, and expose to bright sunlight or a UV lamp for 4 to 8 hours. Repeat as needed. Clean the screen inside with distilled water.
+
+:CHECKLIST
+Restoration Checklist
+[ ] Discharge CRT anode before any internal work
+[ ] Remove and inspect logic board under magnification
+[ ] Replace all electrolytic capacitors on logic board
+[ ] Replace PRAM battery with correct 3.6V lithium type
+[ ] Clean corrosion with 99% isopropyl alcohol
+[ ] Test all ports before reassembly
+[ ] Retrobright case plastics if yellowed
+
+:NOTE
+The CRT in a compact Mac stores a lethal charge even when unplugged. Discharge the anode with an insulated screwdriver and discharge lead before touching anything inside the analog board or CRT neck.

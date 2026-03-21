@@ -1,0 +1,39 @@
+:INFO
+Banking and Invoicing as a Freelancer Abroad
+International freelancers need banking that works across borders, invoicing that handles multiple currencies, and payment rails that do not eat margin on every transfer. This is solvable with the right combination of tools.
+
+:COUNTER.half
+3 Accounts
+Wise, a local account, and home country account as baseline
+|
+:COUNTER.half
+0.5%
+Typical Wise conversion fee vs 3 to 5% at traditional banks
+
+:PATH
+Set Up Banking
+Open a Wise Business account for multi-currency holding and receiving. Add Revolut for card spending abroad. Keep your home country account for tax payments and local obligations.
+
+:PATH
+Build Your Invoicing Workflow
+Use Wave or Invoice Ninja for free invoicing with multi-currency support. Always invoice in the client's currency unless your contract specifies otherwise. Include payment terms clearly.
+
+:PATH
+Optimize Payment Receipt
+Give clients your Wise local account details in their country. This means they send a domestic transfer and you receive internationally with no wire fees on their end.
+
+:CHECKLIST
+Freelancer Banking Checklist
+[ ] Wise Business account open and verified
+[ ] Local account details set up for each client currency
+[ ] Invoicing template with clear payment terms
+[ ] Payment tracking in a simple spreadsheet or tool
+[ ] Separate account for tax set-aside
+[ ] Annual review of fee structures as volume grows
+
+:NOTE
+Never use PayPal as your primary international payment method. Fees and currency conversion rates are significantly worse than Wise or direct bank transfers for business amounts.
+
+:LINK
+https://wise.com/us/business/
+Wise Business: Multi-Currency Business Account

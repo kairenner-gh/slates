@@ -1,0 +1,42 @@
+:QUOTE
+Light pollution is the enemy. Distance from a city is the cure.
+
+:INFO
+Milky Way Photography from Home
+Photographing the Milky Way from a dark backyard requires a DSLR or mirrorless camera, a fast wide-angle lens, and a moonless night. Light pollution maps help find the darkest patch of sky above your location.
+
+:COUNTER.half
+ISO 3200
+Starting ISO for Milky Way shots with a modern sensor
+|
+:COUNTER.half
+20 Seconds
+Maximum exposure before star trailing at 24mm (500 rule)
+
+:PATH
+Plan the Shoot
+Description: Use Light Pollution Map or Dark Sky Finder to assess your backyard. Check for new moon nights and the Milky Way core's position using Photopills or Stellarium. The core is best visible from April through September in the northern hemisphere.
+
+:PATH
+Shoot the Milky Way
+Description: Set your lens to its widest aperture (f/1.8 to f/2.8), ISO 1600 to 6400, and exposure using the 500 rule (500 divided by focal length). Focus on a bright star manually. Shoot RAW.
+
+:PATH
+Stack and Process
+Description: Capture 10 to 20 frames for stacking. Use Sequator (Windows, free) or StarStaX to stack images and reduce noise. Process in Lightroom or RawTherapee for color and contrast.
+
+:CHECKLIST
+Milky Way Shoot Checklist
+[ ] Confirm new moon window (within 5 days of new moon)
+[ ] Check weather for clear skies and low humidity
+[ ] Charge batteries and format memory cards
+[ ] Enable live view and zoom to focus manually on a star
+[ ] Use a remote shutter or 2 second timer to avoid camera shake
+[ ] Shoot a test frame and check for star trailing
+
+:NOTE
+Even a Bortle 5 or 6 backyard can yield a visible Milky Way arch. Shoot toward the darkest part of your horizon and process aggressively in post.
+
+:LINK
+https://www.lightpollutionmap.info
+Light Pollution Map: check the Bortle class of your location

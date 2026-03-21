@@ -1,0 +1,41 @@
+:INFO
+Custom Classifier Training with fast.ai
+fast.ai wraps PyTorch in a high-level API that lets you train an image or text classifier in hours rather than days. The library handles data loaders, augmentation, and training loops with sensible defaults.
+
+:COUNTER.half
+200 Images
+Per class minimum for a reliable image classifier
+|
+:COUNTER.half
+5 Epochs
+Often enough for transfer learning on a small dataset
+
+:PATH
+Data Phase
+Collect and label your dataset. Use ImageClassifierCleaner to audit and remove mislabeled examples before training.
+
+:PATH
+Train Phase
+Load a pretrained ResNet or ViT backbone. Fine-tune with one cycle training. Use the learning rate finder before committing to a rate.
+
+:PATH
+Deploy Phase
+Export the model as a pickle file. Wrap with a Gradio or FastAPI interface. Deploy to Hugging Face Spaces or a simple VPS.
+
+:CHECKLIST
+Classifier Training Checklist
+[ ] Define classes and success criteria
+[ ] Collect and label training data
+[ ] Split into train and validation sets
+[ ] Train baseline model with default settings
+[ ] Review confusion matrix and error cases
+[ ] Clean mislabeled examples and retrain
+[ ] Export model and test inference
+[ ] Deploy behind an API endpoint
+
+:NOTE
+fast.ai fine-tunes only the final layers on the first pass, then unfreezes all layers for a second training run with a lower learning rate. This two-pass approach consistently outperforms single-pass fine-tuning on small datasets.
+
+:LINK
+https://docs.fast.ai
+fast.ai documentation and practical deep learning course

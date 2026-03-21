@@ -1,0 +1,21 @@
+:INFO
+Barn Door Tracker Parts List
+All parts are available online or at a hardware store. Total cost is approximately 60 to 80 dollars depending on sourcing. The Arduino and motor driver are reusable for future projects.
+
+:TASK
+[ ] Two pine boards 30cm x 10cm x 2cm (any straight-grained wood works)
+[ ] One 150mm piano hinge with screws
+[ ] One 28BYJ-48 stepper motor with ULN2003 driver board
+[ ] One Arduino Nano or Uno (any clone works)
+[ ] One 1/4-20 threaded rod 20cm long with matching nuts
+[ ] One 1/4 inch ball head adapter for camera attachment
+[ ] One small project enclosure box for electronics
+[ ] USB power bank (5V) to power the Arduino in the field
+[ ] Two knurled thumb nuts for easy field adjustment
+
+:NOTE
+The 28BYJ-48 motor makes 2048 steps per revolution. At the correct step interval in the Arduino sketch, it turns the rod at precisely the sidereal rate.
+
+:LINK
+https://github.com/bbauska/barn-door-tracker
+Reference Arduino sketch and wiring diagram for barn door trackers

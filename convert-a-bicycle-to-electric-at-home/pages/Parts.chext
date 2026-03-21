@@ -1,0 +1,22 @@
+:INFO
+Parts List for a DIY E-Bike Conversion
+Specific parts and sourcing guidance for a reliable 500W rear hub motor e-bike conversion suitable for urban commuting.
+
+:TASK
+[ ] Rear hub motor kit 500W 48V with laced wheel and tire
+[ ] 48V 13Ah lithium ion battery with BMS and XT60 connector
+[ ] KT or Sabvoton controller matched to motor voltage
+[ ] LCD display panel showing speed, battery, and assist level
+[ ] Thumb throttle or twist throttle per preference
+[ ] Brake levers with motor cutoff switches
+[ ] Torque arm for rear dropout to prevent axle rotation
+[ ] Anderson or XT60 connectors for battery connection
+[ ] Cable ties and spiral cable wrap for wiring management
+[ ] Multimeter for verifying connections before powering on
+
+:NOTE
+Buy motor kit and battery as a matched set from a single supplier when possible. Voltage mismatches between battery and controller are the most common cause of conversion failures and component damage.
+
+:LINK
+https://ebikes.ca/shop/parts.html
+Grin Technologies E-Bike Parts and Calculators

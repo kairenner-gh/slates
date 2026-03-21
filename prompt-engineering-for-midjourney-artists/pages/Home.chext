@@ -1,0 +1,38 @@
+:QUOTE
+A precise prompt is the difference between noise and a vision.
+
+:INFO
+Crafting Effective Midjourney Prompts
+Midjourney responds to structured prompts that combine subject, environment, lighting, style, and technical parameters. Understanding how each component influences output lets you iterate faster and achieve consistent results.
+
+:COUNTER.half
+22 Aspect Ratios
+Supported via the --ar parameter
+|
+:COUNTER.half
+0 to 1000
+Stylize range controlling artistic interpretation
+
+:PATH
+Prompt Structure
+Lead with subject, follow with environment and mood, then add style keywords and close with technical parameters.
+
+:PATH
+Style Keywords
+Reference art movements, photographers, or visual styles. Combine two or three for a hybrid aesthetic rather than one dominant style.
+
+:CHECKLIST
+Prompt Engineering Checklist
+[ ] Define core subject clearly
+[ ] Add lighting descriptor (golden hour, studio, overcast)
+[ ] Include medium or style keyword
+[ ] Set aspect ratio with --ar
+[ ] Adjust stylize value if output is too literal or too abstract
+[ ] Use negative prompt with --no for unwanted elements
+
+:NOTE
+Save your best-performing prompts in a dedicated file. Over time this becomes a personal prompt library you can remix for new projects without starting from scratch each session.
+
+:LINK
+https://docs.midjourney.com/docs/parameter-list
+Official Midjourney parameter reference

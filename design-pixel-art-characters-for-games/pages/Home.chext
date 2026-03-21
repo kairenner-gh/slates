@@ -1,0 +1,39 @@
+:INFO
+Creating Pixel Art Characters for Games with Aseprite
+Creating pixel art character sprites for games using Aseprite. Covers canvas sizing, building a limited color palette, and animating walk and idle cycles.
+
+:COUNTER.half
+16 x 16 px
+Standard character canvas size for 8-bit style sprites
+|
+:COUNTER.half
+4 to 8 Colors
+Target palette size for readable character design
+
+:PATH
+Setup and Canvas
+Install Aseprite. Create a new file at 16x16 or 32x32 pixels depending on your style target. Set the color mode to indexed. Define your palette before drawing. Use a reference from a game you admire.
+
+:PATH
+Character Design
+Start with a silhouette. A readable silhouette at small size is the first test of a good character design. Add detail only after the silhouette reads clearly. Limit your color count strictly.
+
+:PATH
+Animation
+Animate the idle first (2 to 4 frames). Then the walk cycle (6 to 8 frames). Use Aseprite's onion skinning to track motion. Export sprite sheets with the built-in JSON export for use in Godot, Unity, or GameMaker.
+
+:CHECKLIST
+Character Production Checklist
+[ ] Canvas size set and consistent across all frames
+[ ] Palette defined and locked before drawing
+[ ] Silhouette readable at 1x scale
+[ ] Idle animation looping cleanly
+[ ] Walk cycle exported as sprite sheet
+[ ] JSON data exported alongside sprite sheet
+
+:NOTE
+Aseprite is the industry standard for pixel art and costs around 20 USD as a one-time purchase. The source code is also available to compile for free if you prefer. It is worth purchasing to support development.
+
+:LINK
+https://www.aseprite.org/docs/
+Official Aseprite documentation and animation tutorials

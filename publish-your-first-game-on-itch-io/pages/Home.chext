@@ -1,0 +1,39 @@
+:INFO
+Publishing Your First Game on itch.io
+Publishing your first game on itch.io. Covers page setup, pricing strategy, building a basic press kit, and a launch day checklist to maximize visibility.
+
+:COUNTER.half
+5 Screenshots
+Minimum recommended for an itch.io game page
+|
+:COUNTER.half
+1 GIF
+A short gameplay GIF is the single most effective page element
+
+:PATH
+Preparing for Launch
+Export your game build for your target platforms. Write a short description under 200 words. Take screenshots during gameplay, not from the editor. Record a 10 to 30 second GIF of the most interesting gameplay moment.
+
+:PATH
+Setting Up the Page
+Set a cover image at 315x250 pixels. Write a compelling short description. Add tags generously: genre, engine, theme, platform. Set pricing to free or pay-what-you-want for a first release to maximize downloads.
+
+:PATH
+Post-Launch Promotion
+Post to itch.io's community boards. Share in relevant subreddits and Discord servers. Reach out to small game YouTubers and streamers. Submit to game jams retroactively if eligible.
+
+:CHECKLIST
+Launch Day Checklist
+[ ] Game build uploaded and tested on a clean machine
+[ ] Cover image and screenshots uploaded
+[ ] Description complete with no placeholder text
+[ ] Tags set (at least 8)
+[ ] Download file labeled with version number
+[ ] Community post written for itch.io feed
+
+:NOTE
+Pay-what-you-want at 0 minimum gets you the most downloads and still earns money from players who want to support you. A suggested price of 2 to 3 USD with 0 minimum is the most common strategy for first releases.
+
+:LINK
+https://itch.io/docs/creators/design
+itch.io creator documentation: page design and discoverability guide

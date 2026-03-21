@@ -1,0 +1,37 @@
+:INFO
+Home Maintenance for Your Electric Scooter
+Keep a personal electric scooter running reliably with regular home maintenance. Tires, brakes, battery care, and firmware updates cover 90 percent of what goes wrong with regular use.
+
+:COUNTER.half
+Monthly
+Minimum maintenance interval for daily-use scooters
+|
+:COUNTER.half
+500km
+Typical interval for a full brake and tire inspection
+
+:PATH
+Tire Care
+Check tire pressure before every ride. Most scooters use 50 PSI for pneumatic tires. Inspect for cuts and wear monthly. Replace a pneumatic tube rather than the whole tire when possible.
+
+:PATH
+Brake Adjustment
+Test both brakes before every ride. Adjust cable tension if the lever pulls more than halfway to the bar. Bleed hydraulic brakes annually or when the lever feels spongy. Replace pads when worn to 1mm.
+
+:PATH
+Battery Maintenance
+Store the battery at 50 to 80 percent charge if not riding for more than two weeks. Avoid charging to 100 percent daily for long-term cell health. Never leave the scooter on charge unattended overnight.
+
+:CHECKLIST
+Monthly Maintenance Checklist
+[ ] Check and adjust tire pressure to spec
+[ ] Inspect tires for cuts, bulges, or excessive wear
+[ ] Test front and rear brakes at walking speed
+[ ] Check all folding mechanism screws for looseness
+[ ] Wipe down deck and charge port area with a dry cloth
+[ ] Check battery percentage and top up if below 20 percent
+[ ] Inspect cables and connectors for chafing or corrosion
+[ ] Check manufacturer app for firmware updates
+
+:NOTE
+Most scooter manufacturers release firmware updates that improve battery management and motor efficiency. Check the companion app quarterly and update in a stable wifi environment with battery above 50 percent.

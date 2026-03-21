@@ -1,0 +1,40 @@
+:QUOTE
+A DIY electric longboard is a rolling engineering project that you also commute on.
+
+:INFO
+DIY Electric Longboard Build
+Build a custom electric longboard from a deck, trucks, dual hub motors or belt drives, an ESC, a lithium battery pack, and a handheld remote. Budget builds start around $300.
+
+:COUNTER.half
+$400
+Average cost for a reliable budget DIY electric longboard
+|
+:COUNTER.half
+25 kph
+Realistic top speed for a 6S hub motor build
+
+:PATH
+Choose the Deck and Trucks
+A 38 to 42 inch drop-through deck gives a stable, low ride height. Use 218mm trucks for stability at speed. Caliber or Paris trucks work well with most motor mounts and pulleys.
+
+:PATH
+Build the Drivetrain
+Hub motors are the simplest option: no belt, no pulley, motors fit inside the wheels. Belt drive gives more torque and easier wheel swaps. Choose based on your terrain and mechanical confidence.
+
+:PATH
+Wire the Electronics
+Mount the ESC inside a 3D printed or aluminum enclosure on the deck underside. Wire the battery to the ESC with an antispark connector. Pair the remote receiver to the ESC before final assembly.
+
+:CHECKLIST
+Build Checklist
+[ ] Choose deck, trucks, and motor type before ordering anything
+[ ] Measure truck axle width to confirm motor hub or pulley fit
+[ ] Order ESC and remote as a matched set from one supplier
+[ ] Build or buy battery pack at correct voltage for your ESC
+[ ] Mount ESC and battery in waterproof enclosures
+[ ] Wire battery to ESC with antispark XT90 connector
+[ ] Calibrate ESC to remote throttle curve before riding
+[ ] Test braking at low speed before a full-speed run
+
+:NOTE
+VESC-based speed controllers are the most configurable option and have a strong open-source community. The VESC Tool software allows fine-tuning of motor detection, braking strength, and speed limits.

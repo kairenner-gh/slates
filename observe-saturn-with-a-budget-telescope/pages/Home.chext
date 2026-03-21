@@ -1,0 +1,42 @@
+:QUOTE
+The first time you see Saturn's rings through a telescope, you will not believe it is real.
+
+:INFO
+Observing Saturn on a Budget
+Saturn is one of the most rewarding objects for beginner astronomers. Its rings are visible even through a 60mm refractor at 50x magnification. With a 4- to 6-inch telescope, you can see the Cassini Division, cloud bands, and the moon Titan.
+
+:COUNTER.half
+764 Million km
+Average distance from Earth to Saturn
+|
+:COUNTER.half
+50x
+Minimum magnification to clearly see Saturn's rings
+
+:PATH
+Choose a Telescope
+Description: A 4.5-inch or 6-inch Dobsonian reflector is the best value for planetary viewing. Avoid refractors under 70mm and any telescope marketed by accessories rather than aperture.
+
+:PATH
+Align and Collimate
+Description: Collimate your reflector before each session using a collimation cap or laser. A misaligned mirror blurs planetary detail more than any other single factor.
+
+:PATH
+Plan Your Observation Session
+Description: Use Stellarium or SkySafari to find Saturn's current position and rise time. Observe when Saturn is highest in the sky to minimize atmospheric distortion. Let your eyes dark-adapt for 20 minutes before viewing.
+
+:CHECKLIST
+Saturn Observation Checklist
+[ ] Confirm Saturn is above 30 degrees altitude in your sky
+[ ] Collimate your telescope before going out
+[ ] Allow telescope to thermally equilibrate for 30 minutes outside
+[ ] Start at low magnification (50x) and increase slowly
+[ ] Sketch what you see: rings, gap, polar flattening
+[ ] Note date, time, magnification, and seeing conditions
+
+:NOTE
+Saturn's ring plane tilts relative to Earth over a 29-year cycle. The rings are currently well-tilted and prominent, making this an excellent period to observe.
+
+:LINK
+https://stellarium-web.org
+Stellarium Web: free in-browser planetarium to locate Saturn tonight

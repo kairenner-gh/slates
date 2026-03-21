@@ -1,0 +1,38 @@
+:QUOTE
+The Altair 8800 did not ship with software. The act of programming it was the point.
+
+:INFO
+Building an Altair 8800 Replica at Home
+Building a working Altair 8800 replica at home using original schematics or modern kits like the MITS Altair 8800c. Covers kit options, assembly workflow, and programming the machine in 8080 machine code.
+
+:COUNTER.half
+256 Bytes
+Original Altair 8800 RAM in base configuration
+|
+:COUNTER.half
+36 Switches
+Front panel toggle switches for data and address entry
+
+:PATH
+Kit vs Scratch Build
+The Altair 8800c kit from Altair Computer is the most accessible option. Scratch builds use original Intel 8080A chips or Z80 compatible substitutes with period-correct schematics from the MITS documentation archive.
+
+:PATH
+Assembly Workflow
+Follow the kit manual strictly for board population order. Test power supply voltages before inserting ICs. Use a ZIF socket for the CPU. Check all front panel switch connections before first power-on.
+
+:PATH
+Programming the Machine
+Enter programs using the front panel switches in binary. Load the MITS BASIC tape image via a serial terminal at 110 baud. Reference the 8080 programmer manual for instruction opcodes.
+
+:CHECKLIST
+Build Readiness Checklist
+[ ] All kit components verified against BOM
+[ ] Power supply voltages confirmed before IC insertion
+[ ] CPU seated correctly in socket
+[ ] Front panel switch continuity tested
+[ ] Serial terminal configured at correct baud rate
+[ ] BASIC tape image ready to load
+
+:NOTE
+The Altair 8800c from Altair Computer includes a modern replica board that runs original 8080 software accurately. It is a complete kit with a chassis and front panel and is the most historically authentic option available today.

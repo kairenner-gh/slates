@@ -1,0 +1,44 @@
+:QUOTE
+Running a BBS in 2026 is not nostalgia. It is choosing a network you actually control.
+
+:INFO
+Setting Up a Home Bulletin Board System
+A BBS lets you run a private or public message board, file area, and door game server from your own hardware. Synchronet and Mystic BBS are the two most active modern platforms, both supporting Telnet and SSH access.
+
+:COUNTER.half
+1 Hour
+Typical time to get Synchronet running on a Raspberry Pi
+|
+:COUNTER.half
+23
+The default Telnet port for BBS access
+
+:PATH
+Install Your BBS Software
+Synchronet runs on Linux, Windows, and macOS. Download from the official site and follow the platform guide. Mystic BBS is lighter weight and suits Raspberry Pi deployments well. Both have active documentation.
+
+:PATH
+Configure Your System
+Set your BBS name, sysop account, and connection settings. Enable Telnet on port 23 and SSH on port 22 for secure access. Configure message areas before inviting users. A door game or two helps retention.
+
+:PATH
+Populate with Content
+Create a welcome screen in ANSI art using PabloDraw or a plain text editor. Set up file areas with classic software archives. Join the FidoNet or DOVE-Net echo networks for shared message traffic with other BBSes worldwide.
+
+:CHECKLIST
+BBS Launch Checklist
+[ ] BBS software installed and running locally
+[ ] Telnet and SSH access tested from another device
+[ ] Port forwarding configured on your router
+[ ] Dynamic DNS set up if your IP changes
+[ ] Welcome screen and message areas configured
+[ ] At least one door game installed
+[ ] Joined an echo network for external message traffic
+[ ] Backup scheduled for BBS data directory
+
+:NOTE
+Most home internet connections block inbound port 23. Use a non-standard port like 2323 and tell your users, or run a reverse proxy through a VPS to avoid the restriction.
+
+:LINK
+https://www.synchro.net
+Synchronet BBS Software: Download and Documentation

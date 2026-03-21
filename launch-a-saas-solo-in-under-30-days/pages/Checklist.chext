@@ -1,0 +1,20 @@
+:INFO
+Pre-Launch and Post-Launch Checklist
+A complete checklist covering everything to verify before going live and the first actions to take after launch day.
+
+:TASK
+[ ] Landing page copy reviewed and proofread
+[ ] Stripe payments tested end to end
+[ ] Email confirmation flow working
+[ ] Error pages and edge cases handled
+[ ] Analytics tracking installed
+[ ] Support email address set up
+[ ] Launch post drafted for Product Hunt
+[ ] Announce to email waitlist
+[ ] Post in three relevant online communities
+[ ] Follow up with every new signup within 24 hours
+[ ] Review analytics after 48 hours
+[ ] Schedule week two retrospective
+
+:NOTE
+Write your post-launch thank-you email before launch day. You will not have time to write it well in the chaos of a live launch. Prepare it in advance and send it within two hours of going live.

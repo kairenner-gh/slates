@@ -1,0 +1,38 @@
+:INFO
+Micro-SaaS with No-Code Tools
+No-code platforms like Bubble, Glide, and Softr let solo founders ship real software products without writing backend code. The tradeoff is flexibility for speed. Right for narrow problems with clear users.
+
+:COUNTER.half
+3 Months
+Typical time from idea to paying users
+|
+:COUNTER.half
+1 Person
+Enough to build and run a micro-SaaS
+
+:PATH
+Ideate a Narrow Problem
+Pick one workflow that is painful for a specific type of user. Avoid broad categories. Specificity is your competitive advantage as a solo builder.
+
+:PATH
+Build With No-Code
+Choose the platform that fits your data model. Bubble for complex logic, Glide for mobile from spreadsheets, Softr for portals on top of Airtable.
+
+:PATH
+Launch and Monetize
+Use Stripe or Lemon Squeezy for subscriptions. Start with a waitlist, then a small founding member price before going to full pricing.
+
+:CHECKLIST
+Pre-Launch Checklist
+[ ] Validate the problem with 5 real conversations
+[ ] Build a working prototype in under 2 weeks
+[ ] Set up a landing page with an email capture
+[ ] Define your one core feature and ship only that
+[ ] Set a launch date and stick to it
+
+:NOTE
+No-code tools have real limits. If your product grows, you may hit performance ceilings or need custom logic that requires code. Plan your escape hatch early.
+
+:LINK
+https://www.nocode.tech
+No-Code Tools Directory

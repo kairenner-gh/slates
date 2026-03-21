@@ -1,0 +1,40 @@
+:INFO
+Building a RAG Knowledge Base for Research
+Retrieval-augmented generation lets you query your own documents using natural language. LlamaIndex and LangChain make it possible to build a personal research assistant over any collection of PDFs, notes, or web pages.
+
+:COUNTER.half
+10,000 Docs
+LlamaIndex handles at this scale with vector indexing
+|
+:COUNTER.half
+Under 2s
+Average query response time on a local vector store
+
+:PATH
+Ingest Phase
+Collect your source documents. Run them through a chunking and embedding pipeline. Store vectors in a local or cloud vector database.
+
+:PATH
+Query Phase
+Ask questions in natural language. The retriever fetches relevant chunks and the LLM generates a grounded answer with source references.
+
+:PATH
+Refine Phase
+Improve retrieval quality by adjusting chunk size, overlap, and embedding model. Add metadata filtering for better precision.
+
+:CHECKLIST
+RAG Setup Checklist
+[ ] Choose framework: LlamaIndex or LangChain
+[ ] Select embedding model
+[ ] Choose vector store: Chroma, Qdrant, or Pinecone
+[ ] Ingest first batch of documents
+[ ] Test with 10 research questions
+[ ] Evaluate answer accuracy and source quality
+[ ] Add new documents on a regular schedule
+
+:NOTE
+Chunk size has a big impact on retrieval quality. Start with 512 tokens and an overlap of 50 tokens. Smaller chunks improve precision; larger chunks improve context for complex answers.
+
+:LINK
+https://docs.llamaindex.ai
+LlamaIndex documentation and quickstart guides

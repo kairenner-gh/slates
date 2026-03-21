@@ -1,0 +1,35 @@
+:INFO
+DIY Barn Door Tracking Mount
+A barn door tracker is a simple motorized mount that counteracts Earth's rotation during astrophotography exposures. It allows exposures of several minutes with a DSLR and wide lens without star trailing. Total build cost is under 80 dollars.
+
+:COUNTER.half
+3 Minutes
+Maximum untracked exposure at 24mm before trailing becomes visible
+|
+:COUNTER.half
+30 Minutes
+Typical guided exposure possible with a well-built barn door tracker
+
+:PATH
+Design the Mount
+Description: The classic single-arm barn door uses two wooden boards hinged at one end. A stepper motor turns a threaded rod at the correct rate to match Earth's rotation. Use the isosceles design for accuracy over longer periods.
+
+:PATH
+Build the Tracker
+Description: Cut two 30cm boards and connect with a piano hinge. Mount a stepper motor and motor driver (ULN2003) on the lower board. Thread a 1/4-20 rod through the upper board at the calculated pivot distance (28.65cm for a 1 RPM motor).
+
+:PATH
+Polar Align the Tracker
+Description: Align the hinge axis with Polaris (northern hemisphere) before each session. Use a polar alignment scope or a phone compass and inclinometer app. Accuracy within one degree is sufficient for wide-field photography.
+
+:CHECKLIST
+Build Checklist
+[ ] Source all parts (see Parts.chext for full list)
+[ ] Cut and sand both wooden boards to size
+[ ] Drill motor mount and threaded rod holes precisely
+[ ] Wire the stepper motor to an Arduino and ULN2003 driver
+[ ] Program the Arduino with the correct step rate for your rod pitch
+[ ] Test tracking accuracy with a 2 minute star exposure before dark
+
+:NOTE
+The most critical measurement is the distance from the hinge to the threaded rod. A 1mm error causes drift over long exposures. Measure twice, drill once.

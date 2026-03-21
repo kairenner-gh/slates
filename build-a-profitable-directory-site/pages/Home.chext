@@ -1,0 +1,40 @@
+:QUOTE
+A directory is a business you build once and optimize forever.
+
+:INFO
+Profitable Niche Directory Sites
+A directory website aggregates and organizes resources in a specific niche. With good SEO and a clear monetization model it can generate passive income from listings, sponsorships, or affiliate links.
+
+:COUNTER.half
+500 Listings
+Target size for a directory to feel authoritative
+|
+:COUNTER.half
+3 Months
+Typical time to first significant organic traffic
+
+:PATH
+Niche Selection
+Pick a niche with clear search intent and underserved directory options. Validate with keyword research before building anything.
+
+:PATH
+Build Phase
+Use a static site generator with a spreadsheet or Airtable backend, or a dedicated directory builder like Directories.dev or Listd.
+
+:PATH
+Monetize Phase
+Offer paid featured listings, category sponsorships, or affiliate deals with listed products. Add premium tiers once you have traffic.
+
+:CHECKLIST
+Directory Site Checklist
+[ ] Choose niche and validate search volume
+[ ] Research existing directories and find gaps
+[ ] Select tech stack or directory builder
+[ ] Define listing data schema
+[ ] Seed with 50 high-quality listings before launch
+[ ] Submit sitemap to Google Search Console
+[ ] Set up paid listing submission form
+[ ] Reach out to potential sponsors in niche
+
+:NOTE
+The fastest way to get initial traffic is to submit your directory to other directories and niche communities. List yourself on Product Hunt and post in relevant subreddits and Discord communities in your niche.

@@ -1,0 +1,19 @@
+:INFO
+Layout and Typography Guide for RPG Zines
+Layout and typography guidance for designing RPG zines using Affinity Publisher or Canva. Covers typeface choices, margins, and print-ready export settings.
+
+:PATH
+Typography Basics
+Use a serif body font at 9 to 11pt for readability. Pair with a display font for headers. Avoid more than two typefaces in one zine. Line spacing of 120 to 140 percent improves readability in small formats.
+
+:CHECKLIST
+Layout Production Checklist
+[ ] Document set to A5 with 3mm bleed
+[ ] Margins at minimum 10mm on all sides
+[ ] Images embedded at 300 DPI minimum
+[ ] Fonts embedded in export PDF
+[ ] Pages exported in printer spread order
+[ ] Black and white version tested for home printing
+
+:NOTE
+Affinity Publisher is a one-time purchase and handles print-ready PDFs well. Canva works for simpler layouts but has limited bleed and export control. For home printing, design in black and white first and add color only if your printer handles it well.

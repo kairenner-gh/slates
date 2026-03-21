@@ -1,0 +1,38 @@
+:QUOTE
+Consistency beats brilliance. AI helps you show up every single week.
+
+:INFO
+AI-Powered Newsletter Workflow
+A repeatable AI workflow lets you go from topic idea to polished newsletter in a fraction of the time. The key is breaking the process into discrete steps where AI handles the heavy lifting.
+
+:PATH
+Research Phase
+Use Perplexity or ChatGPT to scan recent developments on your topic. Generate a brief summary of the three most relevant angles.
+
+:PATH
+Draft Phase
+Feed your research summary and audience profile into an AI writing tool. Generate a full draft and rewrite for voice.
+
+:PATH
+Schedule Phase
+Use Beehiiv or ConvertKit scheduling to queue the issue. Set a consistent send day and track open rates over time.
+
+:COUNTER.half
+2 Hours
+Total time per issue with AI assist
+|
+:COUNTER.half
+4x Issues
+More output versus fully manual writing
+
+:CHECKLIST
+Newsletter Automation Checklist
+[ ] Define audience and topic niche
+[ ] Create a reusable research prompt template
+[ ] Create a draft generation prompt with voice guide
+[ ] Set up editing pass prompt for clarity and brevity
+[ ] Connect to email platform via API or Zapier
+[ ] Schedule send and monitor analytics
+
+:NOTE
+Your voice is the product. Use AI to generate raw material but always rewrite the opening hook and closing CTA yourself. Readers subscribe for your perspective, not generic copy.

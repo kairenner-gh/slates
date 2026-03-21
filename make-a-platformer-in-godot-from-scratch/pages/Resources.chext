@@ -1,0 +1,18 @@
+:INFO
+Godot 4 Learning Resources and Asset Packs
+Curated learning resources, free asset packs, and community links for Godot 4 development.
+
+:LINK
+https://docs.godotengine.org/en/stable/
+Official Godot 4 documentation and class reference
+
+:LINK
+https://kidscancode.org/godot_recipes/4.x/
+GDScript recipes and platformer tutorials by KidsCanCode
+
+:LINK
+https://itch.io/game-assets/free/tag-pixel-art
+Free pixel art asset packs on itch.io
+
+:NOTE
+The Godot Discord server has dedicated channels for beginners and 2D game development. Most common platformer questions are answered in the FAQ channels before you need to ask them.

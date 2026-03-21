@@ -1,0 +1,39 @@
+:INFO
+Track Satellites with Free Software
+Hundreds of satellites are visible to the naked eye each night. Free tools let you predict passes, track the ISS in real time, and identify unknown flares. No telescope required for most observations.
+
+:COUNTER.half
+8000 Active Satellites
+Currently in Earth orbit as of 2025
+|
+:COUNTER.half
+6 Minutes
+Typical ISS pass duration across the sky
+
+:PATH
+Install Tracking Software
+Description: Download Stellarium (desktop) for sky overlay tracking, and use Heavens-Above in a browser for precise pass predictions by your GPS location. Both are free.
+
+:PATH
+Predict Passes
+Description: On Heavens-Above, enter your location and view tonight's ISS pass table. The table shows start azimuth, peak altitude, and end time. High-altitude passes (above 60 degrees) are the most impressive.
+
+:PATH
+Observe and Log
+Description: Go outside 5 minutes before the predicted start. Face the start azimuth. The ISS looks like a very bright, steady, fast-moving star. Binoculars show its cross shape at peak altitude.
+
+:CHECKLIST
+Satellite Watching Checklist
+[ ] Register location on Heavens-Above for accurate predictions
+[ ] Check ISS pass magnitude (brighter than minus 2 is excellent)
+[ ] Set a phone alarm for 5 minutes before pass start
+[ ] Allow 10 minutes of dark adaptation before observing
+[ ] Log: date, time, max altitude, brightness, direction
+[ ] Try binoculars on the ISS at peak altitude
+
+:NOTE
+Starlink train passes are visible for weeks after a new launch. They appear as a string of equally-spaced lights moving in a line across the sky.
+
+:LINK
+https://heavens-above.com
+Heavens-Above: real-time satellite pass predictions by location

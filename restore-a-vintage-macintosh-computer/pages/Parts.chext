@@ -1,0 +1,19 @@
+:INFO
+Vintage Mac Parts Sourcing Guide
+Where to find logic boards, capacitors, batteries, and replacement parts for compact Macintosh restoration.
+
+:TASK
+[ ] Logic board caps: Mouser or Digi-Key, search by value and footprint from service manual
+[ ] PRAM battery: search for 1/2 AA 3.6V lithium, Tadiran TL-5902 or equivalent
+[ ] Floppy drives: eBay, check seller feedback for tested units
+[ ] Analog boards: 68kMLA forums and Marketplace
+[ ] Flyback transformers: Uniserver or reclaim from donor Mac
+[ ] Keyboard caps and cases: Retro Mac Cast community listings
+[ ] SCSI drives or SD-to-SCSI adapters: SCSI2SD or BlueSCSI
+
+:LINK
+https://68kmla.org
+68kMLA: Vintage Mac Community, Parts, and Technical Help
+
+:NOTE
+The 68kMLA forum is the single most valuable resource for compact Mac restoration. Service manuals, schematics, and experienced restorers are all in one place.
