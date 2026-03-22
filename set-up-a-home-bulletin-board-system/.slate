@@ -1,0 +1,3 @@
+name: Set Up a Home Bulletin Board System
+description: Run a private or public BBS with message boards, file areas, and door games from your own hardware using Synchronet or Mystic BBS. Covers installation on a Raspberry Pi, Telnet and SSH configuration, and joining FidoNet for shared message traffic.
+type: Article

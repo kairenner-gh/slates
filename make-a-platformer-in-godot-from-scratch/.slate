@@ -1,0 +1,3 @@
+name: Make a Platformer in Godot from Scratch
+description: Build a complete 2D platformer in Godot 4 from project setup through player controller, tilemap level design, and enemy behavior using state machines. Covers CharacterBody2D movement with coyote time, collision layers, and export settings.
+type: Article

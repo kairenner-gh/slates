@@ -1,0 +1,3 @@
+name: Fine-Tune a Language Model for Your Niche
+description: Fine-tune an open source language model on domain-specific data using LoRA or QLoRA on consumer hardware to produce a model that speaks your niche's language. Covers dataset preparation, training with Axolotl, and deployment with Ollama or vLLM.
+type: Article

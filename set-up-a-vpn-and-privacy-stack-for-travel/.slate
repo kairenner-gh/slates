@@ -1,0 +1,3 @@
+name: Set Up a VPN and Privacy Stack for Travel
+description: Protect your traffic on public WiFi and hotel networks with a layered privacy setup using a no-log VPN, encrypted DNS, and a hardened browser. Covers Mullvad and Proton VPN, DNS-over-HTTPS, and testing for DNS and IP leaks before traveling.
+type: Article

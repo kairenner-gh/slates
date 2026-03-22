@@ -1,0 +1,3 @@
+name: Ship a Chrome Extension as a Side Project
+description: Build and publish a Chrome extension as a solo side project in a weekend using Manifest v3 and the Chrome Web Store for built-in distribution. Covers project structure, store listing preparation, and minimizing permission scope to pass review faster.
+type: Article

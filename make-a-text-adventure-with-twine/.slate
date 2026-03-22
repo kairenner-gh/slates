@@ -1,0 +1,3 @@
+name: Make a Text Adventure with Twine
+description: Create a branching text adventure game with Twine, from story structure and passage logic through CSS styling and publishing to itch.io. Covers the spine-and-branches story model, variable tracking across passages, and HTML export.
+type: Article

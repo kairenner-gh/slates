@@ -1,0 +1,3 @@
+name: Self-Host Your Analytics with Plausible
+description: Run a self-hosted Plausible Analytics instance on a $4/month VPS for full data ownership and no tracking consent banners. Covers Docker Compose setup, automatic HTTPS via Caddy, and adding the tracking script to any website.
+type: Article

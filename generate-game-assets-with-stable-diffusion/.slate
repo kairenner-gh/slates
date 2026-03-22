@@ -1,0 +1,3 @@
+name: Generate Game Assets with Stable Diffusion
+description: Use AUTOMATIC1111 or ComfyUI with pixel art or illustration LoRAs to generate consistent 2D sprites, tilesets, and UI elements for indie games. Covers prompt templates, background removal, and maintaining art style consistency across a full project.
+type: Article

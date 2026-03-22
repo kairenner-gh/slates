@@ -1,0 +1,3 @@
+name: Train a Custom Classifier with fast.ai
+description: Train an image or text classifier using fast.ai's high-level PyTorch wrapper in hours on a small labeled dataset using transfer learning. Covers data collection, fast.ai's two-pass fine-tuning approach, confusion matrix review, and deployment with Gradio or FastAPI.
+type: Article

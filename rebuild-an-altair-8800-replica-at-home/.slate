@@ -1,0 +1,3 @@
+name: Rebuild an Altair 8800 Replica at Home
+description: Build a working Altair 8800 replica using a kit or original schematics and program it in 8080 machine code using the front panel switches. Covers kit options, assembly workflow, power supply testing, and loading MITS BASIC via serial terminal.
+type: Article

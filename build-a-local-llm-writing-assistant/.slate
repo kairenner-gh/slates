@@ -1,0 +1,3 @@
+name: Build a Local LLM Writing Assistant
+description: Run a private, offline AI writing assistant on your own hardware using Ollama or LM Studio with no usage limits or data sharing. Covers model selection, system prompt configuration, and building a daily writing workflow.
+type: Article

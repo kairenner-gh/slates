@@ -1,0 +1,3 @@
+name: Design Pixel Art Characters for Games
+description: Create pixel art character sprites for games using Aseprite, from building a limited color palette through animating walk and idle cycles. Covers silhouette-first design, palette constraints, and sprite sheet export for Godot, Unity, or GameMaker.
+type: Article

@@ -1,0 +1,3 @@
+name: Build a RAG Knowledge Base for Research
+description: Use retrieval-augmented generation to query your own documents with natural language using LlamaIndex or LangChain. Covers ingestion, vector storage, querying, and improving retrieval quality by tuning chunk size and overlap.
+type: Article
