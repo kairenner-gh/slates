@@ -33,6 +33,9 @@ Keep your WireGuard private keys private. Anyone with your server private key ca
 What Comes Next
 You have secured what goes out of your home network. But your server still accepts SSH connections from every IP address on the internet, and attackers are constantly probing for weak passwords and default configurations. The next step is systematically hardening your server so that a public-facing machine is as small a target as possible.
 
+:SLATE
+990
+
 :LINK
 https://www.wireguard.com/quickstart/
 WireGuard quick start guide

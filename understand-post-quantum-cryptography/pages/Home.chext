@@ -32,6 +32,9 @@ PQC Migration Checklist
 Go Deeper: The Geometry of Lattices
 Lattice-based cryptography rests on the geometry of high-dimensional lattices — finding the shortest vector in a lattice is a deep mathematical problem connected to number theory, geometry, and the foundations of algorithms. The hardness is preserved under quantum computation because lattice problems lack the periodic structure that Shor exploits.
 
+:SLATE
+1017
+
 :LINK
 https://csrc.nist.gov/projects/post-quantum-cryptography
 NIST Post-Quantum Cryptography Standardization

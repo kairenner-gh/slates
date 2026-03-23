@@ -29,6 +29,9 @@ Create a dedicated Docker network named proxy for all reverse-proxied services a
 What Comes Next
 Caddy fetches TLS certificates by talking to DNS — your domain name must resolve to your server before Let's Encrypt will issue a cert. That means to understand what Caddy is actually doing, and to set up split-horizon DNS so your local services resolve correctly inside your home network, you need to understand how DNS actually works.
 
+:SLATE
+1010
+
 :LINK
 https://caddyserver.com/docs/caddyfile
 The Caddyfile reference

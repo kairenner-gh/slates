@@ -32,6 +32,10 @@ Never store access tokens or ID tokens in localStorage. JavaScript running on th
 What Comes Next
 JWTs are signed with cryptographic keys, and the security of those signatures depends entirely on the algorithm chosen. Some historical JWT algorithm choices — notably the alg:none vulnerability and early RSA/HMAC confusion attacks — had serious weaknesses worth understanding. That leads naturally into the broader world of applied cryptography and why algorithm selection matters.
 
+:INFO[links:https://slatesource.com/s/991]
+Monitor Your Self-Hosted Infrastructure
+Set up Prometheus and Grafana to track uptime, resource usage, and service health across your entire home lab — with alerting so you know about problems before your family does.
+
 :LINK
 https://oauth.net/2/
 OAuth 2.0 specification and resources

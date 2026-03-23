@@ -29,6 +29,9 @@ ZFC is the foundation of mathematics that most working mathematicians implicitly
 Go Deeper: Gödel's Arithmetic Encoding and Abstract Algebra
 Gödel proved his theorems by carefully encoding statements about proofs as statements about numbers — an algebraic encoding technique closely related to ring and field theory. Abstract algebra is the language that makes such structural encoding precise and reveals why it works.
 
+:SLATE
+1001
+
 :LINK
 https://plato.stanford.edu/entries/goedel-incompleteness/
 Gödel's Incompleteness Theorems — Stanford Encyclopedia of Philosophy

@@ -30,5 +30,9 @@ Go Deeper: Side-Channel Attacks
 Speculative execution is the root of Spectre-class vulnerabilities — a category of attacks that extract secrets by measuring timing differences in cache state after speculative code ran. These attacks revealed that security and hardware performance are fundamentally in tension. The broader class they belong to — side-channel attacks — shows up in contexts far removed from CPUs, and understanding it changes how you think about implementing security.
 
 :LINK
+https://slatesource.com/s/1032
+The class of attacks that broke hardware security guarantees that looked airtight on paper.
+
+:LINK
 https://www.agner.org/optimize/
 Agner Fog's CPU microarchitecture optimization guides

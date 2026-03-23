@@ -32,6 +32,9 @@ A self-signed certificate with no chain validation protects against passive eave
 What Comes Next
 TLS depends on a certificate authority to vouch for server identities. For public-facing services, Let's Encrypt works automatically via Caddy. But for internal services on local hostnames that Let's Encrypt cannot reach, you need your own CA. Running a private CA with step-ca gives you trusted certificates for every service on your private network with no browser warnings and no exposure to the public internet.
 
+:SLATE
+998
+
 :LINK
 https://tls13.xargs.org
 TLS 1.3 illustrated — a visual walkthrough of the handshake

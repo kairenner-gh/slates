@@ -30,6 +30,9 @@ A Byzantine-resilient storage system must verify integrity cryptographically, no
 Go Deeper: Cryptographic Complexity
 Byzantine consensus algorithms use cryptographic signatures to authenticate every message — the security of the entire system reduces to the hardness of forging those signatures. But that is a statement about what is computationally feasible, and making it precise requires formal complexity theory. Understanding the P vs NP question and what computational hardness actually means puts all of the cryptographic assumptions seen throughout this series on rigorous footing.
 
+:SLATE
+1005
+
 :LINK
 https://pmg.csail.mit.edu/papers/osdi99.pdf
 Practical Byzantine Fault Tolerance (Castro and Liskov)

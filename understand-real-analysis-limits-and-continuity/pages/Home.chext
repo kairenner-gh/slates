@@ -29,6 +29,10 @@ Completeness, compactness, and connectedness are the three key topological prope
 Go Deeper: Real Analysis and Topology
 Real analysis studies the real line — a specific topological space. Topology studies what properties survive continuous deformation, abstracting away particular geometry. It sits beneath analysis, connects to algebra through algebraic topology, and leads to the deepest structures in all of mathematics.
 
+:INFO[links:https://slatesource.com/s/1002]
+Understand Algebraic Topology and the Foundations of Space
+The bottom of the rabbit hole — fundamental groups, homology, and the deepest mathematical structures beneath geometry, analysis, and the spaces that cryptographic algorithms operate in.
+
 :LINK
 https://www.math.ucdavis.edu/~hunter/intro_analysis_pdf/intro_analysis.pdf
 Introduction to Analysis (Hunter and Nachtergaele, free)

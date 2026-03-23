@@ -37,6 +37,9 @@ Use a quality SD card or, better yet, a small USB SSD. Cheap SD cards are the nu
 What Comes Next
 Now that your Pi is a live server, you'll probably want somewhere to put files — a shared drive the whole house can access without USB keys or cloud uploads. The next step is turning that same Pi into a network-attached storage device your phone, laptop, and TV can all see at once.
 
+:SLATE
+997
+
 :LINK
 https://www.raspberrypi.com/software/
 Raspberry Pi Imager — the official OS flashing tool

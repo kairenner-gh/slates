@@ -29,6 +29,10 @@ Rice's theorem generalizes the halting problem: any non-trivial semantic propert
 Go Deeper: Diagonalization and the Size of Infinity
 The halting problem proof uses diagonalization — the same technique Cantor used to prove some infinities are larger than others. That result lives in set theory, and its implications extend to Gödel's incompleteness theorems about the limits of formal proof systems.
 
+:INFO[links:https://slatesource.com/s/1036]
+Understand Type Theory and the Curry-Howard Correspondence
+Types are propositions, programs are proofs — the unexpected correspondence that connects mathematical logic to programming languages and enables formally verified software.
+
 :LINK
 https://plato.stanford.edu/entries/church-turing/
 Church-Turing Thesis — Stanford Encyclopedia of Philosophy

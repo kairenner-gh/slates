@@ -36,6 +36,10 @@ strace is a debugging tool, not a production observability tool. The ptrace over
 What Comes Next
 System calls are the interface between your programs and the kernel — and the kernel itself is a massive piece of software with its own internal architecture. Processes, virtual memory, the scheduler, the VFS layer, the TCP stack — each is a subsystem worth understanding in its own right. The self-hosting rabbit hole goes all the way down.
 
+:INFO[links:https://slatesource.com/s/1034]
+Understand the Linux Kernel Architecture
+A conceptual guide to how the Linux kernel is structured — the VFS, the scheduler, memory management, and how every system call you just traced eventually arrives here.
+
 :LINK
 https://strace.io
 strace documentation and tutorials

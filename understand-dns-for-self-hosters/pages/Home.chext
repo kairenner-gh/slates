@@ -33,6 +33,10 @@ If Pi-hole goes down and you have not set a fallback, your whole network loses D
 What Comes Next
 Your DNS queries no longer leave your network — they resolve locally through Pi-hole. But all your other traffic still flows through your ISP unencrypted at the network level. A WireGuard VPN server on your Pi lets you tunnel your traffic back to your home network from anywhere, giving you access to your local services and Pi-hole's filtering even when you're on a coffee shop network.
 
+:INFO[links:https://slatesource.com/s/993]
+Self-Host a WireGuard VPN Server
+Set up a WireGuard VPN on your home server so you can tunnel back into your private network — and your files, services, and LAN — from anywhere in the world.
+
 :LINK
 https://docs.pi-hole.net
 Pi-hole documentation

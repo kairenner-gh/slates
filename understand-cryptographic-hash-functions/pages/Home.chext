@@ -35,5 +35,9 @@ Go Deeper: Symmetric Encryption
 Hash functions are one-way by design — they destroy information. Many systems need the opposite: a transformation that can be reversed with the right key. That is symmetric encryption. The story of how AES was selected as the global standard through an open international competition is worth knowing, and the algorithm's internal structure rewards understanding.
 
 :LINK
+https://slatesource.com/s/1033
+A 15-year open competition that changed how cryptographic standards are made.
+
+:LINK
 https://csrc.nist.gov/projects/hash-functions
 NIST Hash Function Projects

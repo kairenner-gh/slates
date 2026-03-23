@@ -33,5 +33,9 @@ Go Deeper: Key Agreement
 AES solves symmetric encryption — but it requires both parties to already share a key. Agreeing on a secret key over a public channel where anyone can eavesdrop requires completely different mathematics. Diffie-Hellman key exchange solves exactly this problem, and the elegance of its solution is worth understanding from first principles.
 
 :LINK
+https://slatesource.com/s/1007
+How two strangers agree on a shared secret over a channel anyone can listen to.
+
+:LINK
 https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf
 NIST FIPS 197 — The AES Standard

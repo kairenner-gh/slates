@@ -30,6 +30,9 @@ A monad is a functor T with natural transformations unit : Id to T and join : Tâ
 Go Deeper: Category Theory and the Foundations of Probability
 Category theory is the mathematics of mathematics â€” it studies structure and transformation in the most abstract possible setting. Those same categorical structures appear in the foundations of statistics and probability theory, where measure-theoretic probability has a natural categorical formulation.
 
+:SLATE
+1025
+
 :LINK
 https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/
 Category Theory for Programmers (Milewski)

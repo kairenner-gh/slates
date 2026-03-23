@@ -30,6 +30,10 @@ The IOMMU is a memory management unit for DMA-capable devices. Without an IOMMU,
 Go Deeper: CPU Instruction Execution
 Hardware virtualization works by trapping certain CPU instructions and redirecting them to the hypervisor. But to understand which instructions trigger a VMEXIT and why, you need to understand how a CPU executes instructions in the first place — the fetch-decode-execute cycle, pipelining, and what makes a CPU fast in the common case.
 
+:INFO[links:https://slatesource.com/s/1014]
+Understand How a CPU Executes Instructions
+A conceptual walkthrough of the fetch-decode-execute cycle, pipelining, branch prediction, and out-of-order execution — the mechanisms that make modern CPUs fast and the source of an entire class of security vulnerabilities.
+
 :LINK
 https://www.linux-kvm.org/page/Main_Page
 Linux KVM documentation

@@ -30,5 +30,9 @@ Go Deeper: Hash Functions
 Constant-time programming is the defense against timing attacks — but to apply it intelligently, you need to understand what the cryptographic operations are actually computing. Hash functions are the most fundamental primitive in cryptography. Understanding what makes a hash function secure, and what properties it is designed to protect, is the starting point for the rest of applied cryptography.
 
 :LINK
+https://slatesource.com/s/1006
+The one-way function at the core of everything — and what breaks it.
+
+:LINK
 https://timing.attacks.cr.yp.to
 Timing Attacks on Implementations of Diffie-Hellman

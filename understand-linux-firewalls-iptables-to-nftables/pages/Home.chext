@@ -34,5 +34,9 @@ What Comes Next
 Firewall rules control whether packets reach your services, but they cannot see inside encrypted traffic — they operate on IP addresses and ports, not on content. To understand what TLS actually hides, what certificates prove, and what the padlock in your browser is really telling you, requires a different kind of analysis at the protocol level.
 
 :LINK
+https://slatesource.com/s/1035
+The encryption those firewall rules protect — and what it actually can't hide.
+
+:LINK
 https://wiki.nftables.org/wiki-nftables/index.php/Main_Page
 nftables wiki

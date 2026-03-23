@@ -35,5 +35,9 @@ Go Deeper: RSA
 Diffie-Hellman solves key agreement but not identity — you know you share a secret with someone, but not who that someone is. RSA solves the identity problem with a different piece of mathematics, and understanding RSA from first principles — including why naive RSA is broken and what padding schemes actually do — clarifies how public-key authentication works throughout the internet.
 
 :LINK
+https://slatesource.com/s/1030
+The most-taught algorithm in cryptography — and the most-misimplemented.
+
+:LINK
 https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange
 Diffie-Hellman Key Exchange

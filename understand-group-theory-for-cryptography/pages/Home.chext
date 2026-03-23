@@ -30,5 +30,9 @@ Go Deeper: Classical Groups Are Vulnerable to Quantum Computers
 Classical cryptography is built on groups whose hardness assumptions — discrete log, factoring — are broken by quantum computers running Shor's algorithm. Understanding why requires understanding what quantum computers can actually do and where their power comes from.
 
 :LINK
+https://slatesource.com/s/1028
+The machine that breaks every public-key system you use today — and what it actually takes to build one.
+
+:LINK
 https://www.math.ucdavis.edu/~anne/WQ2007/mat67-Common_Algebraic_Systems.pdf
 Common Algebraic Systems — notes on groups, rings, fields

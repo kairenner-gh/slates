@@ -34,6 +34,10 @@ A password chosen uniformly at random from a set of M equally likely symbols has
 Go Deeper: Entropy, Logarithms, and Number Theory
 Shannon entropy is defined using logarithms and probability — the same mathematical objects appear throughout number theory and analysis. The number-theoretic results that cryptography directly uses, including Fermat's little theorem and the structure of prime fields, are worth studying as a foundation in their own right.
 
+:INFO[links:https://slatesource.com/s/1022]
+Understand Number Theory for Cryptography
+A focused introduction to the number theory results that cryptography actually uses — Euler's theorem, the Chinese Remainder Theorem, and the primality tests that make RSA key generation fast.
+
 :LINK
 https://www.inference.org.uk/mackay/itila/
 Information Theory, Inference, and Learning Algorithms (free textbook)

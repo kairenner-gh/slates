@@ -30,5 +30,9 @@ Go Deeper: Security Reductions and Computability Theory
 Security reductions work in the asymptotic setting — security grows as a function of the security parameter. Making that precise requires the formal language of polynomial-time computation and computability: what functions can be computed and what cannot.
 
 :LINK
+https://slatesource.com/s/1018
+The formal language of what functions can and cannot be computed — and the proof that some questions have no algorithm.
+
+:LINK
 https://crypto.stanford.edu/~dabo/cryptobook/
 A Graduate Course in Applied Cryptography

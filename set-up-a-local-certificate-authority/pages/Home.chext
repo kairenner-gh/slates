@@ -37,6 +37,9 @@ If you ever need to rotate the root CA — because the key was compromised or th
 What Comes Next
 Your CA issues certificates using public-key cryptography — a root key signs an intermediate key, which signs your service keys. Those signatures are the building blocks you have been taking on faith until now. A password manager holds the secrets that protect those keys, and it turns out that self-hosting your password vault on your own infrastructure is a satisfying next step in this chain.
 
+:SLATE
+996
+
 :LINK
 https://smallstep.com/docs/step-ca/
 step-ca documentation

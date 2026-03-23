@@ -37,6 +37,9 @@ Disable the admin panel token after completing initial setup. The admin panel at
 What Comes Next
 Managing one vault for one person is straightforward. Managing who gets access to fifteen different self-hosted services, with different roles and permissions per service, at scale across a household or small team, is a different problem entirely. That is where single sign-on comes in — one account, one login, every service connected.
 
+:SLATE
+994
+
 :LINK
 https://github.com/dani-garcia/vaultwarden
 Vaultwarden on GitHub

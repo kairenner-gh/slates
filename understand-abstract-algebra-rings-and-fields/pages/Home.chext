@@ -30,6 +30,9 @@ Bilinear pairings for BLS signatures and identity-based encryption operate over 
 Go Deeper: Symmetry and Category Theory
 Galois theory classifies field extensions using symmetry groups — and symmetry is the unifying concept across mathematics. Category theory is the language that makes those symmetries and structural patterns visible across all of mathematics at once, connecting algebra, topology, logic, and computation.
 
+:SLATE
+1004
+
 :LINK
 https://en.wikipedia.org/wiki/Abstract_algebra
 Abstract Algebra — Wikipedia overview with references

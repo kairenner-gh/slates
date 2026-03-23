@@ -33,6 +33,9 @@ Loki indexes labels but not log content. Never put high-cardinality values like 
 What Comes Next
 Logs show what your applications said — error messages, request paths, stack traces. But sometimes the failure is not in the application layer at all. It is the application making a system call that returns an unexpected error, or blocking on a file descriptor, or talking to a network socket that never responds. For that level of visibility, you need to intercept system calls directly using strace and eBPF.
 
+:SLATE
+1000
+
 :LINK
 https://grafana.com/docs/loki/latest/
 Grafana Loki documentation

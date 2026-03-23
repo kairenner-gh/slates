@@ -34,5 +34,9 @@ Go Deeper: One-Way Functions and the Math Beneath Them
 One-way functions — easy to compute, hard to invert — are the foundational assumption of most cryptography. The math that makes them hard involves finite fields and modular arithmetic. Those structures are worth understanding on their own terms.
 
 :LINK
+https://slatesource.com/s/1012
+The algebra that makes the hard problems hard — finite fields, modular arithmetic, and why these structures appear in every cryptographic primitive.
+
+:LINK
 https://www.claymath.org/millennium/p-vs-np/
 Clay Mathematics Institute — P vs NP Problem

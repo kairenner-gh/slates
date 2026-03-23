@@ -33,6 +33,9 @@ The kernel stable ABI is a contract that syscall numbers and semantics never cha
 Go Deeper: The Scheduler
 The process scheduler is one of the most critical kernel subsystems — it decides which process gets CPU time, using a data structure and algorithm that has fascinating guarantees. The Completely Fair Scheduler uses a red-black tree and a virtual runtime counter to ensure every runnable task receives proportional CPU access, and understanding how it works explains the behavior you observe when a system is under heavy load.
 
+:SLATE
+1020
+
 :LINK
 https://www.kernel.org/doc/html/latest/
 Linux kernel documentation

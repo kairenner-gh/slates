@@ -26,6 +26,9 @@ Bitcoin block headers contain a Merkle root of all transactions in the block. Th
 Go Deeper: Distributed Consensus
 Merkle trees guarantee data integrity — but they do not solve the problem of distributed agreement. In a network of nodes, how do they agree on which Merkle root is the correct one, especially when some nodes fail or behave incorrectly? That is the distributed consensus problem, and it turns out to be far harder than data integrity. The algorithms that solve it — Raft and Paxos — have surprising constraints and tradeoffs that every distributed systems practitioner needs to understand.
 
+:SLATE
+1009
+
 :LINK
 https://www.certificate-transparency.org/what-is-ct
 What is Certificate Transparency?

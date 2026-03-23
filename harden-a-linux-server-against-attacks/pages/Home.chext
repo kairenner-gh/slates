@@ -43,5 +43,9 @@ What Comes Next
 fail2ban blocks IP addresses by writing rules directly into your Linux firewall. To understand what those rules actually do — how Linux decides which packets to accept, drop, or forward — you need to understand how the kernel's packet filtering works from the inside. That knowledge also lets you write your own rules with precision instead of relying entirely on frontend tools.
 
 :LINK
+https://slatesource.com/s/1019
+See inside every packet decision the kernel makes.
+
+:LINK
 https://www.fail2ban.org/wiki/index.php/MANUAL_0_8
 Fail2Ban manual

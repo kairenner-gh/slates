@@ -34,5 +34,9 @@ What Comes Next
 Authentik speaks OIDC and SAML — two protocols that describe how identity claims travel between systems. The tokens, codes, and assertions being exchanged encode trust in a very specific way. Understanding how OAuth2 and OpenID Connect actually work explains not just your home lab but how authentication across the entire modern web is delegated.
 
 :LINK
+https://slatesource.com/s/1023
+The protocol underneath every Sign in with Google button — explained from first principles.
+
+:LINK
 https://docs.goauthentik.io
 Authentik documentation

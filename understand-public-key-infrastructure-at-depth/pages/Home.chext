@@ -25,6 +25,10 @@ HTTP Public Key Pinning (HPKP) was a mechanism that allowed websites to instruct
 Go Deeper: Merkle Trees
 Certificate transparency logs are append-only Merkle trees — the same data structure that makes git work and blockchains possible. The Merkle tree is the bridge between cryptographic hashing and distributed systems: it allows any party to verify that a specific item is included in a large dataset, using a proof that is logarithmic in the dataset size. Understanding Merkle trees opens the door to how distributed systems achieve verifiable integrity.
 
+:INFO[links:https://slatesource.com/s/1021]
+Understand Merkle Trees and Hash Chains
+A deep look at the data structures that make blockchains, git, and certificate transparency possible — and the O(log n) inclusion proofs that let you verify a single entry in a billion-record log.
+
 :LINK
 https://certificate.transparency.dev
 Certificate Transparency — overview and logs

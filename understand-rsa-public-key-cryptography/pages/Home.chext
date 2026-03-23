@@ -26,5 +26,9 @@ Go Deeper: Elliptic Curve Cryptography
 RSA's security rests on the hardness of factoring — but there is a newer approach to public-key cryptography that gives the same security with keys an order of magnitude smaller, using the algebraic geometry of elliptic curves. Understanding ECC from its geometric foundations reveals why 256 bits is enough, and why the choice of curve parameters matters enormously for security.
 
 :LINK
+https://slatesource.com/s/1011
+Same security as RSA with a 10x smaller key — here is why the geometry works.
+
+:LINK
 https://crypto.stanford.edu/~dabo/cryptobook/
 A Graduate Course in Applied Cryptography (Boneh and Shoup)

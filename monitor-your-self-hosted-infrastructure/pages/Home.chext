@@ -33,6 +33,9 @@ Prometheus stores all metric data on disk in its data directory. By default ther
 What Comes Next
 Metrics tell you what your applications are doing right now — CPU is high, memory is growing, a container went down at 3:17 AM. But when something goes wrong and you need to understand what happened leading up to it, you need logs. Centralizing logs from every container and system service into one queryable store is what makes post-incident investigation possible.
 
+:SLATE
+989
+
 :LINK
 https://prometheus.io/docs/introduction/overview/
 Prometheus documentation

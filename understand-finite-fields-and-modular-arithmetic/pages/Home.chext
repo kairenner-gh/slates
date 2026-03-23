@@ -34,6 +34,9 @@ AES uses GF(2^8) with the irreducible polynomial x^8 + x^4 + x^3 + x + 1. The Su
 Go Deeper: Finite Fields as Instances of Abstract Algebra
 Finite fields are instances of abstract algebraic structures — groups, rings, and fields — that recur throughout cryptography. Understanding the abstract structure behind them makes the patterns visible and reveals why certain constructions work at a deeper level than implementation details.
 
+:SLATE
+1013
+
 :LINK
 https://www.shoup.net/ntb/
 A Computational Introduction to Number Theory and Algebra

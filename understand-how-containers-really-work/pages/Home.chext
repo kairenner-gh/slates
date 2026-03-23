@@ -25,6 +25,9 @@ A container that looks like a VM is a container that will surprise you when a ke
 Go Deeper: Virtual Machines
 Containers share the kernel because they are just processes with namespaces — virtual machines take the opposite approach, achieving hardware-level isolation. A hypervisor creates a separate environment where a guest OS runs its own kernel, completely isolated from the host kernel. Understanding how a hypervisor achieves that isolation reveals something important about how CPUs are designed.
 
+:SLATE
+1016
+
 :LINK
 https://man7.org/linux/man-pages/man7/namespaces.7.html
 Linux namespaces man page

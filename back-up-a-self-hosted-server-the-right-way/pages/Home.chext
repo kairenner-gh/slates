@@ -36,6 +36,9 @@ Store your restic repository password in at least two places: a password manager
 What Comes Next
 With reliable backups in place, most people quickly want to run more than one service on their Pi — a media server, a notes app, a home automation hub. Installing each one manually creates a maintenance nightmare. Docker changes that equation completely, letting you deploy any service in minutes and tear it down just as fast.
 
+:SLATE
+992
+
 :LINK
 https://restic.readthedocs.io
 restic — fast, secure, efficient backup program

@@ -29,6 +29,9 @@ A zk-SNARK (Succinct Non-interactive Argument of Knowledge) is a zero-knowledge 
 Go Deeper: Computational Complexity
 Zero-knowledge proofs rely on hardness assumptions — and those assumptions are statements about what is computationally possible. A proof that a ZKP system is secure assumes the underlying problem (discrete log, or some lattice problem) cannot be solved efficiently. To understand what we are actually assuming, you need to enter complexity theory: the formal study of what can and cannot be computed efficiently.
 
+:SLATE
+1027
+
 :LINK
 https://zkproof.org/2020/08/12/field-notes/
 ZKProof Community Reference

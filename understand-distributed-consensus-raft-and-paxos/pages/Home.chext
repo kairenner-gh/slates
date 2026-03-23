@@ -30,6 +30,9 @@ Paxos, developed by Leslie Lamport, is the theoretical foundation from which mos
 Go Deeper: Byzantine Fault Tolerance
 Raft and Paxos assume that nodes may crash and stop responding, but that responding nodes always tell the truth. In adversarial environments — blockchains, multi-organization systems, edge infrastructure — a faulty node might send deliberately incorrect or contradictory messages. Handling this worst-case adversary requires Byzantine fault-tolerant consensus, a harder problem with a fundamentally different algorithm and a stricter node count requirement.
 
+:SLATE
+1003
+
 :LINK
 https://raft.github.io
 The Raft Consensus Algorithm

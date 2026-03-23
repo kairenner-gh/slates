@@ -31,5 +31,9 @@ Go Deeper: Zero-Knowledge Proofs
 Ed25519 security proof relies on the hardness of the discrete logarithm on the Edwards curve — but proof in cryptography means something precise and formal. The Schnorr identification protocol that underlies Ed25519 is itself a zero-knowledge proof. Understanding what it means for a proof to be zero-knowledge — revealing nothing beyond the truth of the statement — opens an entire area of cryptography with remarkable practical applications.
 
 :LINK
+https://slatesource.com/s/1037
+Prove you know a secret without revealing a single bit of information about it.
+
+:LINK
 https://ed25519.cr.yp.to
 Ed25519: high-speed high-security signatures

@@ -37,6 +37,9 @@ Always use UUID-based entries in fstab, never device names like /dev/sdb1. Devic
 What Comes Next
 A NAS with no backups is one power surge, one dropped drive, or one ransomware infection away from losing everything. The next step is setting up automated, versioned, off-site backups using restic — including a restore test you run before you need it, not after.
 
+:SLATE
+988
+
 :LINK
 https://www.samba.org/samba/docs/
 Samba documentation

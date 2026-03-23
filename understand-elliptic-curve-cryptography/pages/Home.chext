@@ -34,5 +34,9 @@ Go Deeper: Digital Signatures with Ed25519
 Elliptic curves over finite fields form an abelian group — and you can build a digital signature scheme on that group. Ed25519 is the signature algorithm that fixed the dangerous random-number requirements of its predecessor ECDSA, by computing its nonce deterministically from the message. Understanding how Ed25519 works explains why it is the right choice for SSH keys.
 
 :LINK
+https://slatesource.com/s/1008
+The ECDSA nonce flaw that let a teenager jailbreak the PS3 — and the fix that makes Ed25519 immune.
+
+:LINK
 https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/
 Elliptic Curve Cryptography: A Gentle Introduction

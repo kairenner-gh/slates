@@ -35,5 +35,9 @@ Go Deeper: Post-Quantum Algorithms Have Been Standardized
 Shor's algorithm breaks discrete log and factoring-based cryptography — but NIST finalized post-quantum standards in 2024 that rely on problems quantum computers cannot solve efficiently. Understanding those algorithms requires a different branch of mathematics: lattice theory.
 
 :LINK
+https://slatesource.com/s/1024
+The algorithms being standardized right now to survive the quantum era — and the new mathematics they rely on.
+
+:LINK
 https://quantum.country/qcvc
 Quantum Computing for the Very Curious
