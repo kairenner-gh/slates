@@ -1,0 +1,3 @@
+name: Understand OAuth2 and OIDC in Practice
+description: A clear explanation of how OAuth2 and OpenID Connect actually work — authorization codes, tokens, scopes, and why the protocol is designed the way it is.
+type: Article

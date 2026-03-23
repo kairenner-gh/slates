@@ -1,0 +1,3 @@
+name: Understand Diffie-Hellman Key Exchange
+description: A step-by-step explanation of how Diffie-Hellman lets two people agree on a shared secret over a public channel — and why the discrete logarithm problem makes eavesdropping computationally infeasible.
+type: Article

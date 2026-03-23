@@ -1,0 +1,35 @@
+:INFO
+The Hardest Problem in Distributed Systems
+A cluster of servers needs to agree on a sequence of operations — a replicated log — so that all nodes apply the same operations in the same order and arrive at the same state. This must work even when nodes crash, restart, and reconnect, and when network partitions isolate some nodes from others. This is the distributed consensus problem. It sits at the foundation of etcd, ZooKeeper, CockroachDB, and every other system that promises consistent replication across failures.
+
+:PATH
+FLP Impossibility: The Fundamental Limit
+In 1985, Fischer, Lynch, and Paterson proved that in an asynchronous network where even a single process might fail (crash silently), no deterministic consensus algorithm can guarantee both safety (never deciding incorrectly) and liveness (eventually deciding) simultaneously. This is not a practical limitation but a mathematical impossibility. Real systems escape it by adding timing assumptions — timeouts, randomization, or partially synchronous network models — so that the impossibility result does not apply. Understanding FLP explains why consensus algorithms use randomized leader election timeouts rather than deterministic procedures.
+
+:PATH
+The CAP Theorem in Practice
+The CAP theorem states that a distributed system can guarantee at most two of three properties: Consistency (every read sees the most recent write), Availability (every request receives a response), and Partition tolerance (the system continues to operate when network partitions occur). Since network partitions are unavoidable in any real network, the practical choice is between CP (refuse to serve reads or writes during a partition, preserving consistency) and AP (continue serving requests during a partition, potentially serving stale data). etcd is CP: a minority partition rejects writes. Cassandra is AP by default: all nodes accept writes regardless of partition.
+
+:PATH
+Raft: Consensus Designed for Understandability
+Raft divides consensus into three subproblems: leader election, log replication, and safety. At any time, exactly one node is the leader; all others are followers. Followers that do not receive a heartbeat from the leader within a randomized timeout declare themselves candidates and request votes. A candidate that receives votes from a majority becomes the new leader. The leader handles all client requests by appending entries to its log, then broadcasting them to followers. An entry is committed when a majority of nodes have appended it to their logs. Committed entries are never overwritten.
+
+:COUNTER.half
+Minimum cluster size to tolerate 1 failure
+3 nodes (majority quorum = 2)
+
+:COUNTER.half
+Minimum cluster size to tolerate 2 failures
+5 nodes (majority quorum = 3)
+
+:PATH
+Paxos: The Original Protocol
+Paxos, developed by Leslie Lamport, is the theoretical foundation from which most consensus algorithms derive. A Paxos round has two phases. In the Prepare phase, a proposer sends a Prepare(n) message to a quorum of acceptors, asking them to promise not to accept proposals numbered less than n. In the Accept phase, the proposer sends Accept(n, value) to the same quorum. An acceptor accepts if it has made no conflicting promise. Multi-Paxos adds a leader to reduce the number of rounds needed for sequential log entries, making it practical. Paxos is correct and efficient but notoriously difficult to understand fully.
+
+:INFO
+Go Deeper: Byzantine Fault Tolerance
+Raft and Paxos assume that nodes may crash and stop responding, but that responding nodes always tell the truth. In adversarial environments — blockchains, multi-organization systems, edge infrastructure — a faulty node might send deliberately incorrect or contradictory messages. Handling this worst-case adversary requires Byzantine fault-tolerant consensus, a harder problem with a fundamentally different algorithm and a stricter node count requirement.
+
+:LINK
+https://raft.github.io
+The Raft Consensus Algorithm

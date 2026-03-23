@@ -1,0 +1,37 @@
+:INFO
+Why Can't the App Just Have My Password
+Before OAuth2, delegating access meant sharing credentials. If you wanted a third-party app to read your email, you gave it your email password — and it could do anything with that password, including change it, read messages you didn't intend to share, and keep it forever. OAuth2 solves the authorization delegation problem: an identity provider issues scoped, time-limited tokens that grant specific permissions without ever revealing the user's password to the application. Understanding the flow explains not just your Authentik setup but every "Login with Google" button on the web.
+
+:QUOTE
+OAuth2 is about authorization. OpenID Connect is about identity.
+
+:PATH
+Understand the Four Grant Types
+OAuth2 defines four grant types for different situations. The Authorization Code grant is for web apps and native apps: the app redirects to the identity provider, the user authenticates there, and a short-lived code is returned to the app. The Implicit grant (now deprecated) skipped the code exchange and returned tokens directly. The Client Credentials grant is for machine-to-machine: no user involved, just a client ID and secret exchanged for a token. The Device Code grant is for devices with no browser, like a TV app. For any user-facing application, Authorization Code with PKCE is the correct and current standard.
+
+:PATH
+Follow the Full OIDC Authorization Code Flow
+A user clicks Login on your Nextcloud instance. Nextcloud redirects the browser to Authentik's authorization endpoint, appending the client ID, requested scopes (openid profile email), a redirect URI, a random state parameter, and a PKCE code challenge. The user authenticates at Authentik. Authentik redirects back to Nextcloud's callback URL with an authorization code and the state parameter. Nextcloud verifies the state matches what it sent, then makes a server-to-server POST request to Authentik's token endpoint, exchanging the code and PKCE verifier for tokens. Authentik returns an ID token, access token, and optionally a refresh token.
+
+:PATH
+Understand JWT Structure
+The ID token returned by the flow is a JSON Web Token (JWT). A JWT has three parts separated by dots: header.payload.signature, each Base64URL-encoded. The header specifies the algorithm used for the signature (RS256 is common — RSA with SHA-256). The payload contains claims: sub is the subject (a unique user identifier), iss is the issuer (your Authentik URL), aud is the audience (the client ID of the app that requested the token), exp is the Unix timestamp when the token expires, iat is when it was issued, and claims like name and email. The signature lets the app verify the token was actually issued by your identity provider.
+
+:PATH
+Know Which Token Does What
+The ID token proves who the user is. It is consumed by the application that requested it to establish a session. It should not be forwarded to other services. The access token grants access to an API on behalf of the user. It is sent in HTTP request headers as a Bearer token to protected endpoints. It is scoped — it can only do what the requested scopes allow. The refresh token is long-lived and is used to get new access tokens after they expire, without requiring the user to log in again. Refresh tokens are highly sensitive: they are effectively long-term credentials.
+
+:PATH
+Understand Why Each Step in the Flow Exists
+The state parameter is a random value the client generates and includes in the redirect to the identity provider. When the provider redirects back, it echoes the state. The client verifies it matches. This prevents CSRF attacks: an attacker cannot forge a redirect response from the IdP because they cannot predict the client's random state. PKCE adds another layer: the client generates a random code verifier and sends a hash of it (the code challenge) in the initial redirect. When exchanging the code for tokens, the client sends the original verifier. The server checks the hash. An attacker who intercepts the authorization code cannot use it without the verifier.
+
+:NOTE
+Never store access tokens or ID tokens in localStorage. JavaScript running on the same page — including third-party scripts from analytics providers, ads, or CDN-hosted libraries — can read localStorage and exfiltrate tokens silently. The secure storage option for web applications is an httpOnly, Secure, SameSite=Strict cookie, which is not accessible to JavaScript at all. Server-side session storage is even better.
+
+:INFO
+What Comes Next
+JWTs are signed with cryptographic keys, and the security of those signatures depends entirely on the algorithm chosen. Some historical JWT algorithm choices — notably the alg:none vulnerability and early RSA/HMAC confusion attacks — had serious weaknesses worth understanding. That leads naturally into the broader world of applied cryptography and why algorithm selection matters.
+
+:LINK
+https://oauth.net/2/
+OAuth 2.0 specification and resources

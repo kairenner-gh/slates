@@ -1,0 +1,38 @@
+:INFO
+The Geometric Intuition That Makes ECC Hard to Break
+Elliptic curve cryptography is the modern default for public-key operations — it is the algorithm behind Ed25519 SSH keys, ECDH in TLS 1.3, and the signatures that secure HTTPS certificates. The reason ECC gives equivalent security to RSA with keys 10 times smaller is that the underlying hard problem — the elliptic curve discrete logarithm — has no known sub-exponential algorithm, unlike integer factorization. Understanding why requires a brief visit to the geometry of elliptic curves.
+
+:PATH
+What an Elliptic Curve Is
+An elliptic curve is defined by an equation of the form y^2 = x^3 + ax + b over a field, with the constraint that the curve is smooth and has no self-intersections or cusps (the discriminant is nonzero). Over the real numbers, this looks like a smooth symmetric curve. Cryptography uses curves over finite fields — the coordinates are integers modulo a prime p — which means the geometric picture becomes a scattered set of points rather than a continuous curve, but the algebraic structure is preserved.
+
+:PATH
+The Group Law: Adding Points on the Curve
+The group law defines how to add two points P and Q on the curve. Draw a line through P and Q — it intersects the curve at a third point R prime. Reflect R prime over the x-axis to get R. The rule is P + Q = R. This operation is closed (the result is always a point on the curve), associative, and has an identity element (the point at infinity). This makes the set of curve points under this operation an abelian group — the algebraic structure that cryptography is built on. Point doubling uses the tangent line to a single point.
+
+:PATH
+Scalar Multiplication Is the Hard Direction
+Given a point P and an integer k, computing k*P — adding P to itself k times using the double-and-add algorithm — is fast. With 256-bit k values, it takes about 256 doublings and 128 additions on average. But given P and Q = k*P, finding k — the elliptic curve discrete logarithm problem — has no known efficient algorithm. The best known approaches require time exponential in the key size. This is why 256-bit ECC keys match the security of 3072-bit RSA keys: the problems have fundamentally different difficulty profiles.
+
+:COUNTER.half
+RSA key size for 128-bit security
+3072 bits
+
+:COUNTER.half
+ECC key size for 128-bit security (Curve25519)
+256 bits
+
+:PATH
+Curve25519 and Its Design Choices
+Curve25519, designed by Daniel Bernstein, uses the prime 2^255 - 19 chosen because arithmetic modulo this prime is exceptionally efficient on 64-bit hardware. The curve is a Montgomery curve, which admits a particularly fast scalar multiplication algorithm. Critically, Curve25519 has complete addition formulas — the point addition formula works correctly for all inputs including the identity and point doubling without special cases. Special cases in curve addition formulas are a source of implementation bugs that can leak private keys.
+
+:NOTE
+The NIST P-256 curve is widely deployed but has a controversial history: its parameters were generated using a seed value (c49d3608 86e70493 6a6678e1...) with no explanation of how that seed was chosen. This raises the theoretical possibility of a trapdoor — parameters deliberately chosen to weaken the curve in ways only the designer knows. Curve25519 and brainpool curves were designed with fully transparent parameter generation. For new deployments where you control the algorithm choice, prefer Curve25519.
+
+:INFO
+Go Deeper: Digital Signatures with Ed25519
+Elliptic curves over finite fields form an abelian group — and you can build a digital signature scheme on that group. Ed25519 is the signature algorithm that fixed the dangerous random-number requirements of its predecessor ECDSA, by computing its nonce deterministically from the message. Understanding how Ed25519 works explains why it is the right choice for SSH keys.
+
+:LINK
+https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/
+Elliptic Curve Cryptography: A Gentle Introduction

@@ -1,0 +1,41 @@
+:INFO
+Every Abstraction Eventually Leaks
+Your Nextcloud container is a Go binary compiled from source, running on a glibc runtime, making calls to a Linux kernel, on hardware with its own firmware. When something fails with a cryptic error message, the most reliable way to find the actual cause is to go to the boundary between userspace and kernel space — the system call interface — and watch what the process is asking the kernel to do. Every file read, every network connection, every memory allocation goes through a syscall. strace puts you at that boundary in real time.
+
+:QUOTE
+Every abstraction eventually leaks — strace is how you see through it.
+
+:PATH
+Understand What a System Call Is
+User programs cannot directly access hardware, write to disk, or open network connections. The Linux kernel provides a stable interface — the system call ABI — through which programs request these privileged operations. On x86-64, a program places a syscall number and arguments in CPU registers and executes the syscall instruction. The CPU switches from user mode to kernel mode, the kernel performs the operation, writes the result back to registers, and returns to user mode. There are roughly 400 syscalls on Linux, covering file I/O (open, read, write, close), networking (socket, connect, send, recv), processes (fork, exec, wait), memory (mmap, brk), and time (clock_gettime, nanosleep).
+
+:PATH
+Attach strace to a Running Process
+Install strace: sudo apt install strace. Find the PID of the process you want to trace: ps aux | grep your-process-name. Attach strace to it: sudo strace -p 1234, where 1234 is the PID. strace will print each syscall the process makes as it happens: the syscall name, its arguments, and its return value. Press Ctrl-C to detach. Use strace -f to follow child processes as well. Use strace -e trace=network to filter to only network-related syscalls. Use strace -T to show how long each syscall took — useful for finding where a process is spending time waiting.
+
+:PATH
+Read strace Output for a Web Request
+When you strace a process making an HTTP request, you see the full sequence: socket(AF_INET, SOCK_STREAM, 0) creates a TCP socket and returns a file descriptor number. connect(fd, {sa_family=AF_INET, sin_addr="93.184.216.34"}, 16) initiates the TCP connection. sendto(fd, "GET / HTTP/1.1\r\nHost: example.com\r\n...", ...) sends the HTTP request bytes. recvfrom(fd, "HTTP/1.1 200 OK\r\n...", ...) reads the response. close(fd) releases the socket. Reading this sequence makes the protocol concrete — every HTTP library call becomes a visible series of socket operations at the syscall level.
+
+:PATH
+Understand Why strace Has an Overhead Problem
+strace uses the ptrace kernel mechanism, which works by stopping the traced process before and after every syscall so the tracer can inspect it. This stop-and-start adds significant latency to every syscall — traced processes run five to ten times slower in some workloads. This is acceptable for development debugging but completely unacceptable in production: attaching strace to a database or web server under load will cause timeouts, errors, and potentially cascading failures. You need a different mechanism for production tracing.
+
+:PATH
+Get Started with eBPF and bpftrace
+eBPF is a kernel facility that lets you run small verified programs at specific hook points inside the kernel with near-zero overhead. Unlike ptrace, eBPF programs do not stop the traced process — they run asynchronously in a kernel buffer and collect data. bpftrace is a high-level tracing language for writing eBPF programs. Install it: sudo apt install bpftrace. Run your first one-liner to trace every file opened on the system: sudo bpftrace -e 'tracepoint:syscalls:sys_enter_openat { printf("%s opened %s\n", comm, str(args->filename)); }'. You will see a stream of process names and file paths as the kernel processes them.
+
+:PATH
+Debug a Docker Container That Fails to Start
+A Docker container that exits immediately after starting is a common frustrating problem. The logs might show nothing useful. Use strace to find the actual cause: run docker run --rm your-image your-binary under strace with strace -f -e trace=file,process docker run --rm your-image. Watch for open or execve calls that return ENOENT (file not found) or EACCES (permission denied). This immediately tells you whether the binary is missing, a shared library is missing, a config file is not where the process expects it, or the container is running as the wrong user for a mounted volume.
+
+:NOTE
+strace is a debugging tool, not a production observability tool. The ptrace overhead makes it dangerous to use on production processes under load. For production-safe tracing, use eBPF-based tools: bpftrace for one-off investigation, or higher-level tools like Cilium, Tetragon, or bcc scripts that compile down to eBPF programs. These provide the same syscall visibility with latency measured in nanoseconds rather than milliseconds.
+
+:INFO
+What Comes Next
+System calls are the interface between your programs and the kernel — and the kernel itself is a massive piece of software with its own internal architecture. Processes, virtual memory, the scheduler, the VFS layer, the TCP stack — each is a subsystem worth understanding in its own right. The self-hosting rabbit hole goes all the way down.
+
+:LINK
+https://strace.io
+strace documentation and tutorials

@@ -1,0 +1,42 @@
+:INFO
+End the USB Shuffle
+Copying files between devices with a USB stick is a solved problem — solved in 1992, when Samba was released. A home NAS gives every device on your network access to the same storage pool: your laptop saves a file, your phone can open it, your TV can stream it. There are no subscription fees, no file size limits, and no third-party servers involved. The hardware you already have is enough to get started today.
+
+:PATH
+Find the External Drive with lsblk
+Plug your external drive into the Pi via USB. Run lsblk to list all block devices. You'll see your SD card or SSD (usually sda) and the new drive (usually sdb or sdc). Note the device name and partition — something like /dev/sdb1. If the drive is new and has no partition table, use fdisk or parted to create one and format it with mkfs.ext4. If it came formatted as NTFS from a Windows machine, you can reformat it now or keep NTFS and install ntfs-3g for compatibility.
+
+:PATH
+Create a Mount Point and Mount the Drive
+Create a directory that will serve as the mount point: sudo mkdir -p /mnt/nas. Mount the drive manually first to confirm it works: sudo mount /dev/sdb1 /mnt/nas. Run df -h to verify the drive appears with the expected capacity. Create a test file inside /mnt/nas and confirm you can read it back. This manual mount disappears on reboot, so the next step is making it permanent.
+
+:PATH
+Make the Mount Persistent via fstab
+Run blkid to find the UUID of your drive — a long string like 8e4f1a2b-3c5d-4e6f-7890-abcdef012345. Open /etc/fstab with sudo nano /etc/fstab and add a line using the UUID format rather than the device name, since device names can change between reboots but UUIDs cannot. Set the mount options to defaults,nofail so the Pi still boots cleanly if the drive is accidentally unplugged. Run sudo mount -a to test the fstab entry without rebooting.
+
+:PATH
+Install and Configure Samba
+Install Samba: sudo apt install samba. Back up the default config: sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak. Open /etc/samba/smb.conf and scroll to the bottom. Add a share block with a name in brackets, set path to /mnt/nas, and configure browseable, writable, and valid users options to match your access requirements. Add your user to Samba's password database with sudo smbpasswd -a yourusername. Restart the service with sudo systemctl restart smbd.
+
+:PATH
+Connect from Windows and macOS
+On Windows, open File Explorer, right-click Network, and choose Map Network Drive. Enter the path as \\your-pi-ip\sharename and check "Connect using different credentials" to enter your Samba username and password. On macOS, open Finder, press Command-K, and enter smb://your-pi-ip/sharename. After authenticating, the share appears in your Finder sidebar under Locations. On both systems you can bookmark or pin the share so it reconnects automatically on login.
+
+:CHECKLIST
+Required Parts for a Home NAS
+Raspberry Pi already running as a server
+USB 3.0 external hard drive or SSD (formatted as ext4 or NTFS)
+Ethernet cable connecting the Pi to your router
+Samba package installed and configured
+A test from at least two different devices to confirm access
+
+:NOTE
+Always use UUID-based entries in fstab, never device names like /dev/sdb1. Device names are assigned in the order the kernel detects drives and can shift if you add or remove USB devices. A UUID refers to the specific filesystem on that drive and never changes, so your mount survives reboots and hardware changes without breaking.
+
+:INFO
+What Comes Next
+A NAS with no backups is one power surge, one dropped drive, or one ransomware infection away from losing everything. The next step is setting up automated, versioned, off-site backups using restic — including a restore test you run before you need it, not after.
+
+:LINK
+https://www.samba.org/samba/docs/
+Samba documentation

@@ -1,0 +1,3 @@
+name: Understand How Virtual Machines Work
+description: A technical explanation of how hypervisors create isolated virtual machines — hardware virtualization extensions, memory translation, and the difference between Type 1 and Type 2 hypervisors.
+type: Article

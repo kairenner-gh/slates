@@ -1,0 +1,3 @@
+name: Set Up a Local Certificate Authority
+description: Run your own internal CA with step-ca to issue trusted TLS certificates for every service on your private network — eliminating browser warnings without exposing anything to the public internet.
+type: Article

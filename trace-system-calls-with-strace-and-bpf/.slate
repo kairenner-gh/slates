@@ -1,0 +1,3 @@
+name: Trace System Calls With strace and BPF
+description: Use strace to intercept every system call a process makes, and get a first look at eBPF-based tools for zero-overhead production tracing — understanding exactly what your software asks the kernel to do.
+type: Article

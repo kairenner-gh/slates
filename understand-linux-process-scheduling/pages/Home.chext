@@ -1,0 +1,35 @@
+:INFO
+Why Your Server Feels Sluggish Under Load
+When a Linux system runs dozens of processes simultaneously but has only a few CPU cores, something has to decide who runs when. The Completely Fair Scheduler is that something. Its design goal is deceptively simple: every runnable task should receive an equal share of CPU time. How it achieves that guarantee — and what you can do to influence it — explains most of the scheduling-related performance behavior you will encounter on a self-hosted server.
+
+:PATH
+How CFS Tracks Fairness with vruntime
+Each task accumulates a virtual runtime counter called vruntime, which represents how much CPU time the task has consumed weighted by its priority. The task with the lowest vruntime is the one that has received the least fair share and is therefore the next to run. When a task runs, its vruntime increases. When it blocks waiting for I/O, its vruntime stops accumulating — this naturally gives CPU-bound tasks more vruntime than I/O-bound tasks, which is why interactive processes feel responsive even under heavy computational load.
+
+:PATH
+The Run Queue Is a Red-Black Tree
+CFS stores all runnable tasks in a red-black tree keyed by vruntime. The leftmost node — the task with the lowest vruntime — is cached directly and picked up in O(1) time. Inserting a waking task takes O(log n) time. This structure means scheduling remains efficient even with hundreds of runnable processes. When you run top and see load average rise, each unit represents roughly one process waiting in this tree for a CPU that is currently busy.
+
+:PATH
+Adjust Priority with the nice Command
+Nice values range from -20 (highest priority) to 19 (lowest priority). A lower nice value causes vruntime to accumulate more slowly, meaning the task stays near the leftmost position in the run tree and gets scheduled more often. Run a CPU-intensive background job at low priority with nice -n 19 make -j$(nproc) so it yields to interactive work. Use renice -n 10 -p PID to adjust a running process. Only root can set negative nice values.
+
+:PATH
+Control Container CPU with cgroups v2
+Kubernetes resource limits and Docker CPU constraints map directly to cgroup v2 knobs. The CPU controller files live at /sys/fs/cgroup/system.slice/ and similar paths. cpu.max contains two numbers: the quota in microseconds and the period in microseconds. A container with cpu.max set to 50000 100000 can use at most 50ms of CPU per 100ms period — exactly half a core. When the quota is exhausted, the container's processes are throttled until the next period. This is why a container with a CPU limit can feel unresponsive even on an idle host.
+
+:PATH
+Pin Processes to Cores with taskset
+taskset sets or retrieves the CPU affinity mask of a process — the set of cores it is allowed to run on. Pin a latency-sensitive process to cores 0 and 1 with taskset -c 0,1 your-command. On a NUMA system, keeping a process on cores that share an L3 cache with its memory avoids cross-socket latency. Check the current affinity of a running process with taskset -p PID. CPU pinning is most useful for real-time audio, network packet processing, and any workload where jitter from scheduler migrations matters.
+
+:PATH
+Diagnose Scheduling Delays with perf sched
+The perf sched latency command shows per-task scheduling statistics including average and maximum delay between when a task became runnable and when it actually ran. A task with high max scheduling latency was ready to run but waited behind other tasks. perf sched record captures a trace; perf sched latency -s max sorts by worst-case wait. Use this to find which processes are being starved on a loaded system before reaching for cgroup throttling or nice adjustments.
+
+:INFO
+Go Deeper: The Red-Black Tree
+The CFS run queue is a red-black tree — a self-balancing binary search tree that guarantees O(log n) operations regardless of load. That same data structure appears in contexts far beyond scheduling, and understanding it pays off. The Linux kernel uses red-black trees in the virtual memory subsystem, in the epoll event system, and in the TCP connection tracker. Knowing the invariants that keep the tree balanced reveals why these operations remain fast under adversarial workloads.
+
+:LINK
+https://www.kernel.org/doc/Documentation/scheduler/sched-design-CFS.rst
+CFS Scheduler Design

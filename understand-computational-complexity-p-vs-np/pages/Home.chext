@@ -1,0 +1,38 @@
+:INFO
+The Question Underneath All Cryptography
+Complexity theory asks how the resources required to solve a problem grow as a function of the input size n. We care about asymptotic behavior — not the exact cost on one input, but whether the cost scales as n^2 or 2^n as n gets large.
+
+:PATH
+P: Tractable Problems
+P is the class of decision problems solvable by a deterministic algorithm in polynomial time — O(n^k) for some constant k. Sorting a list, finding a shortest path, multiplying large integers: all in P. These are problems computers can actually solve at scale.
+
+:PATH
+NP: Verifiable Problems
+NP is the class of problems where a proposed solution can be verified in polynomial time. Given a candidate solution for the Boolean Satisfiability problem (SAT), graph coloring, or subset sum, you can check correctness quickly — but finding that solution may take exponential time.
+
+:PATH
+P vs NP: The Open Question
+Is every problem whose answer can be quickly verified also quickly solvable? Almost certainly no — but no one has proved it. This is one of the seven Clay Millennium Problems, with a one-million-dollar prize. Every serious complexity theorist believes P does not equal NP, but belief is not a proof.
+
+:PATH
+NP-Completeness
+NP-complete problems are the hardest problems in NP. Cook and Levin proved independently in 1971 that SAT is NP-complete. Reduction proofs then show that hundreds of other problems — Hamiltonian cycle, 3-coloring, knapsack — are NP-hard by showing any SAT instance can be converted to them in polynomial time. If any NP-complete problem is in P, all NP problems collapse to P.
+
+:QUOTE
+If P equals NP, then the world would be a profoundly different place than we usually assume it to be. There would be no special value in creative leaps, no fundamental gap between solving a problem and recognizing a solution once it is found. — Scott Aaronson
+
+:PATH
+The Cryptographic Connection
+Public-key cryptography assumes one-way functions exist — functions easy to compute but computationally hard to invert. RSA's hardness rests on the difficulty of factoring large integers. Diffie-Hellman rests on the discrete logarithm problem. These are widely believed to be hard, but no proof exists that they are not in P. If P equals NP, one-way functions cannot exist and all public-key cryptography breaks.
+
+:PATH
+The Practical Resolution
+We do not need a proof to build secure systems. We need security parameters large enough that no practical algorithm finishes in the age of the universe. A 256-bit elliptic curve key against the best known classical algorithms requires more computation than there are atoms in the observable universe. That is engineering confidence, not mathematical certainty — but it is sufficient.
+
+:INFO
+Go Deeper: One-Way Functions and the Math Beneath Them
+One-way functions — easy to compute, hard to invert — are the foundational assumption of most cryptography. The math that makes them hard involves finite fields and modular arithmetic. Those structures are worth understanding on their own terms.
+
+:LINK
+https://www.claymath.org/millennium/p-vs-np/
+Clay Mathematics Institute — P vs NP Problem

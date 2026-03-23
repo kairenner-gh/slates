@@ -1,0 +1,30 @@
+:INFO
+Containers Are Processes with Extra Restrictions
+A container is not a virtual machine and not a separate operating system. It is a process — or a group of processes — running on the host kernel, wrapped in a set of Linux kernel features that restrict what it can see and what resources it can consume. Docker, Podman, and containerd are tools that automate the configuration of those kernel features. Once you understand which kernel primitives do the actual work, the container abstraction becomes transparent and its limits become obvious.
+
+:PATH
+Build a Minimal Container by Hand
+You can create a container without Docker at all using a single command: unshare --pid --mount --uts --ipc --net --fork --mount-proc /bin/bash. This forks a new process inside new PID, mount, UTS, IPC, and network namespaces, mounts a fresh /proc, and drops you into a bash shell that cannot see the host's processes, has its own hostname, and has no network interfaces. This is a container. Everything Docker adds on top — image layers, port mapping, the docker CLI — is convenience wrapping these kernel primitives.
+
+:INFO
+The Eight Linux Namespaces
+Linux provides eight namespace types, each isolating a different aspect of the system. PID namespaces give a process tree its own numbering starting from 1. Mount namespaces give a process its own view of the filesystem hierarchy. UTS namespaces isolate the hostname and domain name. IPC namespaces isolate System V IPC and POSIX message queues. Network namespaces give a container its own network interfaces, routing table, and firewall rules. User namespaces map container UIDs to host UIDs, allowing a container root to be unprivileged on the host. Cgroup namespaces and time namespaces round out the set.
+
+:PATH
+Understand cgroups v2 Resource Limits
+Control groups impose resource limits on processes. The cgroup v2 hierarchy lives at /sys/fs/cgroup/ on modern systems. Each container gets its own subtree. The memory.max file sets the maximum RAM the container may use — write 512M to it and the container's processes will be OOM-killed if they exceed that limit. The cpu.max file controls CPU quota. Read these files directly to see what limits your running containers actually have, rather than trusting docker inspect output alone.
+
+:PATH
+See the Overlay Filesystem in Action
+Container images are stored as stacked layers using the overlay filesystem. Each image layer is a read-only directory. When a container runs, the kernel mounts these lower directories as read-only and adds a writable upperdir that captures any changes the container makes. Files read from a lower layer are served directly; writes go to the upper layer. The merged view presented to the container looks like a single coherent filesystem. Run mount | grep overlay on a host running Docker containers to see the exact mount arguments and find the layer paths on disk.
+
+:QUOTE
+A container that looks like a VM is a container that will surprise you when a kernel exploit appears. The isolation is real but it is not hardware-level. A privilege escalation in the kernel breaks out of every container on the host simultaneously, because they all share the same kernel code.
+
+:INFO
+Go Deeper: Virtual Machines
+Containers share the kernel because they are just processes with namespaces — virtual machines take the opposite approach, achieving hardware-level isolation. A hypervisor creates a separate environment where a guest OS runs its own kernel, completely isolated from the host kernel. Understanding how a hypervisor achieves that isolation reveals something important about how CPUs are designed.
+
+:LINK
+https://man7.org/linux/man-pages/man7/namespaces.7.html
+Linux namespaces man page

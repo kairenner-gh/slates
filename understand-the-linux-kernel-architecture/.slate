@@ -1,0 +1,3 @@
+name: Understand the Linux Kernel Architecture
+description: A conceptual guide to how the Linux kernel is structured — the VFS, memory management, the scheduler, device drivers, and how userspace programs interact with it through a stable ABI.
+type: Article

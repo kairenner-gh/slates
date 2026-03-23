@@ -1,0 +1,30 @@
+:INFO
+The Most-Taught and Most-Misimplemented Algorithm
+RSA is likely the first public-key cryptosystem most developers encounter, and it is routinely misused. The textbook version — compute m^e mod n to encrypt, m^d mod n to decrypt — is broken in practice due to algebraic structure that allows attacks without ever factoring the key. Real RSA requires carefully designed padding schemes. Understanding why reveals that secure cryptography is not just about the algorithm but about every detail of how it is applied.
+
+:PATH
+The Mathematical Foundation: Euler's Theorem
+Euler's theorem states that for any integer a coprime to n, a raised to the power of Euler's totient phi(n) is congruent to 1 modulo n. RSA uses this to construct a pair of exponents e and d such that encrypting and then decrypting returns the original message. For RSA, n = p*q where p and q are distinct large primes. Then phi(n) = (p-1)*(q-1). If you choose e and compute d = e^(-1) mod phi(n), then for any message m, raising m to the power e*d mod n returns m. This works because e*d is congruent to 1 mod phi(n).
+
+:PATH
+RSA Key Generation Step by Step
+Generate two distinct large primes p and q, each typically 1024 bits for a 2048-bit key. Compute n = p*q — this is the modulus, public. Compute phi(n) = (p-1)*(q-1) — this is kept secret. Choose the public exponent e = 65537, a Fermat prime chosen for efficient exponentiation. Compute the private exponent d = e^(-1) mod phi(n) using the extended Euclidean algorithm. The public key is the pair (n, e). The private key is d, or equivalently (p, q, d) which enables the Chinese Remainder Theorem speedup for decryption.
+
+:PATH
+Why Factoring Breaks RSA
+If an attacker can factor n into p and q, they can compute phi(n) = (p-1)*(q-1) and then recover d = e^(-1) mod phi(n) — the private key. The security of RSA reduces directly to the hardness of factoring n. For a 2048-bit RSA modulus, the best known factoring algorithm — the General Number Field Sieve — requires computational effort on the order of 2^112 operations. A 4096-bit key pushes this to roughly 2^140. NIST recommends at minimum 2048-bit RSA keys through 2030.
+
+:PATH
+Why Textbook RSA Is Broken
+Textbook RSA has a multiplicative homomorphism: if c1 = m1^e mod n and c2 = m2^e mod n, then c1*c2 mod n = (m1*m2)^e mod n. An attacker who sees a ciphertext can multiply it by a chosen value, ask for it to be decrypted, and recover information about the original plaintext — without factoring the key. OAEP (Optimal Asymmetric Encryption Padding) randomizes the message before encryption by mixing in a random seed through a hash function, destroying the homomorphic structure. Real RSA encryption always uses OAEP. For signatures, RSA-PSS adds randomized padding that prevents existential forgery.
+
+:NOTE
+RSA-2048 is being phased out of many standards not because it has been broken, but because the sub-exponential scaling of the Number Field Sieve means that as computers become faster and factoring research advances, the safety margin shrinks. ECDSA and Ed25519 provide equivalent or better security with keys 10 to 15 times smaller, which also makes certificate chains and TLS handshakes smaller and faster.
+
+:INFO
+Go Deeper: Elliptic Curve Cryptography
+RSA's security rests on the hardness of factoring — but there is a newer approach to public-key cryptography that gives the same security with keys an order of magnitude smaller, using the algebraic geometry of elliptic curves. Understanding ECC from its geometric foundations reveals why 256 bits is enough, and why the choice of curve parameters matters enormously for security.
+
+:LINK
+https://crypto.stanford.edu/~dabo/cryptobook/
+A Graduate Course in Applied Cryptography (Boneh and Shoup)

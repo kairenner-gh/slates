@@ -1,0 +1,34 @@
+:INFO
+Proving You Know Something Without Revealing It
+Zero-knowledge proofs answer a question that sounds paradoxical: can you convince someone that a statement is true without giving them any information about why it is true? Not just withholding the details — provably giving them zero additional knowledge, in a formal mathematical sense. The answer is yes, and the construction is elegant. Zero-knowledge proofs underpin anonymous credential systems, privacy-preserving blockchains, and the zk-rollup scaling technology that compresses thousands of transactions into a single proof.
+
+:PATH
+The Ali Baba Cave Story
+Peggy knows the magic word that opens a hidden door inside a cave shaped like a ring. Victor wants to be convinced she knows it without learning the word. Peggy enters the cave and goes either left or right down the two branches. Victor shouts which side she should exit from. If Peggy knows the magic word, she can always exit the correct side by opening the door if needed. If she does not know the word, she can only comply with probability 1/2. After twenty rounds, if Peggy always exits the correct side, Victor is convinced with probability 1 - (1/2)^20 — about one in a million chance of a lucky guesser succeeding.
+
+:PATH
+The Three Formal Properties
+A zero-knowledge proof system has three properties that must all hold simultaneously. Completeness: if the statement is true and both parties follow the protocol, the verifier accepts. Soundness: if the statement is false, no cheating prover can convince an honest verifier except with negligible probability. Zero-knowledge: there exists a simulator that can produce transcripts of the interaction indistinguishable from real ones, without knowing the secret — which formally means the verifier learns nothing from the interaction beyond the truth of the statement.
+
+:PATH
+The Schnorr Identification Protocol
+The Schnorr protocol is a real interactive zero-knowledge proof of knowledge of a discrete logarithm. Peggy wants to prove she knows x such that X = x*G without revealing x. She picks a random k, sends the commitment R = k*G to Victor. Victor sends a random challenge e. Peggy responds with s = k + e*x mod order. Victor checks s*G = R + e*X. If Peggy knows x, this always verifies. If she does not, she would need to predict e before sending R to cheat — which she cannot since e is chosen after R. The Schnorr protocol is the core of Ed25519 signatures.
+
+:PATH
+The Fiat-Shamir Heuristic: Non-Interactive ZKPs
+Interactive protocols require a back-and-forth between prover and verifier. The Fiat-Shamir heuristic makes a zero-knowledge proof non-interactive by replacing the verifier's random challenge with a hash of the commitment and public inputs: e = H(R || X || message). The prover generates the proof alone. Any verifier can check it later using only the proof and public information. This works in the random oracle model — treating the hash function as a perfectly random function. Ed25519 uses exactly this construction to sign messages without any interaction.
+
+:QUOTE
+A zk-SNARK lets the verifier check that some computation was run correctly, seeing only the output and a small proof, with no knowledge of the inputs. The prover does not reveal the inputs. The verifier does not learn the inputs. The proof is smaller than running the computation again. This is not a trick — it is a consequence of the mathematics of polynomial commitments and pairings.
+
+:INFO
+zk-SNARKs in Production
+A zk-SNARK (Succinct Non-interactive Argument of Knowledge) is a zero-knowledge proof system where the proof is tiny and verification is fast, regardless of the complexity of the underlying computation. Zcash uses zk-SNARKs to prove that a transaction is valid — the sender has enough funds and is sending to a real recipient — without revealing sender, receiver, or amount on the public ledger. Ethereum zk-rollups use zk-SNARKs to prove that a batch of 10,000 transactions was processed correctly, submitting only the proof and the new state root to the main chain.
+
+:INFO
+Go Deeper: Computational Complexity
+Zero-knowledge proofs rely on hardness assumptions — and those assumptions are statements about what is computationally possible. A proof that a ZKP system is secure assumes the underlying problem (discrete log, or some lattice problem) cannot be solved efficiently. To understand what we are actually assuming, you need to enter complexity theory: the formal study of what can and cannot be computed efficiently.
+
+:LINK
+https://zkproof.org/2020/08/12/field-notes/
+ZKProof Community Reference

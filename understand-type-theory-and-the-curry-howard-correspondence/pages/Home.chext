@@ -1,0 +1,34 @@
+:INFO
+The Unexpected Bridge Between Logic and Programming
+The Curry-Howard correspondence, discovered independently by Haskell Curry in 1934 and William Howard in 1969, reveals that types are propositions and programs are proofs. Writing a program that type-checks is equivalent to constructing a mathematical proof. This is not a metaphor — it is a precise structural isomorphism between two independently developed formal systems.
+
+:PATH
+Types as Specifications
+A type signature f : Int to Bool is a claim: given an integer, this function produces a boolean. Type checking verifies this claim mechanically. But simple types are shallow specifications — they say nothing about whether the integer must be positive, or whether the boolean has any particular relationship to the integer. Dependent types fix this.
+
+:PATH
+The Simply-Typed Lambda Calculus
+Adding types to the lambda calculus gives the simply-typed lambda calculus (STLC). Every term has a type, and the type system rejects terms that would get stuck — applying a number as a function, for instance. The correspondence: the type A to B corresponds to the logical proposition "A implies B." A function of that type is a proof of the implication. The identity function lambda x. x of type A to A is the proof that A implies A.
+
+:PATH
+Dependent Types
+In dependent type theory, types can depend on values. The type Vector n a is the type of lists of length exactly n containing elements of type a. The length is part of the type. A function append : Vector m a to Vector n a to Vector (m+n) a encodes the fact that appending vectors of length m and n produces a vector of length m+n — checked at compile time. Dependent types can express and verify arbitrarily precise specifications.
+
+:PATH
+Proof Assistants and Formal Verification
+Coq and Agda are proof assistants based on dependent type theory. Writing a program in Coq means constructing a proof that the program meets its specification. The seL4 microkernel — used in safety-critical embedded systems — was verified in Coq: a machine-checked proof that the C implementation correctly implements its abstract specification. The CompCert C compiler was verified to produce object code that correctly implements the source program semantics.
+
+:QUOTE
+The seL4 verification does not mean the system is perfect. It means every security property stated in the specification is guaranteed by mathematical proof. The specification itself is a human product and may be wrong. Proof moves the uncertainty from the implementation to the assumptions.
+
+:PATH
+Homotopy Type Theory
+Homotopy Type Theory (HoTT) is a recent unification of type theory with algebraic topology. Types are interpreted as topological spaces, and proofs of equality are interpreted as paths between points. This provides a new foundation for mathematics in which equality is inherently richer than classical set-theoretic equality — isomorphic structures are not just equivalent but literally identical.
+
+:INFO
+Go Deeper: Type Theory as a Foundation for Mathematics
+Type theory is one proposed foundation for all of mathematics — an alternative to set theory. Classical mathematics is usually founded on set theory, and set theory has its own surprising paradoxes and fundamental limitations that took decades to resolve. Those limitations illuminate why foundations matter.
+
+:LINK
+https://homotopytypetheory.org/book/
+Homotopy Type Theory (free book)

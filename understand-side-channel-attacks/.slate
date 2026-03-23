@@ -1,0 +1,3 @@
+name: Understand Side-Channel Attacks
+description: An accessible introduction to how attackers extract secrets from systems by measuring time, power, or cache behavior — and why these attacks break security guarantees that look solid on paper.
+type: Article

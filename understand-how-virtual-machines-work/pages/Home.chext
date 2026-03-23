@@ -1,0 +1,35 @@
+:INFO
+From KVM Is Fast to Understanding Why
+If you run Proxmox, you have used KVM without necessarily understanding what makes it different from running processes in containers or emulating a CPU in software. The answer is that modern CPUs have hardware-level support for virtualization built in. The CPU itself enforces isolation between the guest OS and the host, handles the common case of guest execution without hypervisor intervention, and only traps to the hypervisor when something genuinely privileged happens. Understanding this mechanism explains why a KVM virtual machine can run at near-native speed.
+
+:PATH
+Type 1 vs Type 2 Hypervisors
+A Type 1 hypervisor runs directly on hardware with no host OS underneath it. Proxmox, VMware ESXi, and Xen are Type 1 — the hypervisor is the OS. A Type 2 hypervisor runs as an application on top of a conventional OS. VirtualBox and the non-KVM version of QEMU are Type 2. KVM is unusual: it turns the Linux kernel itself into a Type 1 hypervisor by loading a kernel module that exposes a device at /dev/kvm. QEMU with KVM is therefore a Type 1 hypervisor running Linux as the host environment, which is why Proxmox is built on it.
+
+:PATH
+Hardware Virtualization Extensions
+Intel VT-x and AMD-V add two new CPU execution modes. VMX root mode is where the hypervisor runs — it has full control over hardware. VMX non-root mode is where the guest OS runs — it appears to have a complete CPU with all rings, but certain operations are intercepted. The CPU stores the complete state of a guest in a data structure called the VMCS (Intel) or VMCB (AMD) — registers, control bits, I/O permission bitmaps. The hypervisor configures this structure to define what the guest is and is not allowed to do without intervention.
+
+:COUNTER.half
+VMENTER
+Hypervisor resumes the guest CPU state from the VMCS and hands control to the guest
+
+:COUNTER.half
+VMEXIT
+Guest performs a privileged operation, CPU saves guest state and returns control to hypervisor
+
+:PATH
+Nested Page Tables Eliminate Memory Translation Overhead
+A guest OS manages its own page tables mapping guest virtual addresses to guest physical addresses. But guest physical addresses are not real physical addresses — they are an intermediate layer that must be translated to host physical addresses. Without hardware support, the hypervisor would need to intercept every page table modification. Nested page tables (Intel EPT, AMD NPT) add a second level of hardware page tables that the CPU walks automatically, translating guest physical to host physical in hardware without any hypervisor involvement on the common path.
+
+:PATH
+PCI Passthrough with the IOMMU
+The IOMMU is a memory management unit for DMA-capable devices. Without an IOMMU, a device with DMA access can write to any physical memory address, bypassing all OS protections. With an IOMMU, the kernel configures per-device mappings so a device can only DMA to memory belonging to its owner. KVM uses the IOMMU to assign a PCIe device — a GPU, NVMe controller, or NIC — exclusively to a guest VM. The guest gets direct hardware access with no hypervisor in the path, which is why GPU passthrough achieves close to bare-metal graphics performance.
+
+:INFO
+Go Deeper: CPU Instruction Execution
+Hardware virtualization works by trapping certain CPU instructions and redirecting them to the hypervisor. But to understand which instructions trigger a VMEXIT and why, you need to understand how a CPU executes instructions in the first place — the fetch-decode-execute cycle, pipelining, and what makes a CPU fast in the common case.
+
+:LINK
+https://www.linux-kvm.org/page/Main_Page
+Linux KVM documentation

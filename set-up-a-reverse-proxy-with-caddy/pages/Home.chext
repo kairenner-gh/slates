@@ -1,0 +1,34 @@
+:INFO
+One Box, Many Services, One Port 443
+Without a reverse proxy, every service on your Pi needs its own port: Nextcloud on 8080, Grafana on 3000, Vaultwarden on 8200. You tell people "go to http://192.168.1.50:8080" and they give you a look. With Caddy as a reverse proxy, every service gets its own subdomain — nextcloud.home.example.com, grafana.home.example.com — all reached over standard HTTPS port 443 with a real certificate. Caddy handles automatic certificate renewal through Let's Encrypt, and its configuration syntax is simple enough to read without a manual.
+
+:COUNTER.half
+One Port 443
+Multiple Services
+
+:PATH
+Add Caddy to Your Docker Compose Stack
+Create a new directory for your Caddy service: mkdir -p ~/docker/caddy/config. Inside your main docker-compose.yml (or a new one for Caddy), add a caddy service using the caddy image. Mount your Caddyfile into /etc/caddy/Caddyfile inside the container, mount a caddy_data named volume to /data (where Caddy stores certificates), and mount a caddy_config named volume to /config. Publish ports 80 and 443 on the host. To allow Caddy to discover other containers by name, give it access to the Docker socket or use a shared Docker network where all your app containers also live.
+
+:PATH
+Write the Caddyfile for Subdomain Routing
+The Caddyfile format is a block per site. For each service, write a block starting with the subdomain — such as nextcloud.example.com — followed by curly braces containing a reverse_proxy directive pointing to the container's service name and internal port: reverse_proxy nextcloud:80. Caddy uses the service name as a hostname because both Caddy and the service container are on the same Docker network, and Docker's internal DNS resolves service names automatically. You do not need to publish ports on the app containers — they only need to be reachable by Caddy on the internal network.
+
+:PATH
+Configure Internal Docker Networking
+Create a dedicated Docker network named proxy in your compose file. Attach Caddy to this network. Attach each application container (Nextcloud, Grafana, Vaultwarden) to the same proxy network. Remove any published ports from those application containers — they no longer need to be reachable from outside Docker. The only container exposing ports to the host is Caddy. This reduces your attack surface: a misconfigured application can no longer be reached directly from your LAN unless Caddy routes to it.
+
+:PATH
+Understand Automatic HTTPS via ACME
+When Caddy sees a public domain name in the Caddyfile, it automatically initiates the ACME challenge with Let's Encrypt to obtain a TLS certificate. For the HTTP-01 challenge, Let's Encrypt makes a request to your domain on port 80 — so your router must forward ports 80 and 443 to the Pi for public domains. Caddy stores the certificate and renews it automatically before it expires, with no cron job or certbot required. For internal-only hostnames that aren't publicly reachable, you will need a DNS-01 challenge or a local CA, both of which Caddy supports through plugins.
+
+:NOTE
+Create a dedicated Docker network named proxy for all reverse-proxied services and keep application containers off the default bridge network. The default bridge gives all containers on your host a path to each other, which is broader than necessary. A named network limits communication to only the containers you explicitly attach to it.
+
+:INFO
+What Comes Next
+Caddy fetches TLS certificates by talking to DNS — your domain name must resolve to your server before Let's Encrypt will issue a cert. That means to understand what Caddy is actually doing, and to set up split-horizon DNS so your local services resolve correctly inside your home network, you need to understand how DNS actually works.
+
+:LINK
+https://caddyserver.com/docs/caddyfile
+The Caddyfile reference

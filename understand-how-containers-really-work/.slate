@@ -1,0 +1,3 @@
+name: Understand How Containers Really Work
+description: Strip away the Docker abstraction and see what containers actually are — Linux namespaces, cgroups, and union filesystems — so you understand the isolation model and its real limits.
+type: Article

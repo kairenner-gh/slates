@@ -1,0 +1,3 @@
+name: Understand Linux Firewalls: iptables to nftables
+description: Learn how packet filtering actually works in Linux — from the iptables mental model through to modern nftables syntax — so you can write rules you understand rather than copy-paste.
+type: Article

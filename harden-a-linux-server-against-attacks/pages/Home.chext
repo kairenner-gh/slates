@@ -1,0 +1,47 @@
+:INFO
+Your New IP Will Be Scanned in Under 30 Seconds
+The moment your server gets a public IP address, automated scanners begin probing it. Open your /var/log/auth.log after 24 hours on a fresh server and you will see hundreds or thousands of failed login attempts from addresses all over the world — bots trying root with passwords like "123456", "password", "admin", and every combination from every leaked credential database. These attacks succeed only when servers are left with default configurations. The hardening steps in this guide close the most commonly exploited gaps before anything bad happens.
+
+:PATH
+Disable Password Authentication for SSH
+Open /etc/ssh/sshd_config with sudo nano. Find the line PasswordAuthentication and set it to no. Find PermitRootLogin and set it to no. Find PubkeyAuthentication and confirm it is set to yes. Before saving, open a second terminal and confirm you can SSH in using your key — do not close the current session until you have verified key-based login works. Reload the SSH daemon with sudo systemctl reload sshd. Password-based SSH brute force attacks are now useless against your server.
+
+:PATH
+Change the Default SSH Port
+Still in sshd_config, change the Port directive from 22 to a high-numbered port such as 2222 or something less predictable. This will not stop a determined attacker — port scanners find open ports regardless — but it eliminates a significant volume of automated noise that only targets port 22. Update your SSH client config or bookmark the new port. If you use ufw or nftables rules, update them to allow the new port before reloading the firewall, or you will lock yourself out.
+
+:PATH
+Install and Configure fail2ban
+Install fail2ban: sudo apt install fail2ban. Copy the default config to a local override: sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local. Edit jail.local to enable the sshd jail: set enabled = true, set port to your SSH port, set maxretry to 5, and set bantime to 1h. Restart fail2ban: sudo systemctl restart fail2ban. Check active bans with sudo fail2ban-client status sshd. After even a few hours you will see a list of banned IPs — the same scanners your auth.log showed, now automatically blocked.
+
+:PATH
+Configure ufw Firewall Rules
+Install ufw if not present: sudo apt install ufw. Set the default policies: sudo ufw default deny incoming and sudo ufw default allow outgoing. Allow your SSH port: sudo ufw allow 2222/tcp. Allow web traffic: sudo ufw allow 80/tcp and sudo ufw allow 443/tcp. If you run WireGuard, allow its UDP port: sudo ufw allow 51820/udp. Enable the firewall: sudo ufw enable. Verify the active rules with sudo ufw status numbered. Any port not explicitly allowed is now unreachable from outside.
+
+:PATH
+Enable Automatic Security Updates
+Install unattended-upgrades: sudo apt install unattended-upgrades. Enable it: sudo dpkg-reconfigure --priority=low unattended-upgrades. Edit /etc/apt/apt.conf.d/50unattended-upgrades to confirm that security updates are enabled and that automatic reboots are scheduled for a low-traffic time (3 AM is common). This ensures that kernel patches and library updates are applied within hours of release, without requiring you to log in manually every week.
+
+:CHECKLIST
+Hardening Actions to Complete Before Going Public
+SSH key-based login confirmed working before disabling password auth
+PasswordAuthentication and PermitRootLogin both set to no in sshd_config
+SSH running on a non-default port
+fail2ban installed with sshd jail enabled
+ufw rules: deny incoming by default, allow only SSH, 80, 443
+unattended-upgrades enabled for security packages
+Unused services identified with systemctl list-units and disabled
+
+:QUOTE
+The question is not if you will be attacked, but when.
+
+:NOTE
+Always verify that SSH key login works in a separate terminal session before disabling password authentication and reloading sshd. If you set PasswordAuthentication no and your key is not properly installed in ~/.ssh/authorized_keys, you will be locked out of your own server. Recovery requires physical console access or booting from a recovery image.
+
+:INFO
+What Comes Next
+fail2ban blocks IP addresses by writing rules directly into your Linux firewall. To understand what those rules actually do — how Linux decides which packets to accept, drop, or forward — you need to understand how the kernel's packet filtering works from the inside. That knowledge also lets you write your own rules with precision instead of relying entirely on frontend tools.
+
+:LINK
+https://www.fail2ban.org/wiki/index.php/MANUAL_0_8
+Fail2Ban manual

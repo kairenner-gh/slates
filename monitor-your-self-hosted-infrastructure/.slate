@@ -1,0 +1,3 @@
+name: Monitor Your Self-Hosted Infrastructure
+description: Set up Prometheus and Grafana to track uptime, resource usage, and service health across your home lab — with alerting so you know about problems before your family does.
+type: Article

@@ -1,0 +1,35 @@
+:INFO
+What a Digital Signature Actually Proves
+A digital signature on a message proves two things: that the message was produced by someone who holds the corresponding private key, and that the message has not been modified since it was signed. The first property is authentication — only the key holder could have produced this signature. The second is integrity — any change to the message invalidates the signature. Together these give non-repudiation: the signer cannot later deny having signed, because only they held the private key. This is the mechanism behind SSH host authentication, code signing, and TLS certificate chains.
+
+:PATH
+ECDSA and the Nonce Catastrophe
+The earlier ECDSA signature algorithm requires a random nonce k for each signature. The nonce must be uniformly random, secret, and never reused. If two messages are signed with the same k under the same private key, simple algebra lets an observer compute the private key from the two signatures. Sony used a constant k=1 to sign PlayStation 3 software. A hacker published all PS3 game signatures alongside the private key derivation, allowing arbitrary unsigned code to run. If the random number generator is predictable or reuses values, every ECDSA key ever signed with it is compromised.
+
+:PATH
+EdDSA Eliminates the Random Nonce Requirement
+EdDSA (Edwards-curve Digital Signature Algorithm) computes the nonce deterministically by hashing the private key and the message together: k = H(private_key_prefix || message). Because k is derived from the message, it is unique per message by construction. Because it is derived from the private key, it is secret. There is no random number generator in the signing path. A broken or predictable RNG cannot cause nonce reuse. The security proof holds without any randomness assumption in signing. This is the fundamental improvement that makes EdDSA safer to implement than ECDSA.
+
+:PATH
+The Schnorr Signature Construction
+Ed25519 is built on the Schnorr signature scheme over an Edwards-form elliptic curve. To sign a message: compute a nonce point R = k*B where B is the curve base point and k is the deterministic nonce. Compute the challenge hash e = H(R || public_key || message). Compute the response s = k + e * private_key mod curve_order. The signature is the pair (R, s). To verify: check that s*B equals R + e*PublicKey. If the signer knows the private key, this equality holds by construction. Without the private key, producing a valid (R, s) pair requires solving the discrete logarithm.
+
+:INFO
+Ed25519 in Practice
+Ed25519 uses Curve25519 in its Edwards form (the twisted Edwards curve ax^2 + y^2 = 1 + dx^2y^2), which has efficient complete addition formulas. A private key is 32 bytes of random data. The public key is a single compressed curve point — also 32 bytes. A signature is 64 bytes. Signing and verification are fast — Ed25519 verifies roughly 70,000 signatures per second on a single core. Generate an Ed25519 SSH key with ssh-keygen -t ed25519. The result is vastly more compact than RSA-4096 and cryptographically stronger in its security assumptions.
+
+:CHECKLIST
+When to Use Ed25519
+Use ed25519 as the key type for all new SSH key pairs
+Ed25519 is supported in OpenSSH 6.5 and later — essentially all modern systems
+For X.509 certificates, the equivalent is the Ed25519 algorithm identifier in the SubjectPublicKeyInfo
+Ed448 (using the larger Goldilocks curve) provides a higher security level at the cost of larger signatures
+Do not use DSA (deprecated) or RSA keys shorter than 3072 bits for new deployments
+
+:INFO
+Go Deeper: Zero-Knowledge Proofs
+Ed25519 security proof relies on the hardness of the discrete logarithm on the Edwards curve — but proof in cryptography means something precise and formal. The Schnorr identification protocol that underlies Ed25519 is itself a zero-knowledge proof. Understanding what it means for a proof to be zero-knowledge — revealing nothing beyond the truth of the statement — opens an entire area of cryptography with remarkable practical applications.
+
+:LINK
+https://ed25519.cr.yp.to
+Ed25519: high-speed high-security signatures

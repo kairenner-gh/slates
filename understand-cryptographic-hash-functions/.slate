@@ -1,0 +1,3 @@
+name: Understand Cryptographic Hash Functions
+description: A practical and mathematical look at what makes SHA-256, SHA-3, and BLAKE3 secure — the avalanche effect, collision resistance, and how hash functions underpin everything from git to TLS.
+type: Article

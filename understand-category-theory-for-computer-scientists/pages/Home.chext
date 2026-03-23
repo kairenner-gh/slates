@@ -1,0 +1,35 @@
+:INFO
+Category Theory as a Unifying Language
+Category theory studies mathematical structure at the most abstract level: not what mathematical objects are made of, but how they relate to each other. It was developed by Eilenberg and Mac Lane in the 1940s to make precise what "natural" meant when two constructions behaved the same way across all mathematical contexts. It has since become the native language of modern algebra, logic, and theoretical computer science.
+
+:PATH
+Categories
+A category consists of objects and morphisms (arrows between objects). Morphisms compose: if there is an arrow from A to B and from B to C, there is an arrow from A to C. Every object has an identity morphism. Composition must be associative and the identity morphisms must be neutral elements for composition. Sets and functions form a category. Groups and homomorphisms form a category. Types and programs form a category.
+
+:PATH
+Functors
+A functor is a structure-preserving map between categories. It maps objects to objects and morphisms to morphisms while preserving composition and identities. The List functor maps any type A to the type [A] (list of A) and maps any function f : A to B to the function map f : [A] to [B]. Functors capture the idea of a parametric type constructor that works uniformly across all element types.
+
+:PATH
+Natural Transformations
+A natural transformation is a morphism between functors — a way to convert between two functors systematically. The function head : [A] to Maybe A, which returns the first element or Nothing if the list is empty, is a natural transformation from the List functor to the Maybe functor. It works the same way regardless of element type, and that uniformity is exactly what naturality captures.
+
+:PATH
+The Yoneda Lemma
+The Yoneda lemma states that a functor F from a category C is completely determined by its behavior on morphisms out of a single object: natural transformations from the representable functor Hom(A, -) to F biject naturally with elements of F(A). This means you can understand any functor entirely through how it interacts with one object. It is one of the most powerful and most counterintuitive results in mathematics.
+
+:PATH
+Adjunctions
+An adjunction between functors F and G is a natural bijection between morphisms F(A) to B and morphisms A to G(B). Currying and uncurrying are an adjunction between function types. Free and forgetful functors between categories of structured objects (groups, rings) are adjunctions. Most universal constructions in mathematics — products, coproducts, limits, colimits — arise as adjunctions. Adjunctions formalize the idea that two constructions are inverse to each other in a precise structural sense.
+
+:PATH
+Monads
+A monad is a functor T with natural transformations unit : Id to T and join : T∘T to T satisfying coherence laws (associativity and unit laws). The Maybe monad sequences computations that may fail. The IO monad sequences effectful computations. The State monad threads state through a computation. In Haskell and other functional languages, monads structure all computations involving effects, failure, or nondeterminism. The Curry-Howard-Lambek correspondence extends the proofs-as-programs isomorphism: propositions correspond to types, types correspond to objects in a Cartesian closed category, and proofs correspond to morphisms.
+
+:INFO
+Go Deeper: Category Theory and the Foundations of Probability
+Category theory is the mathematics of mathematics — it studies structure and transformation in the most abstract possible setting. Those same categorical structures appear in the foundations of statistics and probability theory, where measure-theoretic probability has a natural categorical formulation.
+
+:LINK
+https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/
+Category Theory for Programmers (Milewski)

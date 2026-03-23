@@ -1,0 +1,3 @@
+name: Understand Type Theory and the Curry-Howard Correspondence
+description: An introduction to type theory as a foundation for mathematics — the Curry-Howard correspondence equating proofs with programs, and how dependent types enable formal software verification.
+type: Article

@@ -1,0 +1,3 @@
+name: Understand RSA Public-Key Cryptography
+description: Work through the RSA algorithm from first principles — key generation, modular exponentiation, why factoring breaks it, and what padding schemes prevent in practice.
+type: Article

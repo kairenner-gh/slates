@@ -1,0 +1,3 @@
+name: Understand How a CPU Executes Instructions
+description: A conceptual walkthrough of the fetch-decode-execute cycle, pipelining, branch prediction, and out-of-order execution — the mechanisms that make modern CPUs fast and their surprising security consequences.
+type: Article

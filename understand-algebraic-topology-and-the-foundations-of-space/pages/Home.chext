@@ -1,0 +1,35 @@
+:INFO
+The End of the Rabbit Hole — and the View from the Bottom
+Topology asks what properties of a space are preserved when you deform it continuously — stretch, compress, bend — without tearing or gluing. A coffee mug and a donut are topologically the same (both have one hole). A sphere and a cube are topologically the same (neither does). Topology is geometry with the rigidity removed. Algebraic topology assigns algebraic objects — groups, rings — to topological spaces, making qualitative shape into something you can calculate.
+
+:PATH
+Topological Spaces and Continuous Maps
+A topology on a set X is a collection of subsets called open sets, closed under arbitrary union and finite intersection, containing the empty set and X itself. A function between topological spaces is continuous if the preimage of every open set is open. This abstract definition captures what continuity means without coordinates or distances — it is the foundation that makes the epsilon-delta definition of limits a special case of a more general concept.
+
+:PATH
+The Fundamental Group
+Fix a base point x in a space X. The fundamental group pi_1(X, x) consists of loops at x — paths that start and end at x — where two loops are identified if one can be continuously deformed into the other while keeping the base point fixed. The group operation is concatenation of loops. For the circle S^1, pi_1 equals the integers: loops are classified by how many times they wind around, and winding numbers add under composition. For the plane, pi_1 is trivial — every loop can be contracted to a point.
+
+:PATH
+Homotopy Equivalence
+Two spaces are homotopy equivalent if there are continuous maps between them that compose to maps homotopic to the identity. Homotopy equivalence is weaker than homeomorphism (topological identity) but captures the same qualitative shape for most mathematical purposes. The circle and the punctured plane are homotopy equivalent — both have fundamental group Z. The disk and a single point are homotopy equivalent — both are contractible.
+
+:PATH
+Simplicial Homology
+Simplicial homology assigns abelian groups to a space by decomposing it into simplices (triangles, tetrahedra, and their higher-dimensional analogues). Boundary maps send each simplex to the formal sum of its faces. Homology groups H_n are kernels of boundary maps modulo images of the next boundary map. H_0 counts connected components. H_1 counts independent loops. H_2 counts enclosed voids. These groups are topological invariants — they do not change under homeomorphism.
+
+:PATH
+The Euler Characteristic
+The Euler characteristic chi = V minus E plus F (vertices minus edges plus faces) for any polyhedron equals 2 — it does not matter how you triangulate a sphere. For a torus it equals 0. Chi equals the alternating sum of Betti numbers (ranks of homology groups). It is one of the oldest topological invariants, predating formal topology by over a century, connecting the combinatorial structure of polyhedra to the algebra of homology.
+
+:PATH
+The View from the Bottom
+Every system you self-host runs on transistors whose switching behavior is quantum mechanical — described by operators on Hilbert spaces, which are infinite-dimensional topological vector spaces. The TLS securing those services rests on elliptic curves defined over finite fields — the algebra of rings and groups. The security proofs use complexity theory and probability theory. The complexity theory is grounded in lambda calculus, set theory, and formal logic. And beneath all of it: the Atiyah-Singer index theorem connects the geometry of differential operators to algebraic invariants of homology — one of the deepest theorems known. You started by plugging in a Raspberry Pi.
+
+:INFO
+The Bottom of the Rabbit Hole
+You started by plugging in a Raspberry Pi, wanting to run a file server. That question — why does this work, and how — led through operating systems, networks, cryptography, distributed systems, quantum computing, number theory, abstract algebra, logic, and now topology. Each answer revealed deeper questions. This is what mathematics and computer science are: not a body of knowledge to memorize but a connected structure to explore. Any path through it leads everywhere. The bottom of the rabbit hole looks like the top of a mountain.
+
+:LINK
+https://pi.math.cornell.edu/~hatcher/AT/ATpage.html
+Algebraic Topology (Hatcher, free textbook)

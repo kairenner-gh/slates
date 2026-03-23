@@ -1,0 +1,42 @@
+:INFO
+Why Let's Encrypt Cannot Help With Local Hostnames
+Let's Encrypt validates domain ownership by making an HTTP request to your domain (HTTP-01 challenge) or by checking a DNS record you control (DNS-01 challenge). Both require a publicly reachable hostname. Your internal services — nextcloud.home.example.com resolving to 192.168.1.50 — are not reachable from the public internet, so Let's Encrypt cannot issue certificates for them. Without a trusted certificate, every browser on every device shows a warning every time anyone visits an internal service. Running step-ca as your own private CA eliminates that permanently.
+
+:PATH
+Install step-ca and Initialize the CA
+Download the step CLI tool and step-ca server from Smallstep's releases page for your architecture (arm64 for Raspberry Pi 5, armv7 for older models). Install the binaries to /usr/local/bin. Run step ca init to start an interactive setup: choose a name for your CA (something like "Home Lab CA"), enter a DNS name and address for the CA server, set the default certificate validity (24 hours is recommended for internal certs — short lifetimes force rotation and limit damage from a compromised cert), and set a provisioner password. The init command generates a root keypair and an intermediate keypair and writes the config to ~/.step.
+
+:PATH
+Add the Root Certificate to Your Trust Stores
+The root certificate file is at $(step path)/certs/root_ca.crt. On Linux, copy it to /usr/local/share/ca-certificates/ with a .crt extension and run sudo update-ca-certificates. On macOS, open Keychain Access, drag in the certificate, double-click it, and set "When using this certificate" to Always Trust. On Windows, open certmgr.msc, navigate to Trusted Root Certification Authorities, right-click Certificates, and import the file. Repeat this process on every device that needs to trust your internal certificates — phones, laptops, tablets.
+
+:PATH
+Issue a Certificate for a Local Service
+With step-ca running, use the step CLI to request a certificate for your service. Run step ca certificate nextcloud.home.example.com nextcloud.crt nextcloud.key — step will contact the CA, authenticate via the provisioner password, and write the signed certificate and key to the current directory. Configure your Caddy Caddyfile to use these files with the tls directive instead of automatic ACME. The browser on any device where you installed the root cert will now show a valid padlock for that service with no warnings.
+
+:PATH
+Configure the ACME Endpoint for Automatic Renewal
+step-ca can serve an ACME endpoint so that Caddy uses the same ACME protocol it uses with Let's Encrypt, but against your local CA instead. In your CA configuration file (~/.step/config/ca.json), add an ACME provisioner. In the Caddyfile, add a tls block pointing to your CA's ACME endpoint URL instead of Let's Encrypt's. Caddy will automatically request, receive, and renew certificates from your local CA on its normal schedule, with no manual certificate management at all.
+
+:PATH
+Understand Mutual TLS for Internal Services
+Mutual TLS (mTLS) means both sides of a connection present certificates — the server proves its identity to the client, and the client proves its identity to the server. This is more powerful than password authentication for service-to-service communication: there are no credentials to steal, replay, or brute-force. step-ca can issue client certificates just as easily as server certificates. Configure Caddy to require a valid client certificate on specific routes, and issue client certs to the services that need to communicate. This is the foundation of a zero-trust internal network.
+
+:CHECKLIST
+Steps to Trust the CA on All Devices
+Linux: copy root_ca.crt to /usr/local/share/ca-certificates and run update-ca-certificates
+macOS: import into Keychain and set to Always Trust
+Windows: import into Trusted Root Certification Authorities via certmgr.msc
+iOS: install profile via Safari, then enable full trust in Settings under Certificate Trust Settings
+Android: install via Settings > Security > Install from storage
+
+:NOTE
+If you ever need to rotate the root CA — because the key was compromised or the cert is expiring — you must redistribute the new root certificate to every device's trust store before the old one expires. Plan for this from the start. Keep a list of every device you trusted the CA on. Treat the root CA private key with the same care as a master password — it can sign any certificate your devices will trust without question.
+
+:INFO
+What Comes Next
+Your CA issues certificates using public-key cryptography — a root key signs an intermediate key, which signs your service keys. Those signatures are the building blocks you have been taking on faith until now. A password manager holds the secrets that protect those keys, and it turns out that self-hosting your password vault on your own infrastructure is a satisfying next step in this chain.
+
+:LINK
+https://smallstep.com/docs/step-ca/
+step-ca documentation

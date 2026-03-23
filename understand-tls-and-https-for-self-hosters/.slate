@@ -1,0 +1,3 @@
+name: Understand TLS and HTTPS for Self-Hosters
+description: A practical deep dive into how TLS secures your self-hosted services — certificate chains, the handshake, cipher suites, and what certificate warnings actually mean.
+type: Article

@@ -1,0 +1,38 @@
+:INFO
+DNS Is the Map of the Internet
+Every time your browser loads a page, it first asks the DNS system to translate a human-readable name into an IP address. This lookup chain involves up to four servers and completes in milliseconds, billions of times per second globally. For self-hosters, DNS is more than a lookup service — it is the layer where you can control how your own hostnames resolve differently inside your home network versus the public internet, block ads before they reach any device, and understand why your Caddy cert requests succeed or fail.
+
+:PATH
+Follow the Recursive Resolution Chain
+When you type home.example.com into a browser, your device first asks its configured resolver (usually your router or ISP). If the resolver has the answer cached, it returns it immediately. If not, it asks one of the thirteen root nameserver clusters, which responds with the address of the TLD nameserver for .com. The resolver asks the .com TLD nameserver, which responds with the address of the authoritative nameserver for example.com. Finally, the resolver asks that authoritative nameserver for home.example.com and returns the answer to your device. The resolver caches the result for the duration of the TTL.
+
+:PATH
+Learn the Record Types That Matter
+A records map a hostname to an IPv4 address. AAAA records map to an IPv6 address. CNAME records create an alias from one hostname to another — the lookup continues at the target name. MX records specify mail servers for a domain, with a priority number. TXT records hold arbitrary text, used for SPF email authentication and domain verification. PTR records do reverse lookups — IP address to hostname — essential for mail server reputation. SRV records specify service locations with port numbers, used by some protocols to find endpoints automatically.
+
+:PATH
+Install Pi-hole as a Local DNS Resolver
+Pi-hole is a DNS server that intercepts queries, blocks domains on its blocklists, and forwards everything else to an upstream resolver of your choice. Install it on your Pi using the official curl-based installer or the Docker image. During setup, choose an upstream DNS provider (Cloudflare 1.1.1.1 or Quad9 9.9.9.9). Pi-hole will start listening on port 53. Open its web interface on port 80 at your Pi's IP address. You will immediately see your network's DNS queries streaming in, and the block percentage climbing as it catches ad and tracking domains.
+
+:PATH
+Configure Split-Horizon DNS
+Split-horizon DNS means the same hostname resolves to different addresses depending on where the query originates. You want nextcloud.example.com to resolve to 192.168.1.50 inside your house (no round-trip to the internet) and to your public IP outside. In Pi-hole's Local DNS Records section, add a custom A record: nextcloud.example.com pointing to 192.168.1.50. Queries from inside your network hit Pi-hole, get the local answer, and connect directly to your Pi. Queries from outside go to your public authoritative DNS and get your public IP (with port forwarding handling the rest).
+
+:PATH
+Set Your Router to Distribute Pi-hole's IP
+Log into your router's admin interface and find the DHCP server settings. Change the DNS server address that gets handed out to DHCP clients from your ISP's DNS to Pi-hole's IP address — your Pi's static LAN IP. Some routers allow you to set a primary and secondary DNS; set the primary to Pi-hole and leave the secondary blank or set it to the same Pi-hole IP, so that devices don't bypass Pi-hole when it takes a moment to respond. Renew DHCP leases on your devices to pick up the change.
+
+:COUNTER.half
+99.9% DNS Queries Resolved Locally
+0 Ads Served
+
+:NOTE
+If Pi-hole goes down and you have not set a fallback, your whole network loses DNS resolution and appears to lose internet access entirely. Configure a secondary DNS on devices that can tolerate bypassing Pi-hole during outages, or run a second Pi-hole instance on different hardware. Do not rely on a single DNS server for critical infrastructure.
+
+:INFO
+What Comes Next
+Your DNS queries no longer leave your network — they resolve locally through Pi-hole. But all your other traffic still flows through your ISP unencrypted at the network level. A WireGuard VPN server on your Pi lets you tunnel your traffic back to your home network from anywhere, giving you access to your local services and Pi-hole's filtering even when you're on a coffee shop network.
+
+:LINK
+https://docs.pi-hole.net
+Pi-hole documentation

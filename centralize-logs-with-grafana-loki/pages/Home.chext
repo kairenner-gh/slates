@@ -1,0 +1,38 @@
+:INFO
+Logs Without Correlation Are Noise
+When a service fails at 2 AM, you want to open one interface, select a time range, and see log lines from every container that was active — Caddy, Nextcloud, the database, the auth service — all aligned on the same timeline as your Prometheus metrics. Loki makes this possible without the operational overhead of Elasticsearch. It does not index log content, only labels, which keeps ingestion fast and storage small. The trade-off is that full-text queries require scanning chunks rather than looking up an index — acceptable for a home lab with modest log volumes.
+
+:PATH
+Understand Loki's Architecture and Label Model
+Loki stores logs in compressed chunks. Each chunk is associated with a set of labels — key-value pairs like container="nextcloud" or host="pi" — and a time range. Queries select chunks by label and then filter within them by content. Because Loki indexes only labels, cardinality matters: using a label with millions of unique values (like a user ID or a request ID) creates millions of separate streams, each with their own chunks, and performance collapses. Labels should have low cardinality: service names, severity levels, hostnames. High-cardinality values belong in the log line itself, not in labels.
+
+:PATH
+Install Promtail or Grafana Alloy as the Log Shipper
+Promtail is Loki's traditional log shipping agent. Grafana Alloy is its more capable successor, also able to ship metrics and traces. Add either as a service in your docker-compose.yml. Promtail needs two mounts: the Docker socket (to discover container labels) and /var/log on the host (to read system logs). Configure its scrape_configs to target Docker containers using the Docker service discovery plugin — it will automatically create a stream per container labeled with the container name and image. Point the remote_write target at your Loki instance's push endpoint.
+
+:PATH
+Configure the Docker Logging Driver
+An alternative to Promtail scraping Docker's log files is configuring Docker to push logs directly to Loki via the Loki Docker logging driver plugin. Install the plugin with docker plugin install grafana/loki-docker-driver. In /etc/docker/daemon.json, set the default log driver to loki and configure the Loki URL. Restart Docker. All new containers will ship logs directly to Loki without Promtail. Use either approach — direct driver or Promtail scraping — consistently across your stack to avoid duplicate log lines.
+
+:PATH
+Query Logs with LogQL
+LogQL is Loki's query language. A query starts with a log stream selector in curly braces: {container="nextcloud"} returns all logs from the Nextcloud container. Add a filter with |=: {container="nextcloud"} |= "error" returns only lines containing the word error. Use != to exclude: {container="nextcloud"} != "DEBUG" removes debug lines. For metrics from logs, use a rate query: rate({container="nextcloud"} |= "error"[5m]) returns the rate of error log lines per second over the last five minutes, which you can graph in Grafana alongside your Prometheus uptime metrics.
+
+:PATH
+Parse Structured Logs with the JSON Pipeline
+Many modern applications emit logs as JSON objects rather than plain text lines. LogQL can parse these inline. Add | json to a query to automatically extract JSON fields from each log line and make them available as labels for further filtering. For example, {container="caddy"} | json | status >= 500 filters Caddy access logs to show only HTTP 5xx responses. This transforms a raw log stream into a queryable structured dataset without preprocessing or indexing ahead of time.
+
+:PATH
+Correlate Logs and Metrics in Grafana
+In Grafana, you can link a log panel directly to a metrics panel. When you click a data point on a Prometheus graph — say, the spike in error rate at 3:17 AM — Grafana can automatically open a Loki log panel filtered to the same time range and the same container. This is configured via Explore mode's "derive fields" feature and Grafana's datasource linking. The result is an investigation workflow where you go from metric anomaly to log evidence without manually adjusting timestamps in two separate queries.
+
+:NOTE
+Loki indexes labels but not log content. Never put high-cardinality values like user IDs, session tokens, request IDs, or IP addresses into Loki labels. Each unique label combination creates a separate log stream, and Loki handles tens of thousands of streams poorly — ingest slows, queries time out, and disk usage spikes. Keep labels to five or fewer per stream for a home lab deployment.
+
+:INFO
+What Comes Next
+Logs show what your applications said — error messages, request paths, stack traces. But sometimes the failure is not in the application layer at all. It is the application making a system call that returns an unexpected error, or blocking on a file descriptor, or talking to a network socket that never responds. For that level of visibility, you need to intercept system calls directly using strace and eBPF.
+
+:LINK
+https://grafana.com/docs/loki/latest/
+Grafana Loki documentation

@@ -1,0 +1,3 @@
+name: Understand Elliptic Curve Cryptography
+description: A visual and algebraic introduction to elliptic curves — the group law, scalar multiplication, and why the elliptic curve discrete logarithm problem makes keys 10x smaller than RSA for equivalent security.
+type: Article

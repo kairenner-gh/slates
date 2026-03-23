@@ -1,0 +1,35 @@
+:INFO
+When Nodes Lie: The Hardest Failure Mode
+Crash fault-tolerant consensus — Raft, Paxos — assumes that faulty nodes simply stop responding. Byzantine fault tolerance addresses a far more adversarial scenario: a faulty node can behave arbitrarily. It can send different messages to different peers, selectively withhold messages, replay old messages, and collude with other faulty nodes to manipulate the outcome. This is the failure model appropriate for blockchains, financial networks, and any system where participants may have an economic incentive to cheat.
+
+:PATH
+The Original Byzantine Generals Result
+In 1982, Lamport, Shostak, and Pease proved that to tolerate f Byzantine-faulty nodes in a consensus system, you need at least 3f+1 total nodes. The intuition: with only 3f nodes and f faulty, an honest node receives messages from 2f other nodes, of which up to f are faulty. The honest node cannot distinguish between f faulty nodes lying and f honest nodes being slow. With 3f+1 nodes, any quorum of 2f+1 nodes contains at least f+1 honest nodes, which always outnumber the f faulty nodes in the quorum, providing enough honest signal to distinguish truth from deception.
+
+:PATH
+Why 3f+1 Is a Hard Lower Bound
+The proof that 3f+1 is necessary (not just sufficient) shows that for 3f or fewer nodes, it is impossible to guarantee consensus in the presence of f Byzantine nodes. The argument uses a partitioning construction: with 3 groups of f nodes each and one Byzantine group, the Byzantine nodes can make each honest group believe the other honest group is the faulty one. The honest groups are symmetric and cannot break the tie. Adding even one extra honest node breaks the symmetry. This lower bound is tight.
+
+:PATH
+PBFT: Practical Byzantine Fault Tolerance
+PBFT (Castro and Liskov, 1999) was the first practical BFT protocol. It operates in a primary-backup model similar to Raft but with three communication phases: pre-prepare (primary sends proposal), prepare (all nodes broadcast that they received the proposal), commit (all nodes broadcast that a quorum saw the proposal). A node commits when it has received 2f+1 commit messages. This three-phase protocol ensures that no two honest nodes commit different values in the same view. The cost is O(n^2) messages per decision — fine for small clusters of 4 to 10 nodes, impractical at hundreds.
+
+:PATH
+HotStuff: Linear Message Complexity
+HotStuff, developed at VMware Research and used as the basis for Facebook's LibraBFT and several Tendermint variants, achieves O(n) message complexity per round using threshold signatures. Instead of every node broadcasting to every other node, nodes send their votes to the leader, who combines them into a single quorum certificate using a threshold signature scheme. The leader then broadcasts the quorum certificate. This reduces the communication bottleneck from O(n^2) to O(n), making BFT consensus practical for larger validator sets — Cosmos Tendermint runs with up to 175 validators.
+
+:CHECKLIST
+Byzantine Fault Tolerance in Storage Systems
+RAID provides redundancy against drive failures but cannot detect a drive that silently returns wrong data
+Tahoe-LAFS uses cryptographic hashes to verify every read from storage nodes
+ZFS uses checksums at the filesystem level to detect and correct silent data corruption
+Distributed object stores like Ceph verify block integrity using checksums at the placement group level
+A Byzantine-resilient storage system must verify integrity cryptographically, not just check availability
+
+:INFO
+Go Deeper: Cryptographic Complexity
+Byzantine consensus algorithms use cryptographic signatures to authenticate every message — the security of the entire system reduces to the hardness of forging those signatures. But that is a statement about what is computationally feasible, and making it precise requires formal complexity theory. Understanding the P vs NP question and what computational hardness actually means puts all of the cryptographic assumptions seen throughout this series on rigorous footing.
+
+:LINK
+https://pmg.csail.mit.edu/papers/osdi99.pdf
+Practical Byzantine Fault Tolerance (Castro and Liskov)

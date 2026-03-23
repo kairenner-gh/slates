@@ -1,0 +1,37 @@
+:INFO
+Demystifying the Padlock
+The padlock icon in your browser represents a successful TLS handshake — but what that handshake actually accomplished is not obvious from the icon alone. TLS does two separate things: it authenticates the server (proves you are talking to who you think you are, not an impersonator) and then it negotiates encryption for the session. Authentication comes first, and it depends on a chain of certificates that ultimately traces back to a root that your browser or OS was shipped trusting. Understanding this chain explains why self-signed certificates generate warnings, and what those warnings actually mean.
+
+:QUOTE
+TLS is not just encryption — it's authentication first.
+
+:INFO
+What TLS 1.3 Does During the Handshake
+In TLS 1.3, the handshake completes in one round-trip rather than the two required by TLS 1.2. The client sends a ClientHello containing the TLS version, a random nonce, and a list of supported cipher suites and key exchange groups. The server responds with a ServerHello selecting the cipher suite and key exchange group, followed immediately by its Certificate and a Finished message. The client verifies the certificate chain, derives the session keys from the key exchange, and sends its own Finished. Encrypted application data can flow immediately. The entire handshake takes under 100 milliseconds on a local network.
+
+:PATH
+Read What Is Inside an X.509 Certificate
+An X.509 certificate is a signed data structure. The key fields are: Subject (who the certificate is issued to, expressed as a Distinguished Name), Issuer (who signed it), Public Key (the server's public key that clients use to verify the server's signatures), Validity period (NotBefore and NotAfter dates), and Subject Alternative Names (SANs — the list of hostnames and IP addresses the certificate is valid for). The signature at the end of the certificate is produced by the issuer's private key and can be verified by anyone who has the issuer's public key.
+
+:PATH
+Follow the Certificate Chain
+A real-world certificate is not signed by a root CA directly. It is signed by an intermediate CA, which is signed by the root CA. This chain exists so root CA private keys can be kept offline in hardware security modules — only the intermediate keys are used for day-to-day signing. Your browser receives the leaf certificate (your server's certificate) and the intermediate certificate (usually sent together in a bundle). It checks that the leaf is signed by the intermediate, that the intermediate is signed by the root, and that the root is in its trust store — a list of root certificates shipped with the browser or OS.
+
+:PATH
+Inspect a Certificate with openssl
+From any terminal, run openssl s_client -connect your-service.example.com:443 -showcerts. This command performs a TLS handshake and dumps the full certificate chain. Pipe the output through openssl x509 -noout -text to read the certificate in human-readable form. Look for the Subject Alternative Names section to see exactly which hostnames the certificate covers, the Validity section to see the expiry date, and the Signature Algorithm to confirm TLS 1.3 is being used. This is your first tool for diagnosing certificate errors on self-hosted services.
+
+:PATH
+Understand What a Certificate Warning Means
+A browser shows a certificate warning for one of three reasons: the certificate is expired, the hostname in your address bar is not listed in the certificate's SANs, or the certificate's chain does not trace back to a root CA in the browser's trust store. The third case is what you see with a self-signed certificate — there is no chain, just a single cert signed by itself, so the browser cannot verify it. This is genuinely a weaker security posture: the certificate proves nothing about the server's identity unless you have manually verified and trusted it. That is exactly the problem that a local CA solves.
+
+:NOTE
+A self-signed certificate with no chain validation protects against passive eavesdropping on the wire but provides no protection against an active man-in-the-middle attacker — because any attacker can generate their own self-signed cert and there is no mechanism to distinguish it from yours. Mutual TLS, where both sides present certificates, fixes this for internal service-to-service communication.
+
+:INFO
+What Comes Next
+TLS depends on a certificate authority to vouch for server identities. For public-facing services, Let's Encrypt works automatically via Caddy. But for internal services on local hostnames that Let's Encrypt cannot reach, you need your own CA. Running a private CA with step-ca gives you trusted certificates for every service on your private network with no browser warnings and no exposure to the public internet.
+
+:LINK
+https://tls13.xargs.org
+TLS 1.3 illustrated — a visual walkthrough of the handshake

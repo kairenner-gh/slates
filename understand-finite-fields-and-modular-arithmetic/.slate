@@ -1,0 +1,3 @@
+name: Understand Finite Fields and Modular Arithmetic
+description: A mathematical introduction to finite fields — the algebraic structures that underlie AES, elliptic curve cryptography, and error-correcting codes — with emphasis on why their properties matter for computing.
+type: Article

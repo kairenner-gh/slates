@@ -1,0 +1,3 @@
+name: Set Up a Home NAS on Your Raspberry Pi
+description: Configure Samba and an external drive on a Raspberry Pi to create a network-attached storage drive accessible from every device in your house.
+type: Article

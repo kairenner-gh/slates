@@ -1,0 +1,3 @@
+name: Understand Number Theory for Cryptography
+description: A focused introduction to the number theory results that cryptography actually uses — Euler's theorem, the Chinese Remainder Theorem, quadratic residues, and the primality tests that make key generation fast.
+type: Article

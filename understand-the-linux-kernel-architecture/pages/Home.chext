@@ -1,0 +1,38 @@
+:INFO
+The Kernel Is the Core Problem-Solver
+The operating system kernel has one job: manage hardware on behalf of software. Every time a program reads a file, sends a network packet, or allocates memory, it asks the kernel for help through a system call. The kernel arbitrates access to the CPU, memory, storage, and peripherals so that hundreds of programs can share a single machine without interfering with each other. Understanding the kernel's internal structure explains why your system behaves the way it does under load, after a crash, or when a driver misbehaves.
+
+:PATH
+Monolithic vs Microkernel Design
+Linux chose the monolithic architecture: the entire kernel runs in a single large address space in ring 0 with full hardware access. This gives outstanding performance because subsystems can call each other directly without inter-process communication overhead. The alternative — a microkernel — runs drivers and filesystems as isolated user-space processes, adding safety at the cost of performance. Linux compensates for the safety tradeoff with loadable kernel modules: code that can be inserted into and removed from the running kernel without a reboot, used for drivers, filesystems, and network protocols.
+
+:INFO
+The Major Kernel Subsystems
+The Linux kernel is divided into cooperating subsystems. The Virtual File System provides a uniform API over every filesystem type — ext4, btrfs, tmpfs, and even procfs all look the same to a program calling open() and read(). The memory management subsystem maintains virtual address spaces, page tables, and the buddy allocator that hands out pages to requesting code. The process scheduler decides which thread gets CPU time next. The networking stack implements TCP/IP entirely in the kernel. The device driver model provides a bus abstraction so drivers can register with the kernel and be found by the hardware detection layer.
+
+:PATH
+The Kernel and Userspace Divide
+User programs run in ring 3 — they cannot directly access hardware, modify page tables, or execute privileged instructions. When a program needs hardware access, it issues a system call, which switches execution to ring 0 (kernel mode). The kernel validates the request, performs the operation, and returns the result. This boundary is the foundation of OS security: a crashing user program cannot corrupt kernel state. The strace command shows every system call a process makes — run strace ls to see how many kernel interactions a simple directory listing requires.
+
+:CHECKLIST
+Loadable Kernel Modules
+lsmod lists all currently loaded modules and their reference counts
+modprobe loads a module and its dependencies from /lib/modules/
+rmmod unloads a module if its reference count is zero
+modinfo shows metadata about a module including its parameters
+Modules are compiled against a specific kernel version and cannot be used across major versions
+
+:INFO
+How procfs and sysfs Expose Kernel State
+The kernel communicates with userspace not only through system calls but through two pseudo-filesystems. procfs, mounted at /proc, exposes per-process information — /proc/PID/maps shows a process's virtual memory layout, /proc/PID/fd lists open file descriptors. It also exposes system-wide state: /proc/meminfo, /proc/cpuinfo, /proc/net/tcp. sysfs, mounted at /sys, exposes the device tree and kernel tunables. Writing to a sysfs file changes kernel behavior at runtime — this is how tools like ethtool and sysctl work under the hood.
+
+:NOTE
+The kernel stable ABI is a contract that syscall numbers and semantics never change between kernel versions. A binary compiled on Linux 2.6 can still call write() on Linux 6.x and get the same result. This is why Linux can run decades-old binaries without compatibility layers. The kernel developers take this guarantee extremely seriously — it is the reason the kernel source deliberately avoids exporting internal symbols to modules where possible.
+
+:INFO
+Go Deeper: The Scheduler
+The process scheduler is one of the most critical kernel subsystems — it decides which process gets CPU time, using a data structure and algorithm that has fascinating guarantees. The Completely Fair Scheduler uses a red-black tree and a virtual runtime counter to ensure every runnable task receives proportional CPU access, and understanding how it works explains the behavior you observe when a system is under heavy load.
+
+:LINK
+https://www.kernel.org/doc/html/latest/
+Linux kernel documentation

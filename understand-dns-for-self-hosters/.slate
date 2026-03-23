@@ -1,0 +1,3 @@
+name: Understand DNS for Self-Hosters
+description: A practical guide to how DNS actually works, how to configure split-horizon DNS so local hostnames resolve differently inside your network, and how Pi-hole serves as your own local DNS resolver.
+type: Article

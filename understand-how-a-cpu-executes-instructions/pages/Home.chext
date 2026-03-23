@@ -1,0 +1,34 @@
+:INFO
+How Software Actually Runs
+At the bottom of every abstraction layer — containers, virtual machines, operating systems, programming languages — is a CPU executing machine instructions. Understanding what happens during instruction execution at the hardware level explains performance characteristics that are otherwise mysterious: why a branch misprediction costs 15 cycles, why cache misses dominate runtime, and why Spectre-class vulnerabilities exist at all. These are not implementation details — they are the rules of the platform everything else runs on.
+
+:PATH
+The Fetch-Decode-Execute Cycle
+The program counter register holds the address of the next instruction to execute. On each cycle, the CPU fetches the bytes at that address from cache or memory, decodes the opcode to determine what operation and operands are involved, executes the operation in the appropriate execution unit (ALU, FPU, load-store unit), and writes the result back to a register or memory. This is the fundamental loop. On a simple in-order processor, nothing else happens until the current instruction completes. Modern CPUs break this constraint in three important ways.
+
+:PATH
+Pipelining Overlaps Instruction Stages
+A pipelined CPU splits the fetch-decode-execute cycle into many independent stages — modern designs have 15 to 30 stages. While one instruction is in the execute stage, the next is in decode, and the one after that is being fetched. This means the throughput of the CPU approaches one instruction per cycle even though the latency of any single instruction spans many cycles. The tradeoff is that a pipeline stall — caused by a data dependency or a cache miss — wastes all partially completed stages.
+
+:PATH
+Branch Prediction Keeps the Pipeline Full
+A conditional jump (if-statement) creates a choice: the CPU does not know which path to take until the condition is evaluated, several stages into the pipeline. Rather than stall, the CPU guesses which branch will be taken using a branch predictor trained on recent behavior. It then speculatively executes down the predicted path, filling the pipeline. If the prediction is wrong, the speculatively executed instructions are discarded and the pipeline is flushed — a penalty of 15 to 20 cycles on a modern core. Branch predictors achieve over 95% accuracy on typical code.
+
+:PATH
+Out-of-Order Execution Uses All Available Units
+A modern CPU has multiple execution units: arithmetic, floating point, memory load, memory store. If two consecutive instructions are independent — neither uses the other's output — they can execute simultaneously on different units. The CPU tracks data dependencies with a reorder buffer and issues instructions to execution units as soon as their operands are ready, regardless of program order. Results are committed to registers and memory in program order at the end, preserving the illusion of sequential execution while achieving instruction-level parallelism.
+
+:NOTE
+Superscalar execution means a single CPU core can complete more than one instruction per clock cycle. A modern core might retire four or more instructions per cycle on code with sufficient parallelism. This is why compiler optimization flags matter — the compiler reorders and rearranges instructions specifically to expose parallelism that the CPU's out-of-order engine can exploit.
+
+:INFO
+The Security Consequence of Speculative Execution
+The CPU executes code past a branch before knowing whether that branch will be taken. If that speculative code accesses memory — even memory the program is not authorized to read — the access occurs in hardware and loads the data into the CPU cache. Even when the speculatively executed instructions are discarded, the cache state they created remains. An attacker can measure which cache lines were loaded by timing subsequent memory accesses. This is the Spectre vulnerability: it allows a program to read kernel memory or another process's memory by exploiting the CPU's performance optimization.
+
+:INFO
+Go Deeper: Side-Channel Attacks
+Speculative execution is the root of Spectre-class vulnerabilities — a category of attacks that extract secrets by measuring timing differences in cache state after speculative code ran. These attacks revealed that security and hardware performance are fundamentally in tension. The broader class they belong to — side-channel attacks — shows up in contexts far removed from CPUs, and understanding it changes how you think about implementing security.
+
+:LINK
+https://www.agner.org/optimize/
+Agner Fog's CPU microarchitecture optimization guides

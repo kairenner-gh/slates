@@ -1,0 +1,39 @@
+:INFO
+Hash Functions as the Swiss Army Knife of Cryptography
+A cryptographic hash function takes an input of any size and produces a fixed-size output — 256 bits for SHA-256 — such that the output looks random, changes completely with any input modification, and cannot be reversed. This deceptively simple construction appears everywhere in a secure system: git uses it to address every object in the repository, TLS uses it to verify certificate signatures, password databases use it to store credentials without storing the password itself, and HMAC uses it to authenticate messages.
+
+:INFO
+The Three Security Properties
+A cryptographic hash function must satisfy three properties at once. Preimage resistance means that given a hash output h, it is computationally infeasible to find any input m such that H(m) = h — you cannot reverse the hash. Second preimage resistance means that given a specific input m1, you cannot find a different input m2 that hashes to the same value. Collision resistance is the strongest requirement: you cannot find any two distinct inputs m1 and m2 such that H(m1) = H(m2), even with full freedom to choose both. Collision resistance implies second preimage resistance but not preimage resistance.
+
+:PATH
+Observe the Avalanche Effect
+The avalanche effect means that flipping a single input bit causes approximately half of the output bits to change. Open a terminal and run: echo -n "hello" | sha256sum and then echo -n "hellp" | sha256sum. The two outputs share almost no bits despite differing by one character. This property is essential: without it, similar inputs would produce similar outputs, and an attacker could learn information about the input by studying the output.
+
+:PATH
+Why MD5 and SHA-1 Are Broken
+The birthday paradox states that in a group of 23 people, the probability that two share a birthday exceeds 50%. Applied to hash functions: a hash with n-bit output has collision resistance of roughly 2^(n/2) operations, not 2^n. SHA-1 produces 160-bit outputs, giving 2^80 collision resistance — which was believed adequate until 2005 when theoretical attacks reduced this, and 2017 when Google's SHAttered project produced two PDF files with the same SHA-1 hash using about 2^63 operations. MD5 was broken years earlier. Do not use either for any security purpose.
+
+:COUNTER.half
+SHA-256 output size
+256 bits
+
+:COUNTER.half
+SHA-256 security level against collision attacks
+128 bits (birthday bound)
+
+:PATH
+The Merkle-Damgard Construction and Length Extension
+SHA-256 is built on the Merkle-Damgard construction: the message is padded to a multiple of the block size, then a compression function is applied iteratively to each block, threading the output of each compression into the next. This creates a length extension vulnerability: given H(m) and the length of m, an attacker can compute H(m || padding || extra) without knowing m. This is why you should never compute H(secret || message) as a MAC — use HMAC instead, which applies an inner and outer hash to prevent the extension.
+
+:PATH
+HMAC and Password Hashing
+HMAC constructs a message authentication code using a hash function: HMAC(key, message) = H((key XOR opad) || H((key XOR ipad) || message)). The two-layer construction defeats length extension attacks. For password storage, use a deliberately slow hash function — bcrypt, scrypt, or Argon2 — which applies the hash function thousands of times with a work factor you can tune upward as hardware gets faster. A plain SHA-256 of a password is not password hashing: an attacker with the hash can try billions of candidates per second on a GPU.
+
+:INFO
+Go Deeper: Symmetric Encryption
+Hash functions are one-way by design — they destroy information. Many systems need the opposite: a transformation that can be reversed with the right key. That is symmetric encryption. The story of how AES was selected as the global standard through an open international competition is worth knowing, and the algorithm's internal structure rewards understanding.
+
+:LINK
+https://csrc.nist.gov/projects/hash-functions
+NIST Hash Function Projects

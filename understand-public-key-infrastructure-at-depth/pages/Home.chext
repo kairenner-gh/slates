@@ -1,0 +1,30 @@
+:INFO
+PKI as a Social and Technical System
+Public Key Infrastructure is the system of trust that makes HTTPS work — not just the cryptography, but the organizational rules, audit requirements, and browser policies that determine whose signatures your computer trusts. The technical substrate is X.509 certificates. The social substrate is the CA/Browser Forum, a consortium of certificate authorities and browser vendors that sets binding rules about what certificates can be issued and how. Understanding both layers explains why HTTPS is resilient and where it can still fail.
+
+:PATH
+Inside an X.509 Certificate
+An X.509 certificate is a data structure that binds a public key to an identity and is signed by a certificate authority. The major fields are: version (always 3 for modern certs), serial number (unique within the CA's issuances), issuer (the CA's distinguished name), subject (the entity the cert belongs to), validity period (notBefore and notAfter), subjectPublicKeyInfo (the public key and algorithm), and a set of extensions. The Subject Alternative Names extension lists the domain names the certificate is valid for — this replaced the Common Name field for hostname matching. Run openssl x509 -in cert.pem -text -noout to read any certificate.
+
+:PATH
+The CA Hierarchy and Trust Anchors
+Root CA certificates are self-signed and embedded in the operating system or browser trust store. When you install macOS or Chrome, you are implicitly trusting the roughly 150 root CAs included. Root CAs rarely issue certificates directly — they sign intermediate CA certificates, which do the actual issuance. This two-level structure limits exposure: the root CA private key can be kept offline in a hardware security module, only used to sign new intermediates, while the intermediate key handles day-to-day operations. If an intermediate is compromised, the root can revoke it without being compromised itself.
+
+:PATH
+Certificate Transparency Logs
+Certificate transparency requires that every certificate issued by a publicly-trusted CA must be logged to one or more append-only CT logs before browsers will accept it. Each log uses a Merkle tree structure: new certificates are appended as leaves, the log publishes a signed tree head periodically, and log operators can produce inclusion proofs. Browsers check for CT proofs embedded in the TLS handshake. This means that even if a CA is coerced into issuing a fraudulent certificate for a domain you own, the certificate will appear in public logs where your monitoring can detect it.
+
+:PATH
+Revocation: OCSP and CRL
+When a certificate's private key is compromised or a certificate is issued in error, it must be revoked before expiry. Certificate Revocation Lists (CRLs) are lists published by CAs that browsers can download, but they can be megabytes in size and stale. OCSP (Online Certificate Status Protocol) allows a client to query the CA in real time about a specific serial number. OCSP stapling improves both: the server fetches the OCSP response from the CA, caches it, and staples it to the TLS handshake — the client gets fresh revocation information without contacting the CA, and the CA does not learn which sites clients visit.
+
+:NOTE
+HTTP Public Key Pinning (HPKP) was a mechanism that allowed websites to instruct browsers to only accept certificates matching specific pinned public key hashes. The intent was to prevent fraudulent certificates from being trusted even if issued by a trusted CA. In practice, several high-traffic sites accidentally pinned incorrect hashes or lost access to their pinned keys. When a pin expires or a pinned key is lost, the site becomes inaccessible to all users who cached the pin. Google Chrome removed HPKP support in 2018. Certificate transparency is the safer alternative.
+
+:INFO
+Go Deeper: Merkle Trees
+Certificate transparency logs are append-only Merkle trees — the same data structure that makes git work and blockchains possible. The Merkle tree is the bridge between cryptographic hashing and distributed systems: it allows any party to verify that a specific item is included in a large dataset, using a proof that is logarithmic in the dataset size. Understanding Merkle trees opens the door to how distributed systems achieve verifiable integrity.
+
+:LINK
+https://certificate.transparency.dev
+Certificate Transparency — overview and logs

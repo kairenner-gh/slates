@@ -1,0 +1,3 @@
+name: Back Up a Self-Hosted Server the Right Way
+description: Set up automated, versioned, off-site backups for your home server using restic and rclone — and actually test that restores work before you need them.
+type: Article

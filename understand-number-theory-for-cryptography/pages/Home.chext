@@ -1,0 +1,34 @@
+:INFO
+Number Theory as Applied Science
+Number theory was once the mathematical discipline most detached from application — G. H. Hardy boasted of its uselessness. RSA changed that in 1977. Virtually every result covered here has a direct counterpart in an algorithm a running server executes during key generation or cryptographic operation.
+
+:PATH
+The Fundamental Theorem of Arithmetic
+Every integer greater than 1 factors uniquely into a product of primes. This uniqueness is what makes factoring interesting as a hard problem: if factoring were not unique, the structure RSA relies on would collapse. Generating large primes efficiently is central to RSA key generation, which is why fast primality tests matter practically.
+
+:PATH
+Euler's Phi Function and RSA Key Generation
+Euler's totient phi(n) counts the integers in {1, ..., n} that are coprime to n. For a prime p, phi(p) = p-1. For a product of two distinct primes n = pq, phi(n) = (p-1)(q-1). RSA key generation chooses e coprime to phi(n) and computes d such that e*d = 1 mod phi(n). Euler's theorem then guarantees that (m^e)^d = m mod n — decryption inverts encryption.
+
+:PATH
+The Chinese Remainder Theorem
+If n = pq with p and q coprime, then Z_n is isomorphic to Z_p x Z_q: every computation mod n corresponds to a pair of computations mod p and mod q. RSA decryption using CRT computes m^d mod p and m^d mod q separately (with smaller, faster exponentiations) and recombines with CRT. This gives approximately a 4x speedup over direct computation mod n.
+
+:PATH
+Quadratic Residues and Point Decompression
+An integer a is a quadratic residue mod p if there exists x with x^2 = a mod p. The Legendre symbol (a|p) is 1 if a is a nonzero QR, -1 if not, and 0 if p divides a. The Tonelli-Shanks algorithm computes square roots mod p in polynomial time. Elliptic curve point compression stores only the x-coordinate and one bit of the y-coordinate; decompression uses Tonelli-Shanks to recover y.
+
+:PATH
+Miller-Rabin Primality Testing
+Miller-Rabin is a probabilistic primality test based on the Fermat test and additional structure of composites. A composite passes any single round with probability at most 1/4. Running 40 independent rounds gives a false-positive probability of at most 2^{-80} — smaller than the probability of hardware error. FIPS 186-5 specifies deterministic base sets that make Miller-Rabin conclusive for numbers up to specific sizes.
+
+:NOTE
+The prime number theorem states that the number of primes up to x is approximately x divided by ln(x). A random 1024-bit number is prime with probability approximately 1 in 710. For 2048-bit numbers the probability is about 1 in 1420. Random candidate generation followed by Miller-Rabin testing is fast in practice because primes are dense enough.
+
+:INFO
+Go Deeper: From Probabilistic Tests to Provable Security
+Miller-Rabin is probabilistic — it can be wrong with negligible probability. Understanding what negligible means precisely, and what it means to prove a cryptographic scheme secure with mathematical rigor, requires the formal framework of provable security and security reductions.
+
+:LINK
+https://mathworld.wolfram.com/NumberTheory.html
+Wolfram MathWorld — Number Theory

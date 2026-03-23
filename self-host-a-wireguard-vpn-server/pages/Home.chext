@@ -1,0 +1,38 @@
+:INFO
+WireGuard's Radical Simplicity
+OpenVPN has been the dominant open-source VPN for over a decade, and its codebase weighs in at roughly 400,000 lines of code. WireGuard accomplishes the same goal in about 4,000 lines. Less code means a smaller attack surface, faster security audits, and performance that consistently outperforms OpenVPN by a significant margin on the same hardware. The handshake completes in under 100 milliseconds. A WireGuard VPN on your Pi gives you an encrypted tunnel back to your home network from any coffee shop, hotel, or airport — and your phone reconnects automatically when you switch networks.
+
+:PATH
+Generate the Server Keypair
+SSH into your Pi. Install WireGuard: sudo apt install wireguard. Generate the server private key: wg genkey | sudo tee /etc/wireguard/server_private.key. Derive the public key from it: sudo cat /etc/wireguard/server_private.key | wg pubkey | sudo tee /etc/wireguard/server_public.key. Set strict permissions on the private key file: sudo chmod 600 /etc/wireguard/server_private.key. Never share the private key — it is the server's identity. The public key is what peers include in their configs to authenticate the server.
+
+:PATH
+Create the Server Configuration File
+Create /etc/wireguard/wg0.conf with sudo nano. The Interface section sets the server's private key (paste the contents of server_private.key), the VPN address (typically 10.0.0.1/24), and the ListenPort (51820 by default). The PostUp and PreDown lines add and remove an iptables masquerade rule on your LAN interface (eth0) so VPN traffic gets NAT'd when forwarded to the internet. Enable the interface at boot and start it now: sudo systemctl enable wg-quick@wg0 and sudo systemctl start wg-quick@wg0.
+
+:PATH
+Enable IP Forwarding
+WireGuard needs the Linux kernel to forward packets between the VPN interface and your LAN interface. Edit /etc/sysctl.conf and uncomment or add the line net.ipv4.ip_forward=1 (and net.ipv6.conf.all.forwarding=1 for IPv6). Apply the change without rebooting: sudo sysctl -p. Without this setting, VPN clients will reach your Pi but their traffic will not be routed onward to the rest of your network or the internet — packets arrive and disappear.
+
+:PATH
+Add a Peer and Generate a QR Code
+Generate a keypair for your phone using the same wg genkey / wg pubkey steps, saving the keys to temporary files. Add a Peer block to wg0.conf with the phone's public key and an AllowedIPs line of 10.0.0.2/32 — this tells the server that packets destined for 10.0.0.2 belong to this peer. Restart the interface: sudo wg-quick down wg0 and sudo wg-quick up wg0. Install the qrencode package, then generate a QR code from a minimal peer config file containing the phone's private key, the VPN address 10.0.0.2/24, DNS server, and the server endpoint and public key. Scan the QR code in the WireGuard mobile app.
+
+:CHECKLIST
+Prerequisites Before You Start
+Static LAN IP assigned to your Pi (configure via DHCP reservation on your router)
+UDP port 51820 forwarded from your router's WAN interface to the Pi's LAN IP
+A domain name or dynamic DNS hostname pointing to your home's public IP
+WireGuard app installed on your phone (iOS or Android)
+A plan for key storage — private keys in your password manager immediately after generation
+
+:NOTE
+Keep your WireGuard private keys private. Anyone with your server private key can impersonate your server and decrypt your VPN traffic. Anyone with a peer private key can connect to your VPN as that peer. Generate keys fresh for each device, never reuse them, and store them in an encrypted password manager rather than in plain text files longer than necessary.
+
+:INFO
+What Comes Next
+You have secured what goes out of your home network. But your server still accepts SSH connections from every IP address on the internet, and attackers are constantly probing for weak passwords and default configurations. The next step is systematically hardening your server so that a public-facing machine is as small a target as possible.
+
+:LINK
+https://www.wireguard.com/quickstart/
+WireGuard quick start guide

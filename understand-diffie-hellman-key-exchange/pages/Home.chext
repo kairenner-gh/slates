@@ -1,0 +1,39 @@
+:INFO
+One of the Most Elegant Ideas in Computer Science
+Before Diffie-Hellman, secure communication over a public channel required a prior secure channel to exchange the key — an obvious chicken-and-egg problem. In 1976, Whitfield Diffie and Martin Hellman published a protocol that allows two parties who have never communicated before to establish a shared secret in full view of an eavesdropper, using only public messages. The eavesdropper sees every message and still cannot compute the secret. The trick is a mathematical operation that is easy to perform but computationally infeasible to reverse.
+
+:PATH
+The Paint Mixing Analogy
+Imagine two people want to agree on a secret color without revealing it to anyone watching. They start by publicly agreeing on a common color — say, yellow. Alice picks a secret color and mixes it with yellow to get her public mixture. Bob picks a different secret color and mixes it with yellow to get his public mixture. They exchange their public mixtures. Alice mixes Bob's public mixture with her secret color. Bob mixes Alice's public mixture with his secret color. Both end up with yellow plus both secret colors mixed together — the same combined color — but an eavesdropper who saw both public mixtures cannot separate out the individual secrets.
+
+:PATH
+The Actual Math with Small Numbers
+The protocol uses modular exponentiation. Alice and Bob publicly agree on a prime p (say 23) and a generator g (say 5). Alice picks a secret integer a (say 6) and computes A = g^a mod p = 5^6 mod 23 = 8. Bob picks secret b (say 15) and computes B = g^b mod p = 5^15 mod 23 = 19. They exchange A and B publicly. Alice computes the shared secret: B^a mod p = 19^6 mod 23 = 2. Bob computes: A^b mod p = 8^15 mod 23 = 2. Both arrive at 2. An eavesdropper who knows p, g, A, and B must solve for a or b — the discrete logarithm problem.
+
+:PATH
+The Discrete Logarithm Problem
+Given g, p, and A = g^a mod p, finding a is the discrete logarithm problem. For small numbers it is trivial — just try all possibilities. For a 2048-bit prime p with roughly 2^2048 possible values, no known classical algorithm can solve it in feasible time. The best known approach — the Number Field Sieve — runs in sub-exponential time but still requires enormous computational resources for large primes. The security of classical Diffie-Hellman rests entirely on this computational hardness.
+
+:PATH
+Elliptic-Curve Diffie-Hellman (ECDH)
+ECDH uses the same protocol structure but replaces modular exponentiation with elliptic curve point multiplication. The discrete logarithm problem on an elliptic curve — given points P and Q = k*P, find k — is believed to be harder than the integer version, which means equivalent security requires much smaller numbers. A 256-bit ECDH key (using Curve25519) provides approximately the same security as a 3072-bit classical DH key. Smaller keys mean faster key exchange and smaller TLS handshake messages.
+
+:COUNTER.half
+Classical DH key size for 128-bit security
+3072 bits
+
+:COUNTER.half
+ECDH key size for 128-bit security (Curve25519)
+256 bits
+
+:INFO
+Forward Secrecy with Ephemeral Keys
+If a server uses the same long-term private key for all key exchanges, an attacker who later obtains that private key can decrypt all previously recorded sessions. Forward secrecy prevents this by generating a fresh ephemeral DH key pair for every connection. The ephemeral private key is discarded after the session ends. Even if the server's long-term certificate key is compromised years later, past sessions remain encrypted because the ephemeral keys no longer exist. TLS 1.3 mandates ephemeral ECDH for all handshakes.
+
+:INFO
+Go Deeper: RSA
+Diffie-Hellman solves key agreement but not identity — you know you share a secret with someone, but not who that someone is. RSA solves the identity problem with a different piece of mathematics, and understanding RSA from first principles — including why naive RSA is broken and what padding schemes actually do — clarifies how public-key authentication works throughout the internet.
+
+:LINK
+https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange
+Diffie-Hellman Key Exchange

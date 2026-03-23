@@ -1,0 +1,3 @@
+name: Self-Host Your Password Manager With Vaultwarden
+description: Deploy Vaultwarden — a lightweight Bitwarden-compatible server — on your home infrastructure so your password vault lives on hardware you own, not a third-party cloud.
+type: Article

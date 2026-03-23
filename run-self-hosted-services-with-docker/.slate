@@ -1,0 +1,3 @@
+name: Run Self-Hosted Services With Docker
+description: Learn to deploy any self-hosted app in minutes using Docker and Docker Compose — the difference between a multi-step manual install and a single command.
+type: Article

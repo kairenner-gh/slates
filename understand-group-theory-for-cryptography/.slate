@@ -1,0 +1,3 @@
+name: Understand Group Theory for Cryptography
+description: An introduction to abstract group theory — the mathematical structure underlying Diffie-Hellman, elliptic curves, and lattice cryptography — focusing on properties that make cryptographic groups useful.
+type: Article

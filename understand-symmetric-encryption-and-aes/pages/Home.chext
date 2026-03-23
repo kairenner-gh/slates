@@ -1,0 +1,37 @@
+:INFO
+Symmetric Encryption and the AES Competition
+Symmetric encryption uses the same key to encrypt and decrypt. It is fast — a modern CPU can encrypt gigabytes per second with hardware-accelerated AES — but it requires both parties to already share the key. AES (Advanced Encryption Standard) became the global standard in 2001 through an open international competition organized by NIST. Fifteen algorithms from teams around the world were submitted, publicly analyzed over four years, and Rijndael — designed by Belgian cryptographers Joan Daemen and Vincent Rijmen — won on the combination of security, efficiency, and elegant simplicity.
+
+:QUOTE
+The AES process was a landmark in cryptographic standardization. For the first time, the selection was entirely open: anyone could submit an algorithm, anyone could cryptanalyze the candidates, and the evaluation criteria were published in advance. The result was a standard the world could trust because the entire global cryptographic community had tried and failed to break it.
+
+:PATH
+How AES Transforms a Block
+AES operates on 128-bit blocks arranged as a 4x4 grid of bytes. Each of the 10 rounds (for AES-128) applies four operations in sequence. SubBytes substitutes each byte using a non-linear lookup table called the S-box, providing confusion. ShiftRows rotates each row of the grid by a different offset, providing diffusion across columns. MixColumns multiplies each column by a fixed matrix in GF(2^8), mixing bytes within each column. AddRoundKey XORs the current state with a round key derived from the master key by the key schedule. After 10 rounds, the ciphertext is produced.
+
+:PATH
+Block Cipher Modes of Operation
+AES encrypts exactly one 128-bit block. Real messages are longer and have variable length, which requires a mode of operation. Electronic Codebook (ECB) mode encrypts each block independently — identical plaintext blocks produce identical ciphertext blocks, leaking structure in the data. This is the ECB penguin problem: encrypting a bitmap image in ECB mode leaves the image's shapes visible in the ciphertext. Counter (CTR) mode uses AES to generate a keystream by encrypting a nonce+counter value, then XORs with the plaintext — this converts the block cipher into a stream cipher and allows random access.
+
+:PATH
+GCM Mode and Nonce Reuse
+Galois/Counter Mode (GCM) combines CTR encryption with a Galois field authenticator, producing both ciphertext and an authentication tag. The combined primitive is called an AEAD: Authenticated Encryption with Associated Data. GCM requires a unique nonce for every encryption under the same key. If a nonce is reused with the same key, an attacker who observes two ciphertexts can XOR them to cancel the keystream, immediately recovering the XOR of the two plaintexts. Worse, nonce reuse in GCM also allows recovering the authentication key, breaking both confidentiality and integrity. This destroyed WEP.
+
+:CHECKLIST
+When to Use Which AES Mode
+Use AES-GCM (or ChaCha20-Poly1305) for any new symmetric encryption — it provides both confidentiality and authentication
+Never use ECB mode for data with patterns — identical plaintext blocks produce identical ciphertext
+CTR mode provides confidentiality but no authentication — always add a separate MAC if using CTR
+Generate nonces randomly using a cryptographically secure random number generator — never use a counter shared across reboots
+For disk encryption, AES-XTS is the standard mode — it handles the fixed-size-sector access pattern of block devices
+
+:NOTE
+AES-NI instructions on modern Intel and AMD CPUs implement each AES round in a single hardware instruction. A single core can encrypt data at memory bandwidth — around 10 GB/s. This makes the performance argument for weaker encryption moot on modern hardware. If a system component uses a faster-but-weaker cipher to avoid the AES performance overhead, it is working from outdated benchmarks.
+
+:INFO
+Go Deeper: Key Agreement
+AES solves symmetric encryption — but it requires both parties to already share a key. Agreeing on a secret key over a public channel where anyone can eavesdrop requires completely different mathematics. Diffie-Hellman key exchange solves exactly this problem, and the elegance of its solution is worth understanding from first principles.
+
+:LINK
+https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf
+NIST FIPS 197 — The AES Standard

@@ -1,0 +1,39 @@
+:INFO
+The Math That Keeps Appearing in Every Crypto Primitive
+Finite fields are algebraic structures where addition, subtraction, multiplication, and division all work cleanly and produce results that stay within a fixed finite set. They appear in AES, elliptic curve cryptography, and error-correcting codes — not by coincidence but because their properties are exactly what those algorithms require.
+
+:PATH
+The Integers Mod p
+When p is prime, the set Z_p = {0, 1, ..., p-1} with addition and multiplication performed modulo p forms a field. Every nonzero element has a multiplicative inverse: for any a not divisible by p, there exists b such that a * b = 1 mod p. This is not true for composite moduli — which is why prime moduli appear throughout cryptography.
+
+:PATH
+Fermat's Little Theorem
+For prime p and any a not divisible by p, a^(p-1) = 1 mod p. This gives a direct formula for the inverse: a^(p-2) mod p. It also underlies RSA key generation and the correctness of RSA decryption — the exponent arithmetic works because of this theorem.
+
+:PATH
+The Multiplicative Group and Discrete Logarithm
+The nonzero elements of Z_p form a cyclic group Z_p* of order p-1 under multiplication. This group has generators — elements g such that the powers g^1, g^2, ..., g^(p-1) cycle through all nonzero elements. The discrete logarithm problem is: given g and g^x mod p, find x. No efficient algorithm for this is known, which is why Diffie-Hellman is hard to break.
+
+:PATH
+Field Extensions: GF(2^8)
+Finite fields need not have prime size. GF(2^n) is constructed as polynomials with coefficients in GF(2) = {0, 1}, modulo an irreducible polynomial of degree n. GF(2^8) has 256 elements. Addition is XOR of coefficients. Multiplication uses the irreducible polynomial to reduce the result back to degree less than 8.
+
+:COUNTER.half
+256
+Elements in GF(2^8), the field AES operates in
+|
+:COUNTER.half
+128
+AES block size in bits — two GF(2^8) elements per byte, 16 bytes per block
+
+:PATH
+AES and GF(2^8)
+AES uses GF(2^8) with the irreducible polynomial x^8 + x^4 + x^3 + x + 1. The SubBytes step applies a nonlinear S-box defined using field inversion in GF(2^8). The MixColumns step multiplies a state vector by a fixed matrix over GF(2^8). These operations are fast and have well-understood algebraic structure that prevents certain attacks.
+
+:INFO
+Go Deeper: Finite Fields as Instances of Abstract Algebra
+Finite fields are instances of abstract algebraic structures — groups, rings, and fields — that recur throughout cryptography. Understanding the abstract structure behind them makes the patterns visible and reveals why certain constructions work at a deeper level than implementation details.
+
+:LINK
+https://www.shoup.net/ntb/
+A Computational Introduction to Number Theory and Algebra

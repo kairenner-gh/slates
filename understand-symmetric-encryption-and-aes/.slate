@@ -1,0 +1,3 @@
+name: Understand Symmetric Encryption and AES
+description: A deep dive into how AES works — the SubBytes, ShiftRows, MixColumns, and AddRoundKey operations — and why it was selected through an open competition that changed how cryptographic standards are made.
+type: Article

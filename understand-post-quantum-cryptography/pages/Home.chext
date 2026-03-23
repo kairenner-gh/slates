@@ -1,0 +1,37 @@
+:INFO
+The Transition Happening Right Now
+NIST ran the most open cryptographic standardization competition since AES: 69 submissions in 2016, multiple public rounds of cryptanalysis, and final standards published in 2024. The winning algorithms rely on mathematical problems believed to be hard even for quantum computers — primarily the geometry of high-dimensional lattices.
+
+:PATH
+The Learning With Errors Problem
+The Learning With Errors (LWE) problem: given many pairs (a_i, b_i) where b_i = a_i times s + e_i mod q, with s a secret vector and e_i small random noise, recover s. Without the noise this is easy linear algebra. With noise, no efficient classical or quantum algorithm is known. The noise disrupts quantum interference — the same technique Shor exploits for period-finding does not apply here.
+
+:PATH
+ML-KEM: Key Encapsulation
+ML-KEM (formerly Kyber) is the NIST key encapsulation mechanism, based on Module-LWE — LWE structured using module lattices for efficiency. It generates a shared secret that two parties can use for symmetric encryption. Key and ciphertext sizes are around 1 KB at the 128-bit security level, comparable to RSA-2048 keys but generated and processed much faster.
+
+:PATH
+ML-DSA: Digital Signatures
+ML-DSA (formerly Dilithium) is the primary NIST signature algorithm, based on Module-LWE and Module-SIS (short integer solution over module lattices). Signature size is approximately 2–3 KB. Security is based on the hardness of finding short vectors satisfying a linear relation — a different but related lattice problem to LWE.
+
+:PATH
+SLH-DSA: Hash-Based Signatures
+SLH-DSA (formerly SPHINCS+) builds signatures from hash functions using a hypertree of Merkle trees and one-time signature schemes. Its security assumption is minimal: if the underlying hash function is secure, the signature scheme is secure. No new mathematical assumption required. Signatures are larger (8–50 KB depending on parameter set) but the security basis is the most conservative available.
+
+:CHECKLIST
+PQC Migration Checklist
+[ ] Inventory all cryptographic primitives in use across services
+[ ] Identify which use RSA, ECDH, ECDSA, or DH for key exchange or signatures
+[ ] Deploy ML-KEM alongside ECDH as a hybrid for TLS key exchange (X25519+ML-KEM768)
+[ ] Update TLS library to a version supporting hybrid post-quantum key exchange
+[ ] Plan certificate migration to ML-DSA or use hybrid classical+PQC certificates
+[ ] Prioritize systems handling long-lived secrets or data with multi-year confidentiality
+[ ] Monitor NIST and library release notes for parameter updates
+
+:INFO
+Go Deeper: The Geometry of Lattices
+Lattice-based cryptography rests on the geometry of high-dimensional lattices — finding the shortest vector in a lattice is a deep mathematical problem connected to number theory, geometry, and the foundations of algorithms. The hardness is preserved under quantum computation because lattice problems lack the periodic structure that Shor exploits.
+
+:LINK
+https://csrc.nist.gov/projects/post-quantum-cryptography
+NIST Post-Quantum Cryptography Standardization

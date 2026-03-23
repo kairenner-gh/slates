@@ -1,0 +1,3 @@
+name: Understand Digital Signatures and Ed25519
+description: A technical walkthrough of how digital signatures work — the EdDSA construction, how Ed25519 achieves fast safe signing without a random number generator, and why this matters for your SSH keys.
+type: Article

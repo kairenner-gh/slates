@@ -1,0 +1,3 @@
+name: Set Up a Reverse Proxy With Caddy
+description: Route multiple self-hosted services through a single domain using Caddy — with automatic HTTPS and a configuration format simple enough to understand in ten minutes.
+type: Article

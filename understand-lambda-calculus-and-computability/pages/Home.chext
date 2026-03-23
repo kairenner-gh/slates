@@ -1,0 +1,34 @@
+:INFO
+The Deepest Question: What Is Computation?
+In 1936, Alan Turing and Alonzo Church independently defined models of computation that turned out to be equivalent. Turing's model is the Turing machine — a tape and a finite set of rules. Church's model is the lambda calculus — function abstraction and application. Both define exactly the same class of computable functions. Both also reveal the fundamental limits of what any algorithm can do.
+
+:PATH
+The Lambda Calculus
+The lambda calculus has three constructs: variables (x), function abstraction (lambda x. body — a function with parameter x and body), and function application (f arg — apply function f to argument arg). Everything else is encoded: numbers, booleans, data structures, loops, conditionals. The system is Turing complete with no additional machinery.
+
+:PATH
+Church Numerals and Beta Reduction
+Numbers are encoded as iteration counts: zero is lambda f. lambda x. x (apply f zero times to x), one is lambda f. lambda x. f x (apply once), n is lambda f. lambda x. f applied n times to x. The only computational rule is beta reduction: (lambda x. body) arg reduces to body with every free occurrence of x replaced by arg. Arithmetic becomes function composition.
+
+:PATH
+The Y Combinator and Recursion
+The lambda calculus has no built-in names or recursion. Recursion is constructed using the Y combinator: Y = lambda f. (lambda x. f (x x)) (lambda x. f (x x)). Applying Y to a function g gives a fixed point: Y g reduces to g (Y g). This enables unbounded loops from a system that appears to have none. The Y combinator is derivable — no additional axiom needed.
+
+:QUOTE
+The importance of the Church-Turing thesis is not that it defines computation. It is that it shows every reasonable definition of computation, arrived at from completely different directions, converges on the same thing. — common observation in computability theory
+
+:PATH
+The Halting Problem
+Turing proved in 1936 that no program H(P, I) can decide for all programs P and inputs I whether P halts when run on I. Proof by diagonalization: assume H exists, construct a program D that halts iff H says it does not halt on itself, then ask H what D does — a contradiction either way. The halting problem is undecidable in the most fundamental sense: no algorithm can solve it.
+
+:PATH
+Rice's Theorem
+Rice's theorem generalizes the halting problem: any non-trivial semantic property of programs is undecidable. Whether a program computes the Fibonacci sequence, whether it ever outputs 42, whether it is equivalent to another program — all undecidable. Static analysis tools can approximate these properties but cannot solve them in general. This is a mathematical theorem, not an engineering limitation.
+
+:INFO
+Go Deeper: Diagonalization and the Size of Infinity
+The halting problem proof uses diagonalization — the same technique Cantor used to prove some infinities are larger than others. That result lives in set theory, and its implications extend to Gödel's incompleteness theorems about the limits of formal proof systems.
+
+:LINK
+https://plato.stanford.edu/entries/church-turing/
+Church-Turing Thesis — Stanford Encyclopedia of Philosophy

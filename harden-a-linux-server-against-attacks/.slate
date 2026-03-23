@@ -1,0 +1,3 @@
+name: Harden a Linux Server Against Attacks
+description: A systematic checklist for locking down a public-facing Linux server before anything bad happens — SSH keys, firewall, automatic updates, and reducing the attack surface.
+type: Article

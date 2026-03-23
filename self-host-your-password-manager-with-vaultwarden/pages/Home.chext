@@ -1,0 +1,42 @@
+:INFO
+Your Most Sensitive Data on Hardware You Control
+A password manager is where the master key to your digital life lives. When that service is hosted by a third party, a breach of their servers is a breach of every credential you have stored. Vaultwarden is an open-source, Bitwarden-compatible server written in Rust. It speaks the same API as the official Bitwarden server, so all the official Bitwarden clients — browser extensions, desktop apps, mobile apps — work with it without modification. And it runs in 10 MB of RAM instead of the 2 GB or more that the official Java-based server requires, making it perfect for a Pi.
+
+:COUNTER.half
+10 MB RAM
+Bitwarden-Compatible API
+
+:PATH
+Write the Docker Compose File for Vaultwarden
+Create a directory for Vaultwarden: mkdir -p ~/docker/vaultwarden. Inside it, create a docker-compose.yml that defines a single vaultwarden service using the vaultwarden/server image. Mount a named volume to /data inside the container — this is where Vaultwarden stores its SQLite database and attachments. Set the environment variable SIGNUPS_ALLOWED to true for initial setup (you will disable this after creating your account). Set WEBSOCKET_ENABLED to true for live sync across devices. Add the container to your proxy Docker network so Caddy can reach it.
+
+:PATH
+Configure Caddy as the HTTPS Reverse Proxy
+Add a block to your Caddyfile for the vault subdomain — vault.home.example.com for a local CA setup, or vault.example.com if you have a public domain with port forwarding. The block contains a single reverse_proxy directive pointing to vaultwarden:80. Caddy handles TLS. Reload Caddy. Navigate to https://vault.home.example.com in your browser — you should see the Vaultwarden login and registration page with a valid certificate and no browser warning.
+
+:PATH
+Create Your Account and Lock Down Registration
+Click Create Account on the Vaultwarden web interface. Use a strong master password — this is the one password you need to memorize, and it protects everything else. After your account is created and you have confirmed you can log in, go back to your docker-compose.yml and set SIGNUPS_ALLOWED to false. Bring the container down and back up: docker compose down and docker compose up -d. No new accounts can be created now. If you want to add more users later, you can temporarily re-enable signups or use the admin panel.
+
+:PATH
+Enable Two-Factor Authentication
+Log into your Vaultwarden web vault. Go to Account Settings and then Security. Enable TOTP-based two-factor authentication by scanning the QR code with an authenticator app. Store the recovery codes somewhere secure — print them or save them in a secondary encrypted location. With 2FA enabled, anyone who finds your master password still cannot access the vault without your phone. This is essential for a service exposed even to your local network.
+
+:PATH
+Connect the Official Bitwarden Clients
+Install the Bitwarden browser extension or desktop app. Before logging in, click the gear or settings icon to change the server URL. Enter your Vaultwarden URL. Log in with the credentials you created. The client connects to your server, syncs your vault, and behaves identically to the cloud-hosted version. Install it on your phone, your other laptops, and every browser you use. Vault access now requires your server to be reachable — the WireGuard VPN from earlier ensures you can reach it from anywhere.
+
+:PATH
+Set Up Nightly Backup of the SQLite Database
+Vaultwarden's entire data store lives in a single SQLite file at /data/db.sqlite3 inside the container. In your restic backup script from the earlier slate, add the Vaultwarden data volume path to the backup job. For extra safety, also configure a pre-backup hook that runs sqlite3 /path/to/data/db.sqlite3 ".backup /path/to/backup/db-backup.sqlite3" to create a consistent copy before restic snapshots it. Test a restore by copying the backup file into a test Vaultwarden container and confirming your vault items appear.
+
+:NOTE
+Disable the admin panel token after completing initial setup. The admin panel at /admin gives full access to all user accounts and vault management without requiring the master password. If ADMIN_TOKEN is set, anyone who finds it has complete control of your vault server. Remove the ADMIN_TOKEN environment variable from your compose file and restart the container to disable admin panel access entirely.
+
+:INFO
+What Comes Next
+Managing one vault for one person is straightforward. Managing who gets access to fifteen different self-hosted services, with different roles and permissions per service, at scale across a household or small team, is a different problem entirely. That is where single sign-on comes in — one account, one login, every service connected.
+
+:LINK
+https://github.com/dani-garcia/vaultwarden
+Vaultwarden on GitHub

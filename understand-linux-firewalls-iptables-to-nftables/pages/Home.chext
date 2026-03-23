@@ -1,0 +1,38 @@
+:INFO
+A Mental Model, Not a Recipe
+Most firewall guides give you commands to copy and paste. This one explains the model those commands operate on, so you can read any rule — from fail2ban, from Docker's automatic rules, from a forum post — and understand what it does before applying it. The Linux firewall is not a program running in userspace; it is a set of hooks built into the kernel's network stack, and rules are attached to those hooks to decide the fate of every packet.
+
+:PATH
+The Netfilter Framework and Its Five Hooks
+Netfilter is the kernel subsystem that provides packet filtering. It defines five hook points in the packet processing path: PREROUTING (hit by all incoming packets before routing decisions), INPUT (hit by packets destined for the local machine), FORWARD (hit by packets being routed through the machine to another destination), OUTPUT (hit by locally-generated packets leaving the machine), and POSTROUTING (hit by all outgoing packets after routing). Rules attached to these hooks can accept, drop, reject, or modify packets. Understanding which hook a packet traverses is the key to writing rules that work.
+
+:PATH
+How iptables Tables Map to Hooks
+iptables organizes rules into tables by purpose. The filter table handles accepting and dropping packets and attaches to INPUT, FORWARD, and OUTPUT. The nat table handles address translation and attaches to PREROUTING and POSTROUTING. The mangle table handles packet modification and attaches to all five hooks. When you run iptables -A INPUT -j DROP, you are appending a rule to the INPUT chain of the filter table. Rules are evaluated top-to-bottom; the first matching rule wins. If no rule matches, the chain policy applies — ACCEPT or DROP.
+
+:PATH
+The iptables to nftables Migration
+iptables is still widely used but has been superseded by nftables, which is available in all modern Linux distributions. nftables has a cleaner syntax, better performance, and a unified framework — there are no separate iptables, ip6tables, arptables commands, just nft. The semantics are the same: tables, chains, hooks, and rules. Many tools — ufw, fail2ban, Docker — still generate iptables-style rules, but on modern systems these write to nf_tables under the hood via the iptables-nft compatibility layer. You can inspect the effective ruleset with sudo nft list ruleset.
+
+:PATH
+Reading nft list ruleset Output
+The output of nft list ruleset shows each table, its chains, and each chain's rules in order. A chain declaration shows the hook it is attached to, the packet type it handles, and its priority. Rules inside chains read left to right: they match a set of conditions and then apply a verdict. Common conditions include iifname for incoming interface, oifname for outgoing, ip saddr and ip daddr for source and destination address, and tcp dport for destination port. The verdict is accept, drop, reject, or a jump to another chain. Reading existing rules before modifying them prevents accidents.
+
+:PATH
+Connection Tracking and the Stateful Rule
+Most firewalls are stateful: they track active connections so that reply packets from an established connection are automatically allowed without needing an explicit rule for every possible source. The kernel module ct (conntrack) tracks connection state. The single most common rule in any firewall is: allow packets that are part of an already-established connection or related to one (such as ICMP error responses). In nftables syntax this is ct state established,related accept — and it belongs near the top of your INPUT chain, before more specific rules, so reply traffic is never accidentally dropped.
+
+:COUNTER.half
+5 Netfilter Hooks
+1 Packet Decision
+
+:NOTE
+A single misconfigured firewall rule can lock you out of your server entirely. Before making changes to a remote machine, always have a fallback plan: a scheduled at job that resets your firewall rules in five minutes (which you cancel if the new rules work), a cloud provider console with emergency access, or physical access to the machine. The second most common self-inflicted server outage, after losing the SSH private key, is a bad firewall rule.
+
+:INFO
+What Comes Next
+Firewall rules control whether packets reach your services, but they cannot see inside encrypted traffic — they operate on IP addresses and ports, not on content. To understand what TLS actually hides, what certificates prove, and what the padlock in your browser is really telling you, requires a different kind of analysis at the protocol level.
+
+:LINK
+https://wiki.nftables.org/wiki-nftables/index.php/Main_Page
+nftables wiki

@@ -1,0 +1,34 @@
+:INFO
+The Attack That Bypasses the Math
+A cryptographic algorithm can be proven secure in the mathematical sense — unbreakable given the hardness of some well-studied problem — and still leak its secret key to an attacker who watches how the implementation runs. Side-channel attacks do not break the math. They exploit the physical behavior of the executing code: how long it takes, how much power it consumes, what electromagnetic signals it emits, which memory locations it accesses. The math stays intact; the implementation betrays the secret.
+
+:PATH
+The Classic Timing Attack on String Comparison
+The naive way to compare a user-supplied password against a stored value is to loop through characters and return false as soon as a mismatch is found. This returns faster when the first character is wrong than when the first twenty characters are right. An attacker can send thousands of candidate passwords and measure response times to within microseconds — statistically, the password that takes longest to reject is closest to correct. This lets an attacker recover a secret character by character, turning a brute-force search of the full keyspace into a sequence of small searches.
+
+:PATH
+Constant-Time Comparison in Practice
+The fix is to compare all characters regardless of whether a mismatch has been found, using bitwise operations to accumulate a difference flag. Python's hmac.compare_digest() and Go's subtle.ConstantTimeCompare() implement this correctly. The execution time is the same whether the inputs match or differ. Any comparison of secret values — tokens, MACs, password hashes — must use a constant-time comparison function. Using == for this purpose is a timing vulnerability in any language where the comparison short-circuits on mismatch.
+
+:PATH
+Cache-Timing Attacks: Flush and Reload
+The Flush+Reload attack works as follows. The attacker flushes a specific cache line using the clflush instruction. The victim process then runs and may or may not access memory backed by that cache line, depending on a secret value — for example, an AES table lookup indexed by a key byte. The attacker then attempts to reload the cache line and measures how long it takes. A fast load means the victim accessed it (cache hit); a slow load means the victim did not (cache miss). By repeating this across all possible table entries, the attacker recovers the key byte.
+
+:PATH
+Spectre as a Cache Side Channel
+Spectre combines speculative execution with the Flush+Reload technique. The attacker trains the branch predictor to predict a particular branch as taken, then causes a victim process to speculatively execute code that reads a secret value and uses it as an index into an array. The speculative read populates a cache line. Even after the speculative path is discarded because the branch was mispredicted, the cache state remains. The attacker measures cache timing to learn which array element was accessed, and from that, the secret value. This allows reading kernel memory from user space on vulnerable CPUs.
+
+:INFO
+Constant-Time Programming as a Discipline
+Writing cryptographic code that does not leak timing information requires treating execution time as a security property of every code path. The rules are: no early returns based on secret values, no conditional branches whose direction depends on secret data, no memory accesses whose addresses depend on secret values (no table lookups with secret indices), no variable-time hardware instructions (some divisions are variable-time on certain CPUs). This discipline is difficult, non-obvious, and easy to violate with innocent-looking refactors. The entire AES-NI instruction set exists partly to provide constant-time AES in hardware.
+
+:NOTE
+The lesson of side-channel attacks is that security guarantees are only as strong as their implementation. A proof that an algorithm is secure does not guarantee that any particular program implementing it is secure. The code path, the data access pattern, and the execution time are all attack surfaces. This is why cryptographic libraries exist: they collect the hard-won expertise of constant-time implementation so that application developers do not have to rediscover each footgun independently.
+
+:INFO
+Go Deeper: Hash Functions
+Constant-time programming is the defense against timing attacks — but to apply it intelligently, you need to understand what the cryptographic operations are actually computing. Hash functions are the most fundamental primitive in cryptography. Understanding what makes a hash function secure, and what properties it is designed to protect, is the starting point for the rest of applied cryptography.
+
+:LINK
+https://timing.attacks.cr.yp.to
+Timing Attacks on Implementations of Diffie-Hellman

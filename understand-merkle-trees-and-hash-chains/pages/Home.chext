@@ -1,0 +1,31 @@
+:INFO
+The Bridge Between Hashing and Distributed Systems
+A cryptographic hash function turns arbitrary data into a fixed-size fingerprint. On its own, this is useful for verifying a single file. But combine hash functions into a tree or chain structure and something more powerful emerges: you can verify that any piece of data belongs to a large authenticated set, using only a small proof — without trusting the system that stores the data. This is the property that makes git content-addressable, makes CT logs auditable, and makes blockchains tamper-evident.
+
+:PATH
+Hash Chains: Sequential Integrity
+A hash chain links a sequence of blocks so that each block contains the cryptographic hash of the previous block. If you modify block 5, its hash changes. Block 6 contains block 5's hash, so block 6 is now invalid. Every subsequent block is also invalidated in a cascade. An attacker who wants to modify any historical block must recompute every subsequent block. This is how git commits work: each commit object contains the hash of its parent commit. A commit hash is therefore a commitment to the entire history that preceded it.
+
+:PATH
+Merkle Trees: Tree-Structured Integrity
+A Merkle tree hashes the leaf data items first. Then pairs of leaf hashes are hashed together to form parent nodes. This process continues up the tree until a single root hash remains. The root hash is a cryptographic commitment to all the leaves simultaneously. If any leaf changes, its hash changes, which changes its parent hash, propagating up to change the root hash. The root hash is small — 32 bytes for SHA-256 — but represents any amount of data with cryptographic security.
+
+:PATH
+Inclusion Proofs in O(log n)
+To prove that leaf L is included in a Merkle tree with root R, provide the sibling hash at each level of the tree on the path from L to the root — this is the audit proof. The verifier hashes L, combines it with the first sibling, combines the result with the next sibling, and continues up to the root. If the final computed hash matches the trusted root R, the proof is valid. For a tree of n leaves, the proof consists of log2(n) hashes. For a million leaves, the proof is only 20 hashes — about 640 bytes.
+
+:PATH
+Git as a Content-Addressable Store
+Every object in a git repository — blob (file contents), tree (directory), commit, tag — is stored under the SHA-1 or SHA-256 hash of its content. A commit object contains the hash of its root tree object. The root tree object contains hashes of subtree objects and blob objects. This means a commit hash transitively commits to every file in the repository at that point in history. Cloning a git repository and verifying the commit hash guarantees you have identical content to what was committed, regardless of which server you cloned from.
+
+:INFO
+Bitcoin's Transaction Merkle Tree
+Bitcoin block headers contain a Merkle root of all transactions in the block. This allows lightweight clients (SPV clients) to verify that a specific transaction is included in a block without downloading all transactions. The client requests the block header (80 bytes) and an inclusion proof (about log2(2000) hashes for a typical block). The client can verify the proof against the block header's Merkle root. The full transaction data stays on full nodes. This is a practical application of Merkle inclusion proofs at global scale.
+
+:INFO
+Go Deeper: Distributed Consensus
+Merkle trees guarantee data integrity — but they do not solve the problem of distributed agreement. In a network of nodes, how do they agree on which Merkle root is the correct one, especially when some nodes fail or behave incorrectly? That is the distributed consensus problem, and it turns out to be far harder than data integrity. The algorithms that solve it — Raft and Paxos — have surprising constraints and tradeoffs that every distributed systems practitioner needs to understand.
+
+:LINK
+https://www.certificate-transparency.org/what-is-ct
+What is Certificate Transparency?

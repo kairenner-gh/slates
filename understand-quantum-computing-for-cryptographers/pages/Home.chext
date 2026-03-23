@@ -1,0 +1,39 @@
+:INFO
+Separating Hype from Actual Threat
+Quantum computers are not faster classical computers. They are a different computational model that exploits quantum mechanical interference to solve specific problems faster than any known classical algorithm. They break some cryptographic schemes completely while barely affecting others. The distinction matters for deciding what to migrate now.
+
+:PATH
+What a Qubit Actually Is
+A qubit is not "0 and 1 at the same time." It is a probability amplitude: a unit vector (alpha, beta) in a 2-dimensional complex Hilbert space where |alpha|^2 + |beta|^2 = 1. Measuring the qubit collapses it to the classical state 0 with probability |alpha|^2 or to 1 with probability |beta|^2. The superposition exists before measurement — after measurement you have an ordinary classical bit.
+
+:PATH
+Quantum Gates and Interference
+Quantum gates are unitary matrices acting on qubit state vectors. The Hadamard gate H maps |0> to (|0> + |1>)/sqrt(2) — equal superposition of both outcomes. A register of n qubits can be put in superposition of all 2^n computational basis states simultaneously. Quantum algorithms use interference: they arrange for probability amplitudes of wrong answers to cancel and amplitudes of right answers to reinforce, so measurement yields a useful result with high probability.
+
+:PATH
+Grover's Algorithm: Symmetric Key Impact
+Grover's algorithm searches an unsorted database of N items in O(sqrt(N)) quantum queries versus O(N) classical queries. Applied to brute-forcing a symmetric key or hash preimage, it squares the search space that must be covered — equivalent to halving the key length. AES-128 becomes as hard as a 64-bit key against a quantum adversary. AES-256 retains 128 bits of effective security. The fix is to double key lengths.
+
+:PATH
+Shor's Algorithm: Asymmetric Key Catastrophe
+Shor's algorithm factors integers and computes discrete logarithms in polynomial time by using the quantum Fourier transform to find the period of the function f(x) = a^x mod N. Period-finding on a quantum computer is efficient; extracting factors from the period is classical polynomial arithmetic. This directly breaks RSA, Diffie-Hellman, and all elliptic curve schemes (ECDH, ECDSA) — the problems they rely on are in quantum polynomial time.
+
+:COUNTER.half
+~4000
+Logical qubits needed for a cryptographically relevant quantum computer breaking RSA-2048
+|
+:COUNTER.half
+~1000
+Noisy physical qubits in the best current quantum processors (as of 2024, without full error correction)
+
+:PATH
+The Harvest-Now-Decrypt-Later Threat
+An adversary can record encrypted traffic today and decrypt it once a cryptographically relevant quantum computer (CRQC) exists. Secrets with long confidentiality requirements — government, medical, financial — are at risk now even though no CRQC exists. This is why migration to post-quantum key exchange in TLS is urgent regardless of when quantum computers arrive.
+
+:INFO
+Go Deeper: Post-Quantum Algorithms Have Been Standardized
+Shor's algorithm breaks discrete log and factoring-based cryptography — but NIST finalized post-quantum standards in 2024 that rely on problems quantum computers cannot solve efficiently. Understanding those algorithms requires a different branch of mathematics: lattice theory.
+
+:LINK
+https://quantum.country/qcvc
+Quantum Computing for the Very Curious

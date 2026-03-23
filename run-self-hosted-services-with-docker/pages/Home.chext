@@ -1,0 +1,38 @@
+:INFO
+Docker Is the Package Manager for Services
+Before Docker, deploying a self-hosted application meant following a fifteen-step guide, installing conflicting system libraries, fighting with Python virtual environments, and hoping the next OS update didn't break everything. Docker packages an application and all its dependencies into a container that runs identically on any machine. The difference between installing Nextcloud manually and running it with Docker Compose is the difference between an afternoon of debugging and a single command.
+
+:PATH
+Install Docker Engine (Not Docker Desktop)
+On Raspberry Pi OS, follow the official Docker Engine installation for Debian. The steps are: add Docker's GPG key to your keyring, add the Docker apt repository, then run sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin. Add your user to the docker group with sudo usermod -aG docker youruser, then log out and back in. Verify the installation with docker run hello-world — Docker will pull a small test image and print a confirmation message.
+
+:PATH
+Understand Images, Containers, and Volumes
+An image is a read-only template — like an ISO file. A container is a running instance of an image — like a virtual machine booted from that ISO. Every time you run docker run, Docker creates a fresh container from the image. This means any data written inside the container disappears when the container is removed unless you attach a volume. A volume is a directory on your host machine that is mounted into the container at a specified path. Volumes outlive containers. Your database files, uploaded photos, and configuration all belong in volumes.
+
+:PATH
+Write a docker-compose.yml for Nextcloud
+Create a directory for your Nextcloud stack: mkdir -p ~/docker/nextcloud. Inside it, create a docker-compose.yml file. The file defines two services: a database service using the mariadb image with a named volume for its data directory and environment variables for database name, user, and password; and a nextcloud service using the nextcloud image, with its data directory mapped to a named volume, the database environment variables passed in, and port 8080 on the host mapped to port 80 in the container. Both services share a custom Docker network so they can reach each other by service name.
+
+:PATH
+Start the Stack and Confirm It Is Running
+From inside the ~/docker/nextcloud directory, run docker compose up -d. The -d flag runs the containers in detached mode (in the background). Docker will pull the required images on first run, which takes a few minutes. Once it returns to the prompt, run docker ps to see both containers listed as Up. Open a browser and navigate to http://your-pi-ip:8080 — the Nextcloud setup wizard will appear. Run docker compose logs -f to stream live logs from all containers; this is your first debugging tool when something does not start correctly.
+
+:CHECKLIST
+What to Understand Before Running Production Services
+Every service that stores data must have a named volume mapped to a persistent host path
+Containers in the same docker-compose.yml share a network and can reach each other by service name
+docker compose down removes containers but not volumes — data is preserved
+docker compose pull fetches updated images; docker compose up -d applies them
+Secrets like database passwords should not be hardcoded in compose files in production
+
+:NOTE
+Never store persistent data inside a container's filesystem without a volume. Container filesystems are ephemeral — they are destroyed when the container is removed or recreated during an update. Everything that matters goes in a named volume or a bind mount to a host directory. This is the most common mistake new Docker users make, and it always results in data loss.
+
+:INFO
+What Comes Next
+Once you have multiple services running on different ports, pointing different domain names at each one without opening a new firewall port for every service requires a reverse proxy. A reverse proxy sits in front of all your containers, routes requests by domain name, and handles HTTPS in one place — so you only ever need ports 80 and 443 open.
+
+:LINK
+https://docs.docker.com/engine/install/debian/
+Install Docker Engine on Raspberry Pi OS (Debian-based)

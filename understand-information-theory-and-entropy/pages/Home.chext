@@ -1,0 +1,39 @@
+:INFO
+The Mathematical Foundation of Compression, Communication, and Secrecy
+Claude Shannon's 1948 paper "A Mathematical Theory of Communication" defined information precisely, derived the limits of compression and reliable transmission, and — one year later — proved the conditions for perfect secrecy in cryptography. These results share the same mathematical core.
+
+:PATH
+Shannon Entropy
+Shannon entropy H(X) = -sum(p_i * log_2(p_i)) measures the average surprise in a random variable X. If an event is certain (p = 1), it contributes zero information: log_2(1) = 0. A fair coin flip has H = 1 bit. A fair six-sided die has H = log_2(6) approximately 2.58 bits. Entropy is the average minimum number of yes-or-no questions needed to determine the outcome.
+
+:PATH
+The Noiseless Coding Theorem
+Shannon's first theorem: the minimum average number of bits required to encode one symbol from a source X equals H(X). No compression scheme can do better on average. Huffman coding and arithmetic coding approach this limit. This defines what compression algorithms are competing against — not engineering cleverness but a mathematical ceiling.
+
+:COUNTER.half
+1 bit
+Entropy of a fair coin flip — the theoretical minimum to encode it
+|
+:COUNTER.half
+4.7 bits
+Entropy per character of uniformly random lowercase text — why password length matters more than symbol complexity
+
+:PATH
+Channel Capacity and the Shannon-Hartley Theorem
+The maximum reliable information rate over a noisy channel is C = B * log_2(1 + S/N) bits per second, where B is bandwidth and S/N is the signal-to-noise ratio. This is not an engineering limitation — it is a theorem. Any transmission scheme can approach this limit with sufficiently sophisticated coding but cannot exceed it.
+
+:PATH
+Perfect Secrecy and the One-Time Pad
+Shannon proved in 1949 that a cipher has perfect secrecy if and only if the ciphertext reveals zero information about the plaintext — formally, if the ciphertext and plaintext are statistically independent. Achieving this requires key entropy at least as large as message entropy. The one-time pad is the only cipher satisfying this condition, which is why it requires a key as long as the message and why that key can never be reused.
+
+:PATH
+Entropy as Password Strength
+A password chosen uniformly at random from a set of M equally likely symbols has log_2(M) bits of entropy. Lowercase letters give log_2(26) approximately 4.7 bits per character. Adding digits and symbols increases entropy per character slightly — but adding characters increases it linearly. A 20-character lowercase password has more entropy than a 12-character mixed-case password with symbols.
+
+:INFO
+Go Deeper: Entropy, Logarithms, and Number Theory
+Shannon entropy is defined using logarithms and probability — the same mathematical objects appear throughout number theory and analysis. The number-theoretic results that cryptography directly uses, including Fermat's little theorem and the structure of prime fields, are worth studying as a foundation in their own right.
+
+:LINK
+https://www.inference.org.uk/mackay/itila/
+Information Theory, Inference, and Learning Algorithms (free textbook)

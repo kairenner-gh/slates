@@ -1,0 +1,39 @@
+:INFO
+Why Rigorous Probability Requires Measure Theory
+Naive probability works well for finite sample spaces. It breaks for continuous ones. What is the probability that a uniformly random real number between 0 and 1 equals exactly 0.5? Zero — but the number could in principle be 0.5. Assigning probabilities consistently to all subsets of the real line is impossible (Vitali's theorem). Measure theory defines precisely which sets can be assigned probabilities and how.
+
+:PATH
+Sigma-Algebras and Measurable Spaces
+A sigma-algebra F on a set Omega is a collection of subsets closed under complement and countable union. The pair (Omega, F) is a measurable space. The Borel sigma-algebra on the real line is the smallest sigma-algebra containing all open intervals — it includes all the sets you can construct from intervals using countable operations. Restricting probability to Borel sets avoids the pathological non-measurable sets.
+
+:PATH
+Probability Measures
+A probability measure P : F to [0, 1] satisfies P(Omega) = 1 and countable additivity: for disjoint sets A_1, A_2, ..., P(union of A_i) = sum of P(A_i). The triple (Omega, F, P) is a probability space. This is the foundation on which all of statistics and information theory is built. Kolmogorov axiomatized probability this way in 1933.
+
+:PATH
+The Lebesgue Integral
+The Riemann integral approximates the area under a curve by vertical slabs. It fails for many functions that arise naturally in analysis. The Lebesgue integral instead partitions the y-axis: for each value y, measure the set of x where f(x) approximately equals y, and sum y times the measure. This works for a vastly larger class of functions and integrates cleanly with limits.
+
+:COUNTER.half
+0
+Functions integrable in Riemann sense but not Lebesgue — the Lebesgue integral extends Riemann, never shrinks it
+|
+:COUNTER.half
+Uncountably many
+Functions integrable in Lebesgue sense but not Riemann — including the indicator of the rationals, which has Lebesgue integral zero
+
+:PATH
+Random Variables and Expectation
+A random variable X is a measurable function from the probability space (Omega, F, P) to the real line. Measurability ensures that events like {X less than 5} are in the sigma-algebra and have a well-defined probability. Expectation E[X] is the Lebesgue integral of X with respect to P — the probability-weighted average value of X.
+
+:PATH
+Convergence Theorems
+The Monotone Convergence Theorem: if f_n increases pointwise to f, then the integrals of f_n converge to the integral of f — you can pass the limit inside the integral. The Dominated Convergence Theorem: if |f_n| is dominated by an integrable function g, the same conclusion holds. These theorems justify the interchange of limits and integrals that appears throughout statistics, information theory, and analysis. Without them, most asymptotic results in probability would lack rigorous foundations.
+
+:INFO
+Go Deeper: Measure Theory and the Real Line
+Measure theory builds integration on the real number line — but the real numbers themselves have structure that requires careful construction. Real analysis provides the rigorous foundation for limits, continuity, and the completeness property that makes the Lebesgue theory work.
+
+:LINK
+https://terrytao.wordpress.com/books/an-introduction-to-measure-theory/
+An Introduction to Measure Theory (Tao)

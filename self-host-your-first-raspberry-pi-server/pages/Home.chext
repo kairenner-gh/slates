@@ -1,0 +1,42 @@
+:INFO
+Why Own Your Server
+Cloud services are convenient until they aren't — prices go up, features get removed, companies shut down, and your data sits on hardware you've never seen. A Raspberry Pi running on your desk costs less than three months of most cloud subscriptions, consumes under five watts, and puts you in complete control. This guide gets you from unboxed hardware to a running web server in a single afternoon, with no prior Linux experience required.
+
+:PATH
+Flash Raspberry Pi OS Lite
+Download Raspberry Pi Imager from the official site and install it on your laptop. Insert a high-quality microSD card (Class 10 or better, at least 16 GB) or a USB SSD if your Pi model supports USB boot. In Imager, choose Raspberry Pi OS Lite (64-bit) as the operating system and your card as the storage target. Before clicking Write, open the Advanced Options gear icon and set your hostname, username, password, and Wi-Fi credentials if you're going wireless. This pre-configuration saves significant time on first boot.
+
+:PATH
+Enable SSH Before First Boot
+Once the image is written, remove and reinsert the card so your computer remounts the boot partition. Create an empty file named ssh (no extension) in the root of the boot partition. On macOS or Linux you can do this in the terminal with a single touch command. On Windows, use Notepad to create a new file and save it with that exact name, making sure Windows hasn't silently added a .txt extension. This file signals the OS to start the SSH daemon on first boot — without it, you have no remote access.
+
+:PATH
+Find the Pi and Connect via SSH
+Power on the Pi and wait about 60 seconds for it to fully boot. On your router's admin page, look at the DHCP client list for a new device with the hostname you set in Imager. Alternatively, use a network scanner like nmap or the Angry IP Scanner app. Once you have the IP address, open a terminal and connect with ssh youruser@192.168.1.x — substituting your actual IP. Accept the host key fingerprint on first connection. You're now controlling the Pi from your laptop.
+
+:PATH
+Update the System
+Before installing anything, bring the package lists and installed software up to date. Run sudo apt update to refresh the package index, then sudo apt upgrade -y to install all available updates. This takes three to ten minutes depending on your internet connection and how recent the OS image was. Reboot afterward with sudo reboot and reconnect via SSH. A freshly updated system is your baseline — any problem you encounter later won't be caused by stale packages.
+
+:PATH
+Install Caddy and Serve Your First Page
+Install Caddy using the official Debian repository instructions (add the GPG key, add the apt source, then apt install caddy). Caddy starts automatically as a systemd service. Create a simple HTML file at /var/www/html/index.html with any text content you like. Edit /etc/caddy/Caddyfile to point the root of your site at that directory and enable file serving. Reload Caddy with sudo systemctl reload caddy. Open a browser on any device on your local network and navigate to http://your-pi-ip — you'll see your page.
+
+:CHECKLIST
+What You Need to Get Started
+Raspberry Pi 4 or 5 (2 GB RAM minimum, 4 GB recommended)
+Official USB-C power supply rated for your Pi model
+MicroSD card (Class 10, 32 GB or larger) or a USB SSD
+Ethernet cable for a reliable wired connection
+A laptop or desktop to run Raspberry Pi Imager and connect via SSH
+
+:NOTE
+Use a quality SD card or, better yet, a small USB SSD. Cheap SD cards are the number-one cause of home server failures — they wear out fast under constant read/write from an OS and corrupt silently. A 120 GB USB SSD costs about the same as a name-brand SD card and will outlast it by years.
+
+:INFO
+What Comes Next
+Now that your Pi is a live server, you'll probably want somewhere to put files — a shared drive the whole house can access without USB keys or cloud uploads. The next step is turning that same Pi into a network-attached storage device your phone, laptop, and TV can all see at once.
+
+:LINK
+https://www.raspberrypi.com/software/
+Raspberry Pi Imager — the official OS flashing tool

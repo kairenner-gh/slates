@@ -1,0 +1,34 @@
+:INFO
+Making Calculus Rigorous
+Newton and Leibniz invented calculus in the 17th century using "infinitely small" quantities that were philosophically incoherent — the Bishop Berkeley famously mocked them as "ghosts of departed quantities." The machinery worked empirically, but the foundations were shaky. Cauchy and Weierstrass in the 19th century rebuilt analysis on the epsilon-delta definition of a limit, eliminating infinitesimals in favor of precise inequalities.
+
+:PATH
+The Epsilon-Delta Definition of a Limit
+The limit of f(x) as x approaches a equals L means: for every epsilon greater than 0, there exists delta greater than 0 such that whenever 0 is less than the absolute value of x minus a and that is less than delta, the absolute value of f(x) minus L is less than epsilon. This makes precise the intuition that f(x) can be made arbitrarily close to L by taking x sufficiently close to a. It eliminates any mention of motion, infinitesimals, or approaching — only inequalities between real numbers.
+
+:PATH
+The Completeness of the Real Numbers
+The real numbers are complete: every Cauchy sequence — a sequence where the terms eventually get arbitrarily close to each other — converges to a limit in R. The rational numbers Q are not complete: the sequence 1, 1.4, 1.41, 1.414, 1.4142, ... is Cauchy but converges to the square root of 2, which is irrational. Completeness is what distinguishes R from Q and is the property that makes analysis work. Without it, sequences could converge to missing points and limits would not exist.
+
+:PATH
+Continuity and Uniform Continuity
+A function f is continuous at a point a if the limit of f(x) as x approaches a equals f(a) — the limit exists and equals the function value. Uniform continuity is a global version: the same delta works for all points simultaneously, not just at each point individually. Continuous functions on compact sets (closed and bounded intervals in R) are uniformly continuous — this is the Heine-Cantor theorem, and it is why integration is well-defined on such functions.
+
+:PATH
+The Intermediate and Mean Value Theorems
+The Intermediate Value Theorem: if f is continuous on [a, b] and c is any value between f(a) and f(b), there exists x in [a, b] with f(x) = c. Proof uses completeness — bisect the interval, track which half contains a sign change, take the limit of the midpoints. The Mean Value Theorem: if f is continuous on [a, b] and differentiable on (a, b), some point c in the interior has derivative equal to the average rate of change (f(b) minus f(a)) divided by (b minus a). These theorems underlie correctness proofs for root-finding and optimization algorithms.
+
+:PATH
+Taylor Series and Error Bounds
+A smooth function f equals its Taylor series sum over n from 0 to N of the nth derivative of f at a divided by n factorial times (x minus a) to the n, plus a remainder R_N(x). The Lagrange remainder formula bounds R_N by the maximum of the (N+1)th derivative on the interval times (x minus a) to the (N+1) divided by (N+1) factorial. This is how numerical algorithms bound their approximation errors — the analysis is real analysis.
+
+:NOTE
+Completeness, compactness, and connectedness are the three key topological properties of the real line that analysis depends on. Completeness ensures Cauchy sequences converge. Compactness of closed bounded intervals ensures continuous functions attain their extrema. Connectedness ensures continuous functions satisfy the Intermediate Value Theorem. All three follow from the construction of R as Dedekind cuts or equivalence classes of Cauchy sequences in Q.
+
+:INFO
+Go Deeper: Real Analysis and Topology
+Real analysis studies the real line — a specific topological space. Topology studies what properties survive continuous deformation, abstracting away particular geometry. It sits beneath analysis, connects to algebra through algebraic topology, and leads to the deepest structures in all of mathematics.
+
+:LINK
+https://www.math.ucdavis.edu/~hunter/intro_analysis_pdf/intro_analysis.pdf
+Introduction to Analysis (Hunter and Nachtergaele, free)

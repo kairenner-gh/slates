@@ -1,0 +1,34 @@
+:INFO
+The Most Important Mathematical Results of the 20th Century
+In 1931, Kurt Gödel proved two theorems that permanently changed mathematics. The first: any consistent formal system powerful enough to express arithmetic contains true statements it cannot prove. The second: such a system cannot prove its own consistency. These results ended a decades-long program to put all mathematics on a complete, consistent, mechanical foundation.
+
+:PATH
+Naive Set Theory and Russell's Paradox
+Cantor's set theory defined a set as any collection determined by a property: {x : P(x)}. This is powerful — most of modern mathematics can be built from it. Frege formalized it in his Grundgesetze der Arithmetik. In 1901, Bertrand Russell sent Frege a letter: let R = {x : x is not a member of x}. Is R a member of R? If yes, it should not be. If no, it should be. The contradiction destroyed naive set theory on the eve of Frege's second volume going to press.
+
+:PATH
+ZFC: The Standard Foundation
+Zermelo-Fraenkel set theory with the Axiom of Choice (ZFC) resolves Russell's paradox by restricting set formation. You cannot form a set from an arbitrary property — you can only form subsets of sets that already exist. Key axioms: extensionality (sets with the same members are equal), pairing, power set, infinity (an infinite set exists), replacement, foundation (no set contains itself in any chain), and choice.
+
+:PATH
+Cantor's Diagonal Argument
+Cantor proved that the real numbers are uncountably infinite: no bijection exists from the natural numbers to the reals. Proof: suppose a complete listing r_1, r_2, r_3, ... exists. Construct a real number d by making d's nth decimal digit differ from the nth decimal digit of r_n. Then d differs from every element of the list in at least one digit — so d is not in the list. The assumption that a complete listing exists leads to contradiction. This technique — diagonalization — reappears in the halting problem and Gödel's theorems.
+
+:PATH
+Gödel's Completeness and First Incompleteness Theorem
+Gödel's 1929 completeness theorem: every logically valid first-order formula has a formal proof. Syntax and semantics align. Then in 1931, using arithmetization — encoding statements and proofs as natural numbers — Gödel constructed a formula G that asserts its own unprovability: "This statement has no proof in F." If F is consistent, G is true but unprovable. If F proves G, then G is false and F is inconsistent. Either way, consistency implies incompleteness.
+
+:PATH
+Gödel's Second Incompleteness Theorem
+Gödel's second theorem: if F is a consistent formal system containing basic arithmetic, then F cannot prove its own consistency. The statement "F is consistent" can be expressed in arithmetic using arithmetization, and Gödel showed it is equivalent to the unprovable G. Any proof of consistency would have to come from a stronger system — which then faces the same limitation. Hilbert's program of proving mathematics consistent from within was proved impossible.
+
+:NOTE
+ZFC is the foundation of mathematics that most working mathematicians implicitly use. Its consistency cannot be proved within ZFC (by Gödel's second theorem) — but it can be proved in stronger systems, which themselves cannot prove their own consistency. The regress has no bottom. Mathematicians proceed anyway because no contradiction in ZFC has been found in over a century of intensive use.
+
+:INFO
+Go Deeper: Gödel's Arithmetic Encoding and Abstract Algebra
+Gödel proved his theorems by carefully encoding statements about proofs as statements about numbers — an algebraic encoding technique closely related to ring and field theory. Abstract algebra is the language that makes such structural encoding precise and reveals why it works.
+
+:LINK
+https://plato.stanford.edu/entries/goedel-incompleteness/
+Gödel's Incompleteness Theorems — Stanford Encyclopedia of Philosophy

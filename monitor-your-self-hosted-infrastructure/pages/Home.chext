@@ -1,0 +1,38 @@
+:INFO
+Dashboards Are Outputs, Scrape Configs Are the Work
+Most monitoring guides start with a Grafana screenshot and skip straight to dashboard import IDs. This one starts with the Prometheus scrape model, because that is where the data comes from and where things actually go wrong. Prometheus is a pull-based time-series database: it polls configured targets on a schedule, collects numeric metrics exposed at a /metrics HTTP endpoint, and stores them with timestamps. Grafana queries Prometheus and renders the results. The work is in knowing what to instrument and writing scrape configs that collect the right data.
+
+:COUNTER.half
+15 Second Scrape Interval
+1 Year Retention Default
+
+:PATH
+Set Up Your Exporters
+Exporters are small programs that translate system or application state into Prometheus-format metrics at /metrics. Install three for a complete home lab picture. node_exporter exposes CPU, memory, disk, and network metrics for the host machine — run it as a Docker container or a systemd service on your Pi. cadvisor reads Docker's cgroup statistics and exposes per-container resource usage. blackbox_exporter probes endpoints (HTTP, TCP, DNS, ICMP) and reports whether they are up and how long they took to respond. Each exporter listens on a distinct port and requires no configuration for basic use.
+
+:PATH
+Write a docker-compose.yml for the Full Stack
+Create a monitoring directory: mkdir -p ~/docker/monitoring. The compose file defines four services: prometheus, grafana, node_exporter, and cadvisor. Prometheus mounts a named volume for its time-series data directory and a bind-mounted prometheus.yml configuration file. Grafana mounts a named volume for its SQLite database and dashboard storage. node_exporter mounts the host's /proc and /sys filesystems read-only so it can read kernel metrics. cadvisor mounts the Docker socket and /sys/fs/cgroup to read container statistics. All services join your proxy network so Grafana and Prometheus can be reached via Caddy.
+
+:PATH
+Configure Prometheus Scrape Jobs
+In prometheus.yml, the scrape_configs section lists your targets. Each job has a name and a list of static targets — the host:port of each exporter. Add jobs for node (targeting node_exporter:9100), cadvisor (targeting cadvisor:8080), and blackbox (targeting blackbox_exporter:9115 with a list of URLs to probe). Set the global scrape_interval to 15s — a 15-second granularity is sufficient for most home lab use and keeps storage manageable. Reload Prometheus after changes with a POST to its reload endpoint or by restarting the container.
+
+:PATH
+Write Basic PromQL Queries
+PromQL is Prometheus's query language. The simplest query is a metric name: up returns 1 for each scrape target currently responding and 0 for each one that is not. To see CPU usage, use rate(node_cpu_seconds_total{mode!="idle"}[5m]) to calculate the per-second rate of non-idle CPU time over the last 5 minutes. For container memory, query container_memory_usage_bytes{name!=""} to see memory consumption per container. For uptime checks, probe_success{instance="https://your-service.example.com"} returns 1 if the check passed and 0 if not.
+
+:PATH
+Import a Grafana Dashboard and Set Up Alerting
+In Grafana, go to Dashboards and choose Import. Enter dashboard ID 1860 to import the popular Node Exporter Full dashboard, which provides a comprehensive view of your Pi's resources without writing any queries. Point the dashboard's data source at your Prometheus instance. For alerting, navigate to Alerting and configure an Alertmanager or a simple contact point using Ntfy (a self-hostable push notification service) or a webhook. Create an alert rule: when up equals 0 for any target for more than one minute, fire an alert. You will receive a notification on your phone before your family notices anything is broken.
+
+:NOTE
+Prometheus stores all metric data on disk in its data directory. By default there is no retention limit, and a Pi with many exporters can accumulate gigabytes of data over months. Set the storage.tsdb.retention.time flag (such as 90d for 90 days) and storage.tsdb.retention.size (such as 10GB) in Prometheus's command arguments to prevent the time-series database from filling your drive.
+
+:INFO
+What Comes Next
+Metrics tell you what your applications are doing right now — CPU is high, memory is growing, a container went down at 3:17 AM. But when something goes wrong and you need to understand what happened leading up to it, you need logs. Centralizing logs from every container and system service into one queryable store is what makes post-incident investigation possible.
+
+:LINK
+https://prometheus.io/docs/introduction/overview/
+Prometheus documentation

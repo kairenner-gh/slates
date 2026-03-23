@@ -1,0 +1,3 @@
+name: Understand Lambda Calculus and Computability
+description: An introduction to the lambda calculus — Church's model of computation equivalent to Turing machines — and the computability results that define the boundary of what any algorithm can solve.
+type: Article

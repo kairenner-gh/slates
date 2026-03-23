@@ -1,0 +1,41 @@
+:INFO
+The 3-2-1 Rule Is Non-Negotiable
+The 3-2-1 backup rule has been the professional standard for decades because it addresses three independent failure modes: 3 copies of your data means one corruption doesn't destroy everything; 2 different media types means a hardware failure class doesn't take out two copies at once; 1 off-site copy means a fire, flood, or theft can't take everything at once. Your Pi's external drive is one copy. A local backup is two. An encrypted off-site copy is what saves you when the worst happens.
+
+:COUNTER.half
+3 Copies
+1 Off-Site Copy
+
+:PATH
+Install restic and Initialize a Local Repository
+Install restic from your package manager: sudo apt install restic. Create a directory for your local backup repository: sudo mkdir -p /mnt/backup/restic-local. Initialize the repository with restic -r /mnt/backup/restic-local init — restic will ask you to set a password. Store this password somewhere safe immediately, because restic's encryption is strong enough that without the password the repository is permanently inaccessible. The init command creates the repository structure; no data has been backed up yet.
+
+:PATH
+Run Your First Backup and Verify It
+Back up your NAS data directory: restic -r /mnt/backup/restic-local backup /mnt/nas. Restic will scan, deduplicate, encrypt, and write the data. When it finishes, run restic -r /mnt/backup/restic-local snapshots to see a table of completed snapshots with timestamps and file counts. Run restic -r /mnt/backup/restic-local check to verify the repository integrity. You now have one local backup — useful for accidental deletion, not useful for a house fire.
+
+:PATH
+Configure rclone for Off-Site Storage
+Install rclone: sudo apt install rclone. Run rclone config and follow the interactive prompts to add Backblaze B2 as a remote (the free tier covers the first 10 GB, and costs are low beyond that). Name the remote b2 and create a bucket in the Backblaze console, then enter your application key and key ID. Test the connection with rclone ls b2:your-bucket-name. Now initialize a second restic repository that writes directly to B2: restic -r rclone:b2:your-bucket-name/restic init using the same or a different password.
+
+:PATH
+Automate with a Cron Job
+Create a backup script at /usr/local/bin/backup.sh that exports your restic password as an environment variable, runs the local backup, runs the remote backup, and sends the exit code somewhere you'll notice (a simple curl to a healthcheck URL, or an email via sendmail). Make the script executable with chmod +x. Add it to the root crontab with sudo crontab -e and schedule it for a time when the Pi is idle, such as 3 AM daily. Confirm the cron entry with sudo crontab -l.
+
+:PATH
+Do the Restore Test Right Now
+This is the step most people skip and later regret. Choose a directory from your backup — something meaningful, not a throwaway test file. Run restic -r /mnt/backup/restic-local restore latest --target /tmp/restore-test --include /mnt/nas/important-folder. Navigate to /tmp/restore-test and confirm the files are there and readable. Then do the same for the remote repository. The restore worked. You have a real backup. Write the date in a note somewhere and repeat this test every three months.
+
+:QUOTE
+A backup you haven't restored from isn't a backup, it's a hope.
+
+:NOTE
+Store your restic repository password in at least two places: a password manager and a printed copy kept off-site. If you lose the password, restic's AES-256 encryption means your backup data is mathematically unrecoverable. No support ticket will help you. The password is as important as the backup itself.
+
+:INFO
+What Comes Next
+With reliable backups in place, most people quickly want to run more than one service on their Pi — a media server, a notes app, a home automation hub. Installing each one manually creates a maintenance nightmare. Docker changes that equation completely, letting you deploy any service in minutes and tear it down just as fast.
+
+:LINK
+https://restic.readthedocs.io
+restic — fast, secure, efficient backup program

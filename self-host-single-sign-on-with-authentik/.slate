@@ -1,0 +1,3 @@
+name: Self-Host Single Sign-On With Authentik
+description: Deploy Authentik as your home lab's identity provider so you can log into all your self-hosted services with one account using OIDC and SAML — just like enterprise SSO, but on hardware you own.
+type: Article

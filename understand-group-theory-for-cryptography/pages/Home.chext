@@ -1,0 +1,34 @@
+:INFO
+Why Abstract Algebra Is Not Just Academic
+A group is the minimal algebraic structure that captures the idea of symmetry and reversible operation. Every cryptographic system that relies on the difficulty of inverting a computation is implicitly relying on a group with a hard discrete logarithm problem. The abstract definition unifies integers mod p, elliptic curve points, and matrix groups under one framework.
+
+:PATH
+What a Group Is
+A group is a set G with a binary operation * satisfying four axioms: closure (a*b is in G for all a, b in G), associativity ((a*b)*c = a*(b*c)), identity (there exists e such that e*a = a*e = a for all a), and inverses (for every a there exists a^{-1} with a*a^{-1} = e). The integers under addition, the nonzero rationals under multiplication, and elliptic curve points under the chord-and-tangent rule all satisfy these axioms.
+
+:PATH
+Cyclic Groups and the Discrete Log Problem
+A group is cyclic if every element is a power of a single generator g: the group is {g^0, g^1, g^2, ...}. The multiplicative group Z_p* is cyclic for prime p. The discrete log problem asks: given g^x in a cyclic group, recover x. In well-chosen groups over large primes or elliptic curves, no efficient algorithm for this is known.
+
+:PATH
+Abelian Groups and Commutativity
+A group is abelian if its operation commutes: a*b = b*a for all a, b. All cyclic groups are abelian. Diffie-Hellman key exchange requires commutativity: Alice computes (g^a)^b and Bob computes (g^b)^a, and the result must be the same. This works in any abelian group with a hard discrete log.
+
+:QUOTE
+A group is to algebra as a symmetry is to geometry. Every algebraic object worth studying either is a group or contains one in its structure. — paraphrase of a standard algebraist's observation
+
+:PATH
+Lagrange's Theorem and Cryptographic Consequences
+Lagrange's theorem states that the order of any subgroup of a finite group divides the order of the group. Equivalently, for any element g in a finite group of order n, g^n equals the identity. This is the algebraic fact that makes RSA decryption work and underlies the structure of cryptographic security proofs.
+
+:PATH
+Bilinear Pairings
+A bilinear pairing is a map e: G1 x G2 → GT where e(aP, bQ) = e(P, Q)^{ab}. This lets you move between groups in a structure-preserving way. Pairings enable identity-based encryption (encrypt to an identity string without a pre-shared key) and BLS signatures (aggregate many signatures into one short value). They are defined over extension fields of elliptic curves.
+
+:INFO
+Go Deeper: Classical Groups Are Vulnerable to Quantum Computers
+Classical cryptography is built on groups whose hardness assumptions — discrete log, factoring — are broken by quantum computers running Shor's algorithm. Understanding why requires understanding what quantum computers can actually do and where their power comes from.
+
+:LINK
+https://www.math.ucdavis.edu/~anne/WQ2007/mat67-Common_Algebraic_Systems.pdf
+Common Algebraic Systems — notes on groups, rings, fields

@@ -1,0 +1,3 @@
+name: Understand Merkle Trees and Hash Chains
+description: A deep look at Merkle trees and hash chains — the data structures that make blockchains, git, and certificate transparency possible — including proofs of inclusion and their complexity properties.
+type: Article

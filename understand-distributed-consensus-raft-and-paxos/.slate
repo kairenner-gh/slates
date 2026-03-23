@@ -1,0 +1,3 @@
+name: Understand Distributed Consensus: Raft and Paxos
+description: A clear explanation of how distributed systems agree on a single value despite network partitions and node failures — the Raft algorithm, the CAP theorem, and the tradeoffs you meet in practice.
+type: Article

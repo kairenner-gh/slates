@@ -1,0 +1,3 @@
+name: Understand Information Theory and Entropy
+description: Shannon's information theory explained from first principles — entropy, channel capacity, and why these concepts define the theoretical limits of compression, communication, and cryptographic security.
+type: Article

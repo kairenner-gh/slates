@@ -1,0 +1,3 @@
+name: Self-Host a WireGuard VPN Server
+description: Set up a WireGuard VPN server on your home server so you can tunnel back to your home network from anywhere — accessing your NAS, services, and LAN as if you were home.
+type: Article

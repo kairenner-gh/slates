@@ -1,0 +1,38 @@
+:INFO
+Why SSO Becomes Necessary at Scale
+When you run two or three self-hosted services, managing separate accounts is tolerable. At ten services — Nextcloud, Grafana, Gitea, Vaultwarden, Home Assistant, Jellyfin, Paperless, Immich, Audiobookshelf, and a wiki — you have ten sets of credentials, ten places to change a password when a family member's account needs updating, ten different places to check who has access, and no single place to revoke all access when needed. Authentik is an open-source identity provider that centralizes all of this: one account, one login screen, one place to manage users and access.
+
+:PATH
+Understand Authentik's Architecture
+Authentik runs as four Docker containers: a PostgreSQL database for persistent storage, a Redis instance for task queuing and caching, the authentik server handling the web UI and OIDC/SAML protocol endpoints, and an authentik worker processing background tasks like email and certificate rotation. All four are defined in Authentik's official docker-compose.yml. The server and worker share the same Docker image but run different commands. Add all four to your proxy Docker network and configure a Caddyfile entry for auth.home.example.com pointing to the authentik server on port 9000.
+
+:PATH
+Create an OIDC Provider for Nextcloud
+In the Authentik admin interface, go to Applications and create a new provider. Choose OAuth2/OpenID Connect as the type. Set the client ID and generate a client secret — copy these immediately. Set the redirect URI to your Nextcloud instance's OIDC callback URL (the Nextcloud Social Login app provides this). Configure the token signing key (Authentik creates one automatically on first install). Create an Application in Authentik linked to this provider. In Nextcloud, install the Social Login app, and enter the client ID, secret, and Authentik's OIDC discovery endpoint URL. Users can now log in via Authentik.
+
+:PATH
+Create a SAML Provider for Gitea
+In Authentik, create a new provider using the SAML type. Enter the Entity ID and ACS URL from Gitea's SAML configuration page (found in Gitea's admin docs). Authentik will generate its SAML metadata XML — download it. In Gitea's app.ini, enable SAML authentication and point it to Authentik's SAML metadata URL. Create a linked Application in Authentik. SAML works differently from OIDC: instead of tokens, it exchanges signed XML assertions, but the user experience — click login, get redirected to Authentik, enter credentials once, return authenticated — is identical.
+
+:PATH
+Use the Outpost Proxy for Apps Without OIDC
+Some self-hosted apps have no OIDC or SAML support at all. Authentik's outpost proxy solves this: a small proxy container sits in front of the app and checks with Authentik that the user is authenticated before passing the request through. In Authentik, create a Proxy Provider in forward-auth mode, then deploy an Outpost container linked to that provider. In Caddy, add a forward_auth directive to the service's Caddyfile block pointing to the outpost. The app behind it never receives a request from an unauthenticated user.
+
+:CHECKLIST
+Apps to Migrate to SSO in Priority Order
+Services with no native 2FA support (migrate first)
+Services with administrative access to sensitive data
+File storage and document services used by multiple family members
+Monitoring and infrastructure dashboards
+Everything else, in order of how often it is accessed
+
+:NOTE
+Test SSO login from a fresh browser session in incognito mode before disabling local accounts on any application. Getting locked out of Nextcloud because the OIDC redirect URL has a typo is recoverable — you can access the database directly — but it is time-consuming and stressful. Confirm the full login flow works end-to-end before removing local fallbacks.
+
+:INFO
+What Comes Next
+Authentik speaks OIDC and SAML — two protocols that describe how identity claims travel between systems. The tokens, codes, and assertions being exchanged encode trust in a very specific way. Understanding how OAuth2 and OpenID Connect actually work explains not just your home lab but how authentication across the entire modern web is delegated.
+
+:LINK
+https://docs.goauthentik.io
+Authentik documentation
