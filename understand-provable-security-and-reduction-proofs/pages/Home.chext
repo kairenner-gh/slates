@@ -1,33 +1,70 @@
 :INFO
 The Gap Between "Seems Hard to Break" and Provably Hard to Break
-Before provable security, cryptographic schemes were evaluated by how long cryptanalysts failed to break them. Modern cryptography does better: it defines security precisely as a game, then proves that breaking the scheme is at least as hard as solving a recognized mathematical problem. This does not eliminate assumptions — it makes them explicit and minimal.
+Before provable security, cryptographic schemes were evaluated by how long \
+cryptanalysts failed to break them. Modern cryptography does better: it \
+defines security precisely as a game, then proves that breaking the scheme \
+is at least as hard as solving a recognized mathematical problem. This does \
+not eliminate assumptions — it makes them explicit and minimal.
 
 :PATH
 The Security Game Paradigm
-Security is defined as a game between an adversary A and a challenger C. The challenger holds a secret (a key, a random choice). The adversary queries the challenger and attempts a task — distinguish two ciphertexts, forge a signature, recover a plaintext. A scheme is secure if no adversary running in polynomial time succeeds with probability meaningfully above chance, where "meaningfully" is formalized as non-negligible.
+Security is defined as a game between an adversary A and a challenger C. \
+The challenger holds a secret (a key, a random choice). The adversary \
+queries the challenger and attempts a task — distinguish two ciphertexts, \
+forge a signature, recover a plaintext. A scheme is secure if no adversary \
+running in polynomial time succeeds with probability meaningfully above \
+chance, where "meaningfully" is formalized as non-negligible.
 
 :PATH
 IND-CPA: Semantic Security
-Indistinguishability under Chosen Plaintext Attack (IND-CPA): the adversary submits two messages of equal length, the challenger encrypts one chosen at random, and the adversary must identify which was encrypted. A semantically secure cipher gives the adversary no advantage beyond guessing. This captures the intuition that ciphertexts should reveal nothing about plaintexts — including whether two identical messages produce identical ciphertexts (which is why ECB mode fails IND-CPA).
+Indistinguishability under Chosen Plaintext Attack (IND-CPA): the adversary \
+submits two messages of equal length, the challenger encrypts one chosen at \
+random, and the adversary must identify which was encrypted. A semantically \
+secure cipher gives the adversary no advantage beyond guessing. This \
+captures the intuition that ciphertexts should reveal nothing about \
+plaintexts — including whether two identical messages produce identical \
+ciphertexts (which is why ECB mode fails IND-CPA).
 
 :PATH
 IND-CCA2: The Gold Standard for Encryption
-Indistinguishability under Adaptive Chosen Ciphertext Attack (IND-CCA2) gives the adversary a decryption oracle: it can request decryption of any ciphertext except the challenge ciphertext. Schemes secure under IND-CCA2 are robust against active attackers. RSA-OAEP and modern AEAD modes achieve IND-CCA2. Plain textbook RSA does not.
+Indistinguishability under Adaptive Chosen Ciphertext Attack (IND-CCA2) \
+gives the adversary a decryption oracle: it can request decryption of any \
+ciphertext except the challenge ciphertext. Schemes secure under IND-CCA2 \
+are robust against active attackers. RSA-OAEP and modern AEAD modes achieve \
+IND-CCA2. Plain textbook RSA does not.
 
 :PATH
 Reduction Proofs
-To prove scheme S is IND-CPA secure, construct a reduction R: a polynomial-time algorithm that uses any adversary A breaking S as a subroutine to solve the underlying hard problem. If A breaks S with non-negligible probability, R solves the hard problem with non-negligible probability. Since we assume the hard problem is intractable, A cannot exist. Breaking S is at least as hard as solving the assumed-hard problem.
+To prove scheme S is IND-CPA secure, construct a reduction R: a \
+polynomial-time algorithm that uses any adversary A breaking S as a \
+subroutine to solve the underlying hard problem. If A breaks S with \
+non-negligible probability, R solves the hard problem with non-negligible \
+probability. Since we assume the hard problem is intractable, A cannot \
+exist. Breaking S is at least as hard as solving the assumed-hard problem.
 
 :PATH
 The Random Oracle Model and the Standard Model
-Many security proofs idealize hash functions as truly random functions available to all parties — the Random Oracle Model (ROM). ROM proofs are cleaner and allow tighter security bounds. They are criticized because real hash functions are not random oracles, so ROM proofs may not transfer to practice. Standard model proofs avoid idealized assumptions and are considered more trustworthy. Most lattice-based schemes have standard model proofs; RSA-based proofs commonly rely on the ROM.
+Many security proofs idealize hash functions as truly random functions \
+available to all parties — the Random Oracle Model (ROM). ROM proofs are \
+cleaner and allow tighter security bounds. They are criticized because real \
+hash functions are not random oracles, so ROM proofs may not transfer to \
+practice. Standard model proofs avoid idealized assumptions and are \
+considered more trustworthy. Most lattice-based schemes have standard model \
+proofs; RSA-based proofs commonly rely on the ROM.
 
 :NOTE
-A reduction proof does not prove a scheme unbreakable — it proves that breaking the scheme solves a hard problem. If that problem is eventually solved (say, by a quantum computer), the proof no longer gives security. The hardness assumption is always explicit. This is a feature: you know exactly what you are assuming.
+A reduction proof does not prove a scheme unbreakable — it proves that \
+breaking the scheme solves a hard problem. If that problem is eventually \
+solved (say, by a quantum computer), the proof no longer gives security. \
+The hardness assumption is always explicit. This is a feature: you know \
+exactly what you are assuming.
 
 :INFO
 Go Deeper: Security Reductions and Computability Theory
-Security reductions work in the asymptotic setting — security grows as a function of the security parameter. Making that precise requires the formal language of polynomial-time computation and computability: what functions can be computed and what cannot.
+Security reductions work in the asymptotic setting — security grows as a \
+function of the security parameter. Making that precise requires the formal \
+language of polynomial-time computation and computability: what functions \
+can be computed and what cannot.
 
 :LINK
 https://slatesource.com/s/1018
