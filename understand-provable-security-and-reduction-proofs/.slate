@@ -1,3 +1,4 @@
 name: Understand Provable Security and Reduction Proofs
 description: An introduction to the security proof methodology in modern cryptography — game-based security definitions, polynomial-time reductions, and what it means for a scheme to be provably secure.
+thumbnail: thumbnail.jpg
 type: Article
