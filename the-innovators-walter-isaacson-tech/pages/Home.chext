@@ -1,0 +1,40 @@
+:INFO
+The Technology History That Starts With a Poet
+The Innovators opens with Ada Lovelace, the daughter of Lord Byron who wrote what \
+is considered the first algorithm more than a century before computers existed. \
+Walter Isaacson uses her as a frame for the book's central argument: that the \
+great technological achievements of the digital age were collaborative, not solo, \
+and that the myth of the lone genius inventor misrepresents what actually happened. \
+The Ada chapter alone is worth the price of the book.
+
+:COUNTER.half
+560 Pages
+|
+:GOAL.half [target:5, current:2]
+Isaacson biographies finished
+
+:QUOTE [subtitle:Walter Isaacson, quotetype:PLAIN]
+Innovation comes from teams. The genius inventor is mostly a story we tell afterward.
+
+:JOURNEY
+Reading The Innovators
+Section
+Impact
+- Ada Lovelace | 5 | Best portrait | Among the finest chapter portraits I have read
+- Bell Labs chapter | 5 | Changed my thinking | Reframed how I think about institutions
+- Internet origins | 4 | Myth-busting | Precise and debunks several myths I had absorbed
+- Silicon Valley | 3 | Least surprising | The most familiar section for most readers
+
+:PROFILE [image:cover.jpg]
+Ada Lovelace
+London, England
+Mathematician and writer, 1815 to 1852. Daughter of Lord Byron. Wrote the first \
+algorithm in 1843 for Charles Babbage's Analytical Engine. Recognized as the \
+first computer programmer more than a century after her death.
+
+:POLL
+Did The Innovators change how you think about collaboration versus individual genius?
+Yes completely, the team model now seems obviously correct
+Somewhat, I already suspected this but the examples made it concrete
+Not much, I still think individual vision is the primary driver
+I have not read it yet

@@ -1,0 +1,37 @@
+:INFO
+We Ran OKRs for One Quarter and Here Is What Happened
+John Doerr's book about the objective and key results framework reads like a \
+case study collection held together by a simple system. I convinced my team to \
+try OKRs for a single quarter after reading it. Three months later I had a clear \
+answer about what the framework fixed, what it made worse, and which parts we \
+kept after the experiment officially ended.
+
+:COUNTER.half
+320 Pages
+|
+:GOAL.half [target:3, current:1]
+OKRs tracked this quarter
+
+:GOAL [target:4, current:3]
+Team OKRs we actually completed that quarter
+
+:JOURNEY
+Reading Measure What Matters
+Section
+Usefulness
+- Intel case studies | 5 | Makes it real | Concrete enough to apply immediately
+- Google origin | 4 | Motivating | Inspiring but occasionally reads like method PR
+- CFR framework | 4 | Underrated | Conversations feedback recognition: often skipped
+- Stretch goal philosophy | 3 | Hard in practice | Difficult when teams fear missing
+
+:TASK [status:done]
+[x] Define three objectives with no more than five key results each
+[x] Run a midpoint check-in for every objective at week six
+[x] Score each key result at the end of the quarter honestly
+
+:CHECKLIST
+What We Kept After the Experiment
+[x] Weekly check-ins on key results instead of monthly status updates
+[x] Writing objectives as outcomes rather than activities
+[ ] Public visibility of all objectives across the whole team
+[ ] The scoring system, still debating whether 0.7 is truly a success
